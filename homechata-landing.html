@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeChata — Know Your Neighborhood Before You Move</title>
+  <meta name="description" content="HomeChata gives you instant access to nearby amenities, crime data, schools, transit, and more for any address in the U.S.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#1F3C88;--navy-dark:#152A61;--navy-deep:#0C1B3D;--navy-light:#2D4FA0;--gold:#C9A84C;--white:#FFFFFF;--gray-50:#F8F9FA;--gray-100:#F1F3F5;--gray-200:#E2E5E9;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151;--gray-900:#111827}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--gray-700);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+    .nav{background:var(--navy-deep)}
+    .nav.scrolled{background:rgba(12,27,61,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.05)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:center}
+    .nav-logo{font-size:28px;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:-.5px}
+    .nav-links{display:flex;align-items:center;gap:36px}
+    .nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.2px;transition:color .2s}
+    .nav-links a:hover{color:var(--white)}
+    .nav-cta{background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.15);color:var(--white)!important;padding:8px 20px;border-radius:6px;transition:all .2s!important}
+    .nav-cta:hover{background:rgba(255,255,255,.18)!important;border-color:rgba(255,255,255,.3)}
+
+    .hero{background:linear-gradient(170deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-light) 100%);padding:80px 32px 100px;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 20% 50%,rgba(201,168,76,.06),transparent),radial-gradient(ellipse 500px 500px at 80% 30%,rgba(45,79,160,.15),transparent);pointer-events:none}
+    .hero-label{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);margin-bottom:24px;position:relative}
+    .hero h1{font-size:clamp(36px,5.5vw,62px);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-1.5px;max-width:700px;margin:0 auto 20px;position:relative}
+    .hero-sub{font-size:17px;font-weight:400;line-height:1.7;color:rgba(255,255,255,.55);max-width:540px;margin:0 auto 40px;position:relative}
+    .hero-why{max-width:580px;margin:0 auto 40px;text-align:left;position:relative}
+    .hero-why h3{font-size:20px;font-weight:800;color:var(--white);text-align:center;margin-bottom:20px;letter-spacing:-.3px}
+    .why-points{display:flex;flex-direction:column;gap:14px}
+    .why-item{font-size:14px;line-height:1.65;color:rgba(255,255,255,.7);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:14px 18px}
+    .why-item strong{color:var(--white)}
+    .hero-buttons{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative}
+    .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--white);color:var(--navy);padding:14px 28px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;letter-spacing:.2px;width:240px}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.2)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,.7);padding:14px 28px;border-radius:8px;border:1px solid rgba(255,255,255,.15);font-weight:600;font-size:14px;text-decoration:none;transition:all .25s}
+    .btn-secondary:hover{color:var(--white);border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.05)}
+    .hero-pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:50px;position:relative}
+    .hero-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.92);border:none;padding:8px 14px;border-radius:4px;font-size:11px;color:var(--navy-deep);font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+    .hero-pill span{font-size:15px}
+
+    .stats{background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
+    .stats-inner{max-width:1200px;margin:0 auto;padding:48px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+    .stat{text-align:center}
+    .stat h3{font-size:40px;font-weight:800;color:var(--navy);letter-spacing:-1px;margin-bottom:4px}
+    .stat p{font-size:12px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:1.5px}
+
+    .section{padding:90px 32px;max-width:1200px;margin:0 auto}
+    .section-alt{background:var(--gray-50)}
+    .section-label{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);margin-bottom:12px}
+    .section-title{font-size:clamp(28px,3.5vw,40px);font-weight:800;color:var(--gray-900);letter-spacing:-.8px;margin-bottom:14px}
+    .section-desc{font-size:16px;line-height:1.7;color:var(--gray-500);max-width:560px;margin-bottom:48px}
+
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .feature-card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:28px 24px;transition:all .3s}
+    .section-alt .feature-card{background:var(--white)}
+    .feature-card:hover{border-color:var(--navy);box-shadow:0 8px 30px rgba(31,60,136,.06);transform:translateY(-2px)}
+    .feature-icon{width:44px;height:44px;background:var(--gray-50);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;transition:background .3s}
+    .feature-card:hover .feature-icon{background:rgba(31,60,136,.06)}
+    .feature-card h3{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:6px}
+    .feature-card p{font-size:13px;line-height:1.65;color:var(--gray-500)}
+    .feature-why{font-size:12px;font-weight:600;color:var(--navy);font-style:italic;margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-200)}
+
+    .crime-section{background:var(--navy-deep);padding:90px 32px}
+    .crime-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .crime-text .section-label{color:var(--gold)}
+    .crime-text .section-title{color:var(--white)}
+    .crime-text p{font-size:15px;line-height:1.75;color:rgba(255,255,255,.5);margin-bottom:32px}
+    .crime-list{display:flex;flex-direction:column;gap:14px}
+    .crime-item{display:flex;align-items:center;gap:14px;font-size:14px;color:rgba(255,255,255,.7);font-weight:500}
+    .crime-item-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
+
+    .crime-preview{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px}
+    .cp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .cp-title{font-size:13px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1.5px}
+    .cp-city{font-size:12px;color:rgba(255,255,255,.3)}
+    .cp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px}
+    .cp-stat{text-align:center;padding:14px 6px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px}
+    .cp-stat.v{border-color:rgba(224,82,82,.25);background:rgba(224,82,82,.06)}
+    .cp-stat.p{border-color:rgba(59,130,246,.25);background:rgba(59,130,246,.06)}
+    .cp-num{font-size:20px;font-weight:700;color:var(--white)}
+    .cp-stat.v .cp-num{color:#FF9A9A}
+    .cp-stat.p .cp-num{color:#93C5FD}
+    .cp-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,.3);font-weight:600;margin-top:3px}
+    .cp-source{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+    .cp-source:last-child{border-bottom:none}
+    .cp-source-name{font-size:13px;color:rgba(255,255,255,.65);font-weight:500}
+    .cp-source-meta{font-size:11px;color:rgba(255,255,255,.25)}
+    .cp-disclaimer{margin-top:16px;font-size:10px;color:rgba(255,255,255,.2);text-align:center;font-style:italic}
+    .news-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:12px 14px;margin-bottom:8px}
+    .news-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+    .news-date{font-size:11px;font-weight:600;color:rgba(255,255,255,.5)}
+    .news-source{font-size:10px;color:rgba(255,255,255,.3)}
+    .news-headline{font-size:12px;line-height:1.6;color:rgba(255,255,255,.65)}
+
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+
+    .testimonials{background:var(--gray-50);padding:90px 32px;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+    .test-inner{max-width:1200px;margin:0 auto}
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+    .test-card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:28px 24px;transition:all .3s}
+    .test-card:hover{border-color:var(--navy);box-shadow:0 8px 30px rgba(31,60,136,.06);transform:translateY(-2px)}
+    .test-stars{color:#F59E0B;font-size:16px;letter-spacing:2px;margin-bottom:14px}
+    .test-quote{font-size:14px;line-height:1.7;color:var(--gray-700);margin-bottom:20px;font-style:italic}
+    .test-author{display:flex;justify-content:space-between;align-items:center}
+    .test-author strong{font-size:13px;color:var(--gray-900)}
+    .test-author span{font-size:12px;color:var(--gray-400)}
+    .step-card{text-align:center;padding:32px 20px}
+    .step-num{width:52px;height:52px;background:var(--navy);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;margin:0 auto 18px}
+    .step-card h3{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:8px}
+    .step-card p{font-size:13px;line-height:1.65;color:var(--gray-500)}
+
+    .cta{background:var(--navy);padding:80px 32px;text-align:center;position:relative;overflow:hidden}
+    .cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 300px at 50% 100%,rgba(201,168,76,.08),transparent)}
+    .cta h2{font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--white);letter-spacing:-.8px;margin-bottom:14px;position:relative}
+    .cta p{font-size:16px;color:rgba(255,255,255,.55);max-width:440px;margin:0 auto 32px;position:relative}
+    .cta .btn-primary{position:relative}
+
+    footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(255,255,255,.05)}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+    .footer-brand{font-size:16px;font-weight:700;color:var(--white)}
+    .footer-links{display:flex;gap:28px}
+    .footer-links a{text-decoration:none;font-size:12px;color:rgba(255,255,255,.35);font-weight:500;transition:color .2s}
+    .footer-links a:hover{color:rgba(255,255,255,.7)}
+    .footer-copy{font-size:11px;color:rgba(255,255,255,.2)}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    .hero-label{animation:fadeUp .6s ease}
+    .hero h1{animation:fadeUp .6s ease .08s both}
+    .hero-sub{animation:fadeUp .6s ease .16s both}
+    .hero-why{animation:fadeUp .6s ease .2s both}
+    .hero-buttons{animation:fadeUp .6s ease .28s both}
+    .hero-pills{animation:fadeUp .6s ease .32s both}
+    .reveal{transition:all .65s cubic-bezier(.16,1,.3,1)}
+    .reveal.hidden{opacity:0;transform:translateY(28px)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:768px){
+      .nav-links{display:none}.hero{padding:60px 20px 70px}.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+      .features-grid{grid-template-columns:1fr}.crime-inner{grid-template-columns:1fr;gap:40px}
+      .steps-grid{grid-template-columns:1fr;gap:24px}.test-grid{grid-template-columns:1fr}.hero-pills{gap:6px}.hero-pill{font-size:11px;padding:6px 12px}
+      .footer-inner{flex-direction:column;text-align:center}
+    }
+    @media(max-width:480px){.stat h3{font-size:32px}}
+  </style>
+</head>
+<body>
+
+  <div class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">HomeChata</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#crime">Crime Data</a>
+        <a href="#how">How It Works</a>
+        <a href="https://apps.apple.com/app/homechata" class="nav-cta">Download App</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-label">Area Insights Made Easy. Move Confidently.</div>
+    <h1>The smartest way to explore any neighborhood</h1>
+    <p class="hero-sub">HomeChata gives you instant access to 28 categories of neighborhood data — from schools and transit to crime statistics and air quality — all from a single address search.</p>
+
+    <div class="hero-why">
+      <h3>Why use HomeChata?</h3>
+      <div class="why-points">
+        <div class="why-item"><strong>Your biggest investment deserves research.</strong> Don't buy or rent blindly — see crime statistics, recent police reports, school ratings, and hospital access before you sign.</div>
+        <div class="why-item"><strong>Live closer to what you love.</strong> Find the nearest golf courses, biking trails, dog parks, hiking paths, gyms, and restaurants — sorted by distance from your front door.</div>
+        <div class="why-item"><strong>Know what's really happening in the neighborhood.</strong> Real crime data from multiple sources plus recent local news — arrests, incidents, and police reports from the past 12 months.</div>
+        <div class="why-item"><strong>See your daily commute before you commit.</strong> The closest bus stops, train stations, and airports with exact distances — plus grocery stores, gas stations, and EV chargers along the way.</div>
+        <div class="why-item"><strong>Free to start. No subscription. Ever.</strong> Get your first full report free — crime data, local news, and all 28 categories. Pay only when you need more, no recurring charges.</div>
+      </div>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="https://apps.apple.com/app/homechata" class="btn-primary">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/></svg>
+        Download for iOS
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.homechata" class="btn-primary">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.86 14.39c.195.09.41.11.625.054l8.142-2.955ZM1.64 1.649C1.563 1.82 1.5 2.03 1.5 2.29v11.42c0 .26.063.47.14.642L7.583 8 1.64 1.65Zm5.943 6.351L10.627 5.04 2.485 2.085c-.215-.057-.43-.037-.625.054L7.583 8Z"/></svg>
+        Download for Android
+      </a>
+    </div>
+    <div class="hero-pills">
+      <div class="hero-pill"><span>🛒</span> Grocery Stores</div>
+      <div class="hero-pill"><span>📦</span> Wholesalers</div>
+      <div class="hero-pill"><span>👶</span> Daycare</div>
+      <div class="hero-pill"><span>🌳</span> Parks</div>
+      <div class="hero-pill"><span>🐶</span> Dog Parks</div>
+      <div class="hero-pill"><span>🥾</span> Trails & Nature</div>
+      <div class="hero-pill"><span>🚴</span> Bike Trails</div>
+      <div class="hero-pill"><span>⛳</span> Golf Courses</div>
+      <div class="hero-pill"><span>🍽️</span> Restaurants</div>
+      <div class="hero-pill"><span>☕</span> Cafes</div>
+      <div class="hero-pill"><span>🎳</span> Recreation</div>
+      <div class="hero-pill"><span>🏋️</span> Gym</div>
+      <div class="hero-pill"><span>🚌</span> Bus Stops</div>
+      <div class="hero-pill"><span>🚂</span> Train Stations</div>
+      <div class="hero-pill"><span>✈️</span> Airports</div>
+      <div class="hero-pill"><span>🏥</span> Hospitals</div>
+      <div class="hero-pill"><span>🚑</span> Urgent Care</div>
+      <div class="hero-pill"><span>📚</span> Elementary Schools</div>
+      <div class="hero-pill"><span>📖</span> Middle Schools</div>
+      <div class="hero-pill"><span>🎓</span> High Schools</div>
+      <div class="hero-pill"><span>🏆</span> Universities</div>
+      <div class="hero-pill"><span>📚</span> Library</div>
+      <div class="hero-pill"><span>⛽</span> Gas Stations</div>
+      <div class="hero-pill"><span>⚡</span> EV Charging</div>
+      <div class="hero-pill"><span>🏦</span> Banks</div>
+      <div class="hero-pill"><span>🔍</span> Crime Data</div>
+      <div class="hero-pill"><span>🌿</span> Air Quality</div>
+      <div class="hero-pill"><span>🏘️</span> Nearby Cities</div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat"><h3>28</h3><p>Data Categories</p></div>
+      <div class="stat"><h3>50</h3><p>U.S. States</p></div>
+      <div class="stat"><h3>5+</h3><p>Crime Sources</p></div>
+      <div class="stat"><h3>10s</h3><p>Instant Results</p></div>
+    </div>
+  </section>
+
+  <section class="section-alt" id="features">
+    <div class="section reveal">
+      <div class="section-label">What You Get</div>
+      <h2 class="section-title">28 categories of neighborhood data</h2>
+      <p class="section-desc">From grocery stores to crime statistics — one address search gives you the complete picture of any neighborhood in the U.S.</p>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon">🛒</div><h3>Daily Essentials</h3><p>Find the nearest grocery stores, wholesalers, gas stations, EV chargers, and banks — with exact distances from your door.</p><p class="feature-why">Because a 30-minute drive for milk gets old fast.</p></div>
+        <div class="feature-card"><div class="feature-icon">📚</div><h3>Schools & Education</h3><p>See the closest elementary, middle, high schools, universities, and libraries — sorted by distance with ratings and details.</p><p class="feature-why">Your kids' school commute matters as much as yours.</p></div>
+        <div class="feature-card"><div class="feature-icon">🏥</div><h3>Healthcare</h3><p>Locate the nearest hospitals and urgent care centers with hours, distance, phone numbers, and open/closed status.</p><p class="feature-why">In an emergency, every minute counts.</p></div>
+        <div class="feature-card"><div class="feature-icon">🚌</div><h3>Transit & Travel</h3><p>See the closest bus stops, train stations, and airports with exact distances — so you know your commute before you move.</p><p class="feature-why">A dream home with a nightmare commute isn't a dream home.</p></div>
+        <div class="feature-card"><div class="feature-icon">🌳</div><h3>Parks & Recreation</h3><p>Discover the nearest parks, dog parks, trails, bike paths, golf courses, gyms, and entertainment — all sorted by distance.</p><p class="feature-why">Life is more than four walls — know what's outside them.</p></div>
+        <div class="feature-card"><div class="feature-icon">🍽️</div><h3>Food & Dining</h3><p>Explore the closest restaurants, cafes, and eateries around any address — with ratings, hours, and how far each one is.</p><p class="feature-why">Great neighborhoods have great food within walking distance.</p></div>
+        <div class="feature-card"><div class="feature-icon">🌿</div><h3>Air Quality</h3><p>Check real-time air quality index for any address — see pollutant levels, health recommendations, and breathing conditions.</p><p class="feature-why">The air you breathe every day matters more than you think.</p></div>
+        <div class="feature-card"><div class="feature-icon">🏘️</div><h3>Nearby Towns</h3><p>See surrounding cities and towns with population and distance — discover neighboring communities you might not have considered.</p><p class="feature-why">Sometimes the perfect neighborhood is one town over.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="crime-section reveal" id="crime">
+    <div class="crime-inner">
+      <div class="crime-text">
+        <div class="section-label">New Feature</div>
+        <h2 class="section-title">Crime data from multiple verified sources</h2>
+        <p>HomeChata aggregates crime statistics from trusted public sources. Real numbers, properly cited — not estimates or opinions.</p>
+        <div class="crime-list">
+          <div class="crime-item"><div class="crime-item-dot"></div>Total, violent, and property crime counts</div>
+          <div class="crime-item"><div class="crime-item-dot"></div>Data from BeautifyData, City-Data, NeighborhoodScout, and more</div>
+          <div class="crime-item"><div class="crime-item-dot"></div>Every data point linked to its original source</div>
+          <div class="crime-item"><div class="crime-item-dot"></div>Recent local crime news with dates and source links</div>
+        </div>
+      </div>
+      <div class="crime-preview">
+        <div class="cp-header"><span class="cp-title">🔍 Crime Data</span><span class="cp-city">The Colony, TX</span></div>
+        <div class="cp-stats">
+          <div class="cp-stat"><div class="cp-num">717</div><div class="cp-lbl">Total</div></div>
+          <div class="cp-stat v"><div class="cp-num">87</div><div class="cp-lbl">Violent</div></div>
+          <div class="cp-stat p"><div class="cp-num">630</div><div class="cp-lbl">Property</div></div>
+          <div class="cp-stat"><div class="cp-num">2025</div><div class="cp-lbl">Year</div></div>
+        </div>
+        <div class="cp-sources">
+          <div class="cp-source"><span class="cp-source-name">BeautifyData</span><span class="cp-source-meta">2024 · 4 data points</span></div>
+          <div class="cp-source"><span class="cp-source-name">HomeSnacks</span><span class="cp-source-meta">2025 · 18 data points</span></div>
+          <div class="cp-source"><span class="cp-source-name">City-Data</span><span class="cp-source-meta">2024 · 35 data points</span></div>
+          <div class="cp-source"><span class="cp-source-name">NeighborhoodScout</span><span class="cp-source-meta">2024 · 14 data points</span></div>
+        </div>
+        <div class="cp-disclaimer">Crime data sourced from third parties for informational purposes only.</div>
+
+          <!-- Recent News Preview -->
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08)">
+            <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:14px">🚨 RECENT NEWS</div>
+
+            <div class="news-card">
+              <div class="news-card-header">
+                <span class="news-date">2024-12-05</span>
+                <span class="news-source">Dallas News</span>
+              </div>
+              <div class="news-headline">Police conduct welfare check at apartment on Morning Star Drive; investigation underway.</div>
+            </div>
+
+            <div class="news-card">
+              <div class="news-card-header">
+                <span class="news-date">2025-01-30</span>
+                <span class="news-source">Dallas News</span>
+              </div>
+              <div class="news-headline">Police rescue over 80 animals from residence on Alta Oaks Lane following welfare report.</div>
+            </div>
+
+            <div class="news-card">
+              <div class="news-card-header">
+                <span class="news-date">2025-11-06</span>
+                <span class="news-source">CBS News</span>
+              </div>
+              <div class="news-headline">Suspect charged with arson in connection with three-alarm fire at vacant home on Freeman Drive.</div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="section reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Three steps to know any neighborhood</h2>
+      <p class="section-desc">Create a free account, get your first report free. Results in seconds.</p>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-num">1</div><h3>Enter any address</h3><p>Type or paste any U.S. address. Auto-complete validates it instantly.</p></div>
+        <div class="step-card"><div class="step-num">2</div><h3>Get your report</h3><p>28 categories of neighborhood data generated in seconds.</p></div>
+        <div class="step-card"><div class="step-num">3</div><h3>Save favorites</h3><p>Bookmark addresses you love and access your saved reports anytime.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials reveal">
+    <div class="test-inner">
+      <div class="section-label" style="text-align:center;display:block">What People Are Saying</div>
+      <h2 class="section-title" style="text-align:center">Real users. Real decisions.</h2>
+      <div class="test-grid">
+        <div class="test-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">"I was about to sign a lease and ran the address through HomeChata. Found out there were zero grocery stores within 2 miles. Saved me from a huge mistake."</p>
+          <div class="test-author">
+            <strong>First-Time Renter</strong>
+            <span>Austin, TX</span>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">"We have two kids under 5. Being able to see daycares, parks, hospitals, and schools all in one place made our home search so much easier."</p>
+          <div class="test-author">
+            <strong>Young Family</strong>
+            <span>Charlotte, NC</span>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">"The crime data feature is what sold me. I compared three neighborhoods and picked the one that actually had declining crime trends. Worth every credit."</p>
+          <div class="test-author">
+            <strong>Home Buyer</strong>
+            <span>Baltimore, MD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to explore your<br>next neighborhood?</h2>
+    <p>Download HomeChata and get the complete picture — instantly.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative">
+    <a href="https://apps.apple.com/app/homechata" class="btn-primary">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/></svg>
+      Download for iOS
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.homechata" class="btn-primary">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.86 14.39c.195.09.41.11.625.054l8.142-2.955ZM1.64 1.649C1.563 1.82 1.5 2.03 1.5 2.29v11.42c0 .26.063.47.14.642L7.583 8 1.64 1.65Zm5.943 6.351L10.627 5.04 2.485 2.085c-.215-.057-.43-.037-.625.054L7.583 8Z"/></svg>
+      Download for Android
+    </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">HomeChata</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="/cdn-cgi/l/email-protection#f794989983969483b79f989a92949f968396d994989a">Contact</a>
+      </div>
+      <div class="footer-copy">© 2025 Mainali Software Enterprises LLC. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10)});
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('hidden')});
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');e.target.cla
