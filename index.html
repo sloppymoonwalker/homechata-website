@@ -63,18 +63,18 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .feature-card p{font-size:13px;line-height:1.65;color:var(--gray-500)}
 .feature-why{font-size:12px;font-weight:600;color:var(--navy);font-style:italic;margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-200)}
 .crime-section{background:#F0F4FF;padding:90px 32px;border-top:1px solid var(--gray-200)}
-.crime-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+.crime-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
 .crime-text .section-label{color:var(--navy)}
 .crime-text .section-title{color:var(--gray-900)}
 .crime-text p{font-size:15px;line-height:1.75;color:var(--gray-500);margin-bottom:32px}
 .crime-list{display:flex;flex-direction:column;gap:12px}
 .crime-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--gray-700);font-weight:500}
 .crime-item-dot{width:7px;height:7px;background:var(--navy);border-radius:50%;flex-shrink:0}
-.crime-preview{background:var(--white);border:1px solid var(--gray-200);border-radius:16px;padding:24px;box-shadow:0 4px 24px rgba(31,60,136,.08);width:100%;min-width:0;overflow:hidden}
+.crime-preview{background:var(--white);border:1px solid var(--gray-200);border-radius:16px;padding:28px;box-shadow:0 4px 24px rgba(31,60,136,.08);width:100%;overflow:hidden}
 .cp-header{display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--gray-200);gap:4px}
 .cp-title{font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1.2px;width:100%;text-align:center}
 .cp-city{font-size:12px;color:var(--navy);font-weight:600;opacity:.6}
-.cp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;min-width:0}
+.cp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
 .cp-stat{text-align:center;padding:12px 6px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px}
 .cp-stat.v{border-color:#FECACA;background:#FFF5F5}
 .cp-stat.p{border-color:#BFDBFE;background:#EFF6FF}
@@ -84,7 +84,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .cp-stat.p .cp-num{color:#2563EB}
 .cp-stat.t .cp-num{color:#16A34A}
 .cp-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-400);font-weight:600;margin-top:3px}
-.cp-section-title{font-size:10px;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin:16px 0 8px;text-align:center}
+.cp-section-title{font-size:11px;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin:20px 0 10px;text-align:center}.cp-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}.cp-col{min-width:0}
 .cp-source{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--gray-100)}
 .cp-source:last-child{border-bottom:none}
 .cp-source-name{font-size:13px;color:var(--gray-700);font-weight:500}
@@ -138,7 +138,7 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
 @media(max-width:768px){
 .nav-links{display:none}.hero{padding:60px 20px 70px}.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
 .features-grid{grid-template-columns:1fr}.crime-inner{grid-template-columns:1fr;gap:32px}.crime-section{padding:60px 20px}
-.cp-stats{grid-template-columns:repeat(2,1fr)}.cp-num{font-size:16px}
+.cp-stats{grid-template-columns:repeat(2,1fr)}.cp-num{font-size:16px}.cp-grid{grid-template-columns:1fr}
 .steps-grid{grid-template-columns:1fr;gap:24px}.test-grid{grid-template-columns:1fr}.hero-pills{grid-template-columns:repeat(3,1fr);gap:6px}.hero-pill{font-size:11px;padding:7px 8px}
 .footer-inner{flex-direction:column;text-align:center}
 }
@@ -248,105 +248,87 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
       </div>
     </div>
     <div class="crime-preview">
-      <!-- Crime Data Header -->
+      <!-- Header -->
       <div class="cp-header">
         <span class="cp-title">🔍 Crime Data</span>
         <span class="cp-city">Los Angeles, CA · 2025</span>
       </div>
 
-      <!-- Hero Stats -->
+      <!-- Hero Stats - 4 tiles -->
       <div class="cp-stats">
         <div class="cp-stat"><div class="cp-num">112,018</div><div class="cp-lbl">Total</div></div>
         <div class="cp-stat v"><div class="cp-num">25,925</div><div class="cp-lbl">Violent</div></div>
         <div class="cp-stat p"><div class="cp-num">87,093</div><div class="cp-lbl">Property</div></div>
-        <div class="cp-stat" style="border-color:rgba(34,197,94,.25);background:rgba(34,197,94,.06)"><div class="cp-num" style="color:#86EFAC">↓18%</div><div class="cp-lbl">5yr Trend</div></div>
+        <div class="cp-stat t"><div class="cp-num">↓18%</div><div class="cp-lbl">5yr Trend</div></div>
       </div>
 
-      <!-- Incident Breakdown -->
-      <div style="font-size:11px;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;text-align:center">Incident Breakdown</div>
-      <div class="cp-source"><span class="cp-source-name">Larceny-Theft</span><span class="cp-source-meta">54,540 &nbsp;·&nbsp; ~149/day</span></div>
-      <div class="cp-source"><span class="cp-source-name">Motor Vehicle Theft</span><span class="cp-source-meta">20,094 &nbsp;·&nbsp; ~55/day</span></div>
-      <div class="cp-source"><span class="cp-source-name">Agg. Assault</span><span class="cp-source-meta">17,038 &nbsp;·&nbsp; ~47/day</span></div>
-      <div class="cp-source"><span class="cp-source-name">Burglary</span><span class="cp-source-meta">11,938 &nbsp;·&nbsp; ~33/day</span></div>
-      <div class="cp-source"><span class="cp-source-name">Homicide</span><span class="cp-source-meta">225 &nbsp;·&nbsp; ~1 every 2 days</span></div>
+      <!-- 2-column inner layout -->
+      <div class="cp-grid">
 
-      <!-- 5-Year Trend -->
-      <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:14px;margin:16px 0 8px;text-align:center">
-        <div style="font-size:14px;font-weight:800;color:#15803D;margin-bottom:4px;text-align:center">Crime Is Trending Down</div>
-        <div style="font-size:12px;color:#16A34A;font-weight:600;text-align:center">Violent ↓18% · Property ↓17% since 2022 · FBI UCR Program</div>
-      </div>
+        <!-- LEFT COL: Breakdown + Trend -->
+        <div class="cp-col">
+          <div class="cp-section-title">Incident Breakdown</div>
+          <div class="cp-source"><span class="cp-source-name">Larceny-Theft</span><span class="cp-source-meta">54,540 · ~149/day</span></div>
+          <div class="cp-source"><span class="cp-source-name">Motor Vehicle Theft</span><span class="cp-source-meta">20,094 · ~55/day</span></div>
+          <div class="cp-source"><span class="cp-source-name">Agg. Assault</span><span class="cp-source-meta">17,038 · ~47/day</span></div>
+          <div class="cp-source"><span class="cp-source-name">Burglary</span><span class="cp-source-meta">11,938 · ~33/day</span></div>
+          <div class="cp-source"><span class="cp-source-name">Homicide</span><span class="cp-source-meta">225 · ~1 every 2 days</span></div>
 
-      <!-- 5-Year Trend Table -->
-      <div class="cp-section-title">5-YEAR TREND (2022–2025)</div>
-      <div style="display:grid;grid-template-columns:40px 1fr 1fr 50px;gap:4px 8px;align-items:center;font-size:12px;margin-bottom:4px;padding:0 4px">
-        <span style="color:var(--gray-400);font-weight:600">Year</span>
-        <span style="color:#DC2626;font-weight:600">Violent</span>
-        <span style="color:#2563EB;font-weight:600">Property</span>
-        <span style="color:var(--navy);font-weight:600;text-align:right">Change</span>
-      </div>
-      <div style="display:grid;grid-template-columns:40px 1fr 1fr 50px;gap:6px 8px;align-items:center;font-size:12px;padding:0 4px">
-        <span style="color:var(--gray-500);font-weight:600">2022</span>
-        <span style="color:#DC2626;font-weight:700">31,773</span>
-        <span style="color:#2563EB;font-weight:700">105,052</span>
-        <span style="color:var(--gray-400);font-size:11px;text-align:right">base</span>
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:12px;margin:16px 0 10px;text-align:center">
+            <div style="font-size:13px;font-weight:800;color:#15803D;margin-bottom:3px">Crime Is Trending Down</div>
+            <div style="font-size:11px;color:#16A34A;font-weight:600">Violent ↓18% · Property ↓17% since 2022</div>
+          </div>
 
-        <span style="color:var(--gray-500);font-weight:600">2023</span>
-        <span style="color:#DC2626;font-weight:700">31,048</span>
-        <span style="color:#2563EB;font-weight:700">107,956</span>
-        <span style="color:#16A34A;font-weight:700;text-align:right">↓2%</span>
-
-        <span style="color:var(--gray-500);font-weight:600">2024</span>
-        <span style="color:#DC2626;font-weight:700">27,727</span>
-        <span style="color:#2563EB;font-weight:700">56,970</span>
-        <span style="color:#16A34A;font-weight:700;text-align:right">↓11%</span>
-
-        <span style="color:var(--gray-900);font-weight:800">2025</span>
-        <span style="color:#DC2626;font-weight:800">25,925</span>
-        <span style="color:#2563EB;font-weight:800">87,093</span>
-        <span style="color:#16A34A;font-weight:700;text-align:right">↓6%</span>
-      </div>
-
-      <!-- Recent Crime News -->
-      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--gray-100)">
-        <div style="font-size:11px;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;text-align:center">🚨 Recent Crime News · Past 12 Months</div>
-        <div class="news-card">
-          <div class="news-card-header"><span class="news-date">2025-08-25</span><span class="news-source">AP News</span></div>
-          <div class="news-headline">Police arrest LA burglary crew suspected in nearly 100 break-ins</div>
+          <div class="cp-section-title">5-Year Trend (2022–2025)</div>
+          <div style="display:grid;grid-template-columns:36px 1fr 1fr 46px;gap:5px 8px;align-items:center;font-size:12px">
+            <span style="color:var(--navy);font-weight:700">Year</span>
+            <span style="color:#DC2626;font-weight:700">Violent</span>
+            <span style="color:#2563EB;font-weight:700">Property</span>
+            <span style="color:var(--navy);font-weight:700;text-align:right">Change</span>
+            <span style="color:var(--gray-600);font-weight:600">2022</span><span style="color:#DC2626;font-weight:700">31,773</span><span style="color:#2563EB;font-weight:700">105,052</span><span style="color:var(--gray-500);text-align:right">base</span>
+            <span style="color:var(--gray-600);font-weight:600">2023</span><span style="color:#DC2626;font-weight:700">31,048</span><span style="color:#2563EB;font-weight:700">107,956</span><span style="color:#16A34A;font-weight:700;text-align:right">↓2%</span>
+            <span style="color:var(--gray-600);font-weight:600">2024</span><span style="color:#DC2626;font-weight:700">27,727</span><span style="color:#2563EB;font-weight:700">56,970</span><span style="color:#16A34A;font-weight:700;text-align:right">↓11%</span>
+            <span style="color:var(--gray-900);font-weight:800">2025</span><span style="color:#DC2626;font-weight:800">25,925</span><span style="color:#2563EB;font-weight:800">87,093</span><span style="color:#16A34A;font-weight:700;text-align:right">↓6%</span>
+          </div>
         </div>
-        <div class="news-card">
-          <div class="news-card-header"><span class="news-date">2025-07-19</span><span class="news-source">New York Times</span></div>
-          <div class="news-headline">Driver plows car into crowd in East Hollywood, injuring at least 30</div>
-        </div>
-        <div class="news-card">
-          <div class="news-card-header"><span class="news-date">2025-07-22</span><span class="news-source">AP News</span></div>
-          <div class="news-headline">Driver accused of ramming into crowd outside LA nightclub charged with 37 counts of attempted murder</div>
-        </div>
-      </div>
 
-      <!-- Sex Offender Proximity -->
-      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--gray-100)">
-        <div style="font-size:11px;font-weight:700;color:#DC2626;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;text-align:center">⚠️ Sex Offender Proximity · Mountain View, CA</div>
-        <div class="cp-source"><span class="cp-source-name">📍 Within 100 yards</span><span class="cp-source-meta" style="color:#16A34A;font-weight:600">0 registered</span></div>
-        <div class="cp-source"><span class="cp-source-name">📍 Within 300 yards</span><span class="cp-source-meta" style="color:#16A34A;font-weight:600">0 registered</span></div>
-        <div class="cp-source"><span class="cp-source-name">📍 Within 1 mile</span><span class="cp-source-meta" style="color:#DC2626;font-weight:600">11 registered</span></div>
-      </div>
+        <!-- RIGHT COL: News + Offenders + Offenses -->
+        <div class="cp-col">
+          <div class="cp-section-title">🚨 Recent Crime News · Past 12 Months</div>
+          <div class="news-card">
+            <div class="news-card-header"><span class="news-date">2025-08-25</span><span class="news-source">AP News</span></div>
+            <div class="news-headline">Police arrest LA burglary crew suspected in nearly 100 break-ins</div>
+          </div>
+          <div class="news-card">
+            <div class="news-card-header"><span class="news-date">2025-07-19</span><span class="news-source">New York Times</span></div>
+            <div class="news-headline">Driver plows car into crowd in East Hollywood, injuring at least 30</div>
+          </div>
+          <div class="news-card">
+            <div class="news-card-header"><span class="news-date">2025-07-22</span><span class="news-source">AP News</span></div>
+            <div class="news-headline">Driver accused of ramming into crowd outside LA nightclub charged with 37 counts of attempted murder</div>
+          </div>
 
-      <!-- Offenses on Record -->
-      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--gray-100)">
-        <div style="font-size:11px;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;text-align:center">📋 Offenses on Record · 5 of 14</div>
-        <div class="news-card">
-          <div class="news-headline" style="color:var(--gray-700)">Lewd or lascivious acts with a child under 14 years of age</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:4px">Convicted: 1994</div>
-        </div>
-        <div class="news-card">
-          <div class="news-headline" style="color:var(--gray-700)">Rape by force or fear</div>
-        </div>
-        <div class="news-card">
-          <div class="news-headline" style="color:var(--gray-700)">Sodomy with person under 14 years or with force</div>
-        </div>
-      </div>
+          <div class="cp-section-title" style="color:#DC2626;margin-top:20px">⚠️ Sex Offender Proximity · Mountain View, CA</div>
+          <div class="cp-source"><span class="cp-source-name">📍 Within 100 yards</span><span class="cp-source-meta" style="color:#16A34A;font-weight:600">0 registered</span></div>
+          <div class="cp-source"><span class="cp-source-name">📍 Within 300 yards</span><span class="cp-source-meta" style="color:#16A34A;font-weight:600">0 registered</span></div>
+          <div class="cp-source"><span class="cp-source-name">📍 Within 1 mile</span><span class="cp-source-meta" style="color:#DC2626;font-weight:600">11 registered</span></div>
 
-      <div class="cp-disclaimer" style="margin-top:12px">Data sourced from official government programs. For informational purposes only.</div>
+          <div class="cp-section-title" style="margin-top:20px">📋 Offenses on Record · 5 of 14</div>
+          <div class="news-card">
+            <div class="news-headline" style="color:var(--gray-700)">Lewd or lascivious acts with a child under 14 years of age</div>
+            <div style="font-size:10px;color:var(--gray-400);margin-top:4px">Convicted: 1994</div>
+          </div>
+          <div class="news-card">
+            <div class="news-headline" style="color:var(--gray-700)">Rape by force or fear</div>
+          </div>
+          <div class="news-card">
+            <div class="news-headline" style="color:var(--gray-700)">Sodomy with person under 14 years or with force</div>
+          </div>
+        </div>
+
+      </div><!-- end cp-grid -->
+
+      <div class="cp-disclaimer" style="margin-top:16px">Data sourced from official government programs. For informational purposes only.</div>
     </div>
   </div>
 </section>
