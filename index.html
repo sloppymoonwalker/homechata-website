@@ -66,39 +66,72 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .feature-card p{font-size:13px;line-height:1.65;color:var(--gray-500)}
 .feature-why{font-size:12px;font-weight:600;color:var(--navy);font-style:italic;margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-200)}
 .crime-section{background:#F0F4FF;padding:90px 32px;border-top:1px solid var(--gray-200)}
-.crime-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.crime-outer{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start}
 .crime-text .section-label{color:var(--navy)}
 .crime-text .section-title{color:var(--gray-900)}
-.crime-text p{font-size:15px;line-height:1.75;color:var(--gray-500);margin-bottom:32px}
 .crime-list{display:flex;flex-direction:column;gap:12px}
-.crime-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--gray-700);font-weight:500}
-.crime-item-dot{width:7px;height:7px;background:var(--navy);border-radius:50%;flex-shrink:0}
-.crime-preview{background:var(--white);border:1px solid var(--gray-200);border-radius:16px;padding:28px;box-shadow:0 4px 24px rgba(31,60,136,.08);width:100%;overflow:hidden}
-.cp-header{display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--gray-200);gap:4px}
-.cp-title{font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1.2px;width:100%;text-align:center}
-.cp-city{font-size:12px;color:var(--navy);font-weight:600;opacity:.6}
-.cp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
-.cp-stat{text-align:center;padding:12px 6px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px}
-.cp-stat.v{border-color:#FECACA;background:#FFF5F5}
-.cp-stat.p{border-color:#BFDBFE;background:#EFF6FF}
-.cp-stat.t{border-color:#BBF7D0;background:#F0FDF4}
-.cp-num{font-size:18px;font-weight:800;color:var(--gray-900)}
-.cp-stat.v .cp-num{color:#DC2626}
-.cp-stat.p .cp-num{color:#2563EB}
-.cp-stat.t .cp-num{color:#16A34A}
-.cp-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-400);font-weight:600;margin-top:3px}
-.cp-section-title{font-size:11px;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin:20px 0 10px;text-align:center}.cp-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}.cp-col{min-width:0}
-.cp-source{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--gray-100)}
-.cp-source:last-child{border-bottom:none}
-.cp-source-name{font-size:13px;color:var(--gray-700);font-weight:500}
-.cp-source-meta{font-size:11px;color:var(--gray-700);font-weight:600}
-.cp-disclaimer{margin-top:14px;font-size:10px;color:var(--gray-400);text-align:center;font-style:italic}
-.news-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:12px 14px;margin-bottom:8px}
-.news-card:last-child{margin-bottom:0}
-.news-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.news-date{font-size:11px;font-weight:600;color:var(--navy)}
-.news-source{font-size:10px;color:var(--gray-400);font-weight:500}
-.news-headline{font-size:12px;line-height:1.6;color:var(--gray-700)}
+.crime-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--gray-700);font-weight:500;line-height:1.55}
+.crime-item-dot{width:7px;height:7px;background:var(--navy);border-radius:50%;flex-shrink:0;margin-top:5px}
+/* Crime card */
+.crime-card{background:var(--white);border:1px solid var(--gray-200);border-radius:20px;padding:28px;box-shadow:0 8px 40px rgba(31,60,136,.1)}
+.cc-header{text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--gray-100)}
+.cc-title{font-size:13px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.cc-city{font-size:12px;color:var(--gray-400);font-weight:600}
+/* 4 stat tiles */
+.cc-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.cc-tile{text-align:center;padding:12px 6px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px}
+.cc-tile-red{background:#FFF5F5;border-color:#FECACA}
+.cc-tile-blue{background:#EFF6FF;border-color:#BFDBFE}
+.cc-tile-green{background:#F0FDF4;border-color:#BBF7D0}
+.cc-tile-num{font-size:16px;font-weight:800;color:var(--gray-900)}
+.cc-tile-red .cc-tile-num{color:#DC2626}
+.cc-tile-blue .cc-tile-num{color:#2563EB}
+.cc-tile-green .cc-tile-num{color:#16A34A}
+.cc-tile-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-400);font-weight:600;margin-top:3px}
+/* Verdict + pct cards */
+.cc-verdict{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:10px;text-align:center;font-size:13px;font-weight:800;color:#15803D;margin-bottom:12px}
+.cc-pct-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.cc-pct-card{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:14px 10px;text-align:center}
+.cc-pct-dir{font-size:12px;font-weight:700;color:#15803D}
+.cc-pct-val{font-size:28px;font-weight:800;color:#16A34A;line-height:1.1}
+.cc-pct-lbl{font-size:11px;font-weight:600;color:var(--gray-700);margin-top:6px}
+.cc-pct-sub{font-size:10px;color:var(--gray-400);margin-top:2px}
+/* Bottom two-column */
+.cc-bottom{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:20px;border-top:1px solid var(--gray-100)}
+.cc-col{text-align:center}
+.cc-col-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--navy);margin-bottom:10px}
+.cc-table{text-align:center}
+.cc-table th{text-align:center}
+.cc-table td{text-align:center}
+.cc-table-bold td{text-align:center!important}
+/* Trend table */
+.cc-table{width:100%;border-collapse:collapse;font-size:12px}
+.cc-table th{font-weight:700;color:var(--navy);padding:0 0 6px 0;text-align:left;border-bottom:1px solid var(--gray-200)}
+.cc-table td{padding:5px 0;color:var(--gray-700);border-bottom:1px solid var(--gray-100)}
+.cc-table tr:last-child td{border-bottom:none}
+.cc-table-bold td{font-weight:800;color:var(--gray-900)!important}
+.cc-source{font-size:10px;color:#16A34A;font-weight:600;margin-top:10px}
+/* News */
+.cc-news{display:flex;flex-direction:column;gap:8px}
+.cc-news-item{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:10px 12px}
+.cc-news-meta{display:flex;justify-content:space-between;margin-bottom:4px}
+.cc-news-date{font-size:10px;font-weight:700;color:var(--navy)}
+.cc-news-src{font-size:10px;color:var(--gray-400)}
+.cc-news-headline{font-size:11px;line-height:1.55;color:var(--gray-700)}
+/* Offenders */
+.cc-offenders{display:flex;flex-direction:column;gap:0}
+.cc-offender-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--gray-100)}
+.cc-offender-row:last-child{border-bottom:none}
+.cc-offender-range{font-size:12px;color:var(--gray-700);font-weight:500}
+.cc-offender-count{font-size:13px;font-weight:800;padding:2px 10px;border-radius:20px}
+.cc-offender-count.green{color:#16A34A;background:#F0FDF4}
+.cc-offender-count.red{color:#DC2626;background:#FFF5F5}
+.cc-disclaimer{margin-top:20px;font-size:10px;color:var(--gray-400);text-align:center;font-style:italic;padding-top:16px;border-top:1px solid var(--gray-100)}
+@media(max-width:900px){
+  .crime-outer{grid-template-columns:1fr;gap:36px}
+  .cc-tiles{grid-template-columns:repeat(2,1fr)}
+  .cc-bottom{grid-template-columns:1fr}
+}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 .step-card{text-align:center;padding:32px 20px}
 .step-num{width:52px;height:52px;background:var(--navy);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;margin:0 auto 18px}
@@ -130,8 +163,7 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
 .reveal.visible{opacity:1;transform:translateY(0)}
 @media(max-width:768px){
 .nav-links{display:none}.hero{padding:60px 20px 70px}.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
-.features-grid{grid-template-columns:1fr}.crime-inner{grid-template-columns:1fr;gap:32px}.crime-section{padding:60px 20px}
-.cp-stats{grid-template-columns:repeat(2,1fr)}.cp-num{font-size:16px}.cp-grid{grid-template-columns:1fr}
+.features-grid{grid-template-columns:1fr}.crime-section{padding:60px 20px}
 .steps-grid{grid-template-columns:1fr;gap:24px}.hero-pills{grid-template-columns:repeat(3,1fr);gap:6px}.hero-pill{font-size:11px;padding:7px 8px}
 .footer-inner{flex-direction:column;text-align:center}
 .btn-coming-soon{width:100%}.btn-primary{width:100%}
@@ -230,99 +262,104 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
 </section>
 
 <section class="crime-section" id="crime">
-  <div class="crime-inner">
+  <div class="crime-outer">
+
+    <!-- LEFT: Text + bullets -->
     <div class="crime-text">
       <div class="section-label">Public Safety Intelligence</div>
-      <h2 class="section-title">Crime data and sex offender proximity — in every report</h2>
-      <p>HomeChata delivers authoritative public safety intelligence from official government sources. Every report includes verified crime statistics, 5-year trend analysis, and registered sex offender proximity data.</p>
+      <h2 class="section-title">Crime data &amp; sex offender proximity — in every report</h2>
+      <p style="font-size:15px;line-height:1.75;color:var(--gray-500);margin-bottom:28px">HomeChata delivers authoritative public safety intelligence from official government sources. Every report includes verified crime statistics, 5-year trend analysis, and registered sex offender proximity data.</p>
       <div class="crime-list">
-        <div class="crime-item"><div class="crime-item-dot"></div>Violent and property crime counts with 5-year historical trend</div>
-        <div class="crime-item"><div class="crime-item-dot"></div>Incident breakdown — homicide, assault, robbery, burglary, larceny, and more</div>
-        <div class="crime-item"><div class="crime-item-dot"></div>Registered sex offender counts at 100yd, 300yd, and 1 mile radius</div>
+        <div class="crime-item"><div class="crime-item-dot"></div>Violent &amp; property crime counts with 5-year historical trend</div>
+        <div class="crime-item"><div class="crime-item-dot"></div>Incident breakdown — homicide, assault, robbery, burglary, larceny</div>
+        <div class="crime-item"><div class="crime-item-dot"></div>Registered sex offender counts at 100yd, 300yd, and 1 mile</div>
         <div class="crime-item"><div class="crime-item-dot"></div>Recent local crime news from the past 12 months</div>
         <div class="crime-item"><div class="crime-item-dot"></div>Crime trend verdict — improving, rising, stable, or mixed</div>
       </div>
     </div>
-    <div class="crime-preview">
-      <div class="cp-header">
-        <span class="cp-title">🔍 Crime Data</span>
-        <span class="cp-city">Los Angeles, CA · 2025</span>
+
+    <!-- RIGHT: Preview card -->
+    <div class="crime-card">
+
+      <!-- Card header -->
+      <div class="cc-header">
+        <div class="cc-title">🔍 Crime Data</div>
+        <div class="cc-city">Los Angeles, CA · 2025</div>
       </div>
 
-      <div class="cp-stats">
-        <div class="cp-stat"><div class="cp-num">112,018</div><div class="cp-lbl">Total</div></div>
-        <div class="cp-stat v"><div class="cp-num">25,925</div><div class="cp-lbl">Violent</div></div>
-        <div class="cp-stat p"><div class="cp-num">87,093</div><div class="cp-lbl">Property</div></div>
-        <div class="cp-stat t"><div class="cp-num">↓18%</div><div class="cp-lbl">5yr Trend</div></div>
+      <!-- 4 stat tiles -->
+      <div class="cc-tiles">
+        <div class="cc-tile"><div class="cc-tile-num">112,018</div><div class="cc-tile-lbl">Total Crimes</div></div>
+        <div class="cc-tile cc-tile-red"><div class="cc-tile-num">25,925</div><div class="cc-tile-lbl">Violent</div></div>
+        <div class="cc-tile cc-tile-blue"><div class="cc-tile-num">87,093</div><div class="cc-tile-lbl">Property</div></div>
+        <div class="cc-tile cc-tile-green"><div class="cc-tile-num">↓18%</div><div class="cc-tile-lbl">5yr Trend</div></div>
       </div>
 
-      <div class="cp-grid">
-        <!-- LEFT COL: Crime Trend (mobile-style) -->
-        <div class="cp-col">
-          <div style="font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:1.2px;text-align:center;margin-bottom:10px">5-Year Trend (2021–2025)</div>
+      <!-- Trend verdict + two big % cards -->
+      <div class="cc-verdict">Crime Is Trending Down</div>
+      <div class="cc-pct-row">
+        <div class="cc-pct-card">
+          <div class="cc-pct-dir">down</div>
+          <div class="cc-pct-val">18%</div>
+          <div class="cc-pct-lbl">Violent Crime</div>
+          <div class="cc-pct-sub">since 2021</div>
+        </div>
+        <div class="cc-pct-card">
+          <div class="cc-pct-dir">down</div>
+          <div class="cc-pct-val">17%</div>
+          <div class="cc-pct-lbl">Property Crime</div>
+          <div class="cc-pct-sub">since 2021</div>
+        </div>
+      </div>
 
-          <!-- Verdict pill -->
-          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:11px 16px;text-align:center;margin-bottom:12px">
-            <div style="font-size:14px;font-weight:800;color:#15803D">Crime Is Trending Down</div>
-          </div>
+      <!-- Two columns below: trend table | news + offenders -->
+      <div class="cc-bottom">
 
-          <!-- Two big cards -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
-            <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:14px 10px;text-align:center">
-              <div style="font-size:13px;font-weight:700;color:#15803D;margin-bottom:2px">down</div>
-              <div style="font-size:26px;font-weight:800;color:#16A34A;line-height:1.1">18%</div>
-              <div style="font-size:11px;font-weight:600;color:var(--gray-700);margin-top:6px">Violent Crime</div>
-              <div style="font-size:10px;color:var(--gray-400);margin-top:2px">since 2021</div>
-            </div>
-            <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:14px 10px;text-align:center">
-              <div style="font-size:13px;font-weight:700;color:#15803D;margin-bottom:2px">down</div>
-              <div style="font-size:26px;font-weight:800;color:#16A34A;line-height:1.1">17%</div>
-              <div style="font-size:11px;font-weight:600;color:var(--gray-700);margin-top:6px">Property Crime</div>
-              <div style="font-size:10px;color:var(--gray-400);margin-top:2px">since 2021</div>
-            </div>
-          </div>
-
-          <!-- Year table -->
-          <div style="display:grid;grid-template-columns:36px 1fr 1fr 46px;gap:5px 8px;align-items:center;font-size:12px">
-            <span style="color:var(--navy);font-weight:700">Year</span>
-            <span style="color:#DC2626;font-weight:700">Violent</span>
-            <span style="color:#2563EB;font-weight:700">Property</span>
-            <span style="color:var(--navy);font-weight:700;text-align:right">Change</span>
-            <span style="color:var(--gray-600);font-weight:600">2021</span><span style="color:#DC2626;font-weight:700">31,773</span><span style="color:#2563EB;font-weight:700">105,052</span><span style="color:var(--gray-500);text-align:right">base</span>
-            <span style="color:var(--gray-600);font-weight:600">2022</span><span style="color:#DC2626;font-weight:700">31,048</span><span style="color:#2563EB;font-weight:700">107,956</span><span style="color:#DC2626;font-weight:700;text-align:right">↑32%</span>
-            <span style="color:var(--gray-600);font-weight:600">2023</span><span style="color:#DC2626;font-weight:700">27,727</span><span style="color:#2563EB;font-weight:700">107,956</span><span style="color:#16A34A;font-weight:700;text-align:right">↓24%</span>
-            <span style="color:var(--gray-600);font-weight:600">2024</span><span style="color:#DC2626;font-weight:700">27,000</span><span style="color:#2563EB;font-weight:700">90,000</span><span style="color:#DC2626;font-weight:700;text-align:right">↑16%</span>
-            <span style="color:var(--gray-900);font-weight:800">2025</span><span style="color:#DC2626;font-weight:800">25,925</span><span style="color:#2563EB;font-weight:800">87,093</span><span style="color:#16A34A;font-weight:700;text-align:right">↓27%</span>
-          </div>
-
-          <div style="margin-top:14px;font-size:10px;color:#16A34A;font-weight:600">Source: FBI Crime Data Explorer</div>
+        <!-- Trend table -->
+        <div class="cc-col">
+          <div class="cc-col-title">5-Year Trend (2021–2025)</div>
+          <table class="cc-table">
+            <thead>
+              <tr><th>Year</th><th style="color:#DC2626">Violent</th><th style="color:#2563EB">Property</th><th>Change</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2021</td><td style="color:#DC2626;font-weight:700">31,773</td><td style="color:#2563EB;font-weight:700">105,052</td><td style="color:var(--gray-400)">base</td></tr>
+              <tr><td>2022</td><td style="color:#DC2626;font-weight:700">31,048</td><td style="color:#2563EB;font-weight:700">107,956</td><td style="color:#DC2626;font-weight:700">↑32%</td></tr>
+              <tr><td>2023</td><td style="color:#DC2626;font-weight:700">27,727</td><td style="color:#2563EB;font-weight:700">107,956</td><td style="color:#16A34A;font-weight:700">↓24%</td></tr>
+              <tr><td>2024</td><td style="color:#DC2626;font-weight:700">27,000</td><td style="color:#2563EB;font-weight:700">90,000</td><td style="color:#DC2626;font-weight:700">↑16%</td></tr>
+              <tr class="cc-table-bold"><td>2025</td><td style="color:#DC2626">25,925</td><td style="color:#2563EB">87,093</td><td style="color:#16A34A">↓27%</td></tr>
+            </tbody>
+          </table>
+          <div class="cc-source">Source: FBI Crime Data Explorer</div>
         </div>
 
-        <!-- RIGHT COL: News + Offenders -->
-        <div class="cp-col">
-          <div class="cp-section-title">🚨 Recent Crime News · Past 12 Months</div>
-          <div class="news-card">
-            <div class="news-card-header"><span class="news-date">2025-08-25</span><span class="news-source">AP News</span></div>
-            <div class="news-headline">Police arrest LA burglary crew suspected in nearly 100 break-ins</div>
-          </div>
-          <div class="news-card">
-            <div class="news-card-header"><span class="news-date">2025-07-19</span><span class="news-source">New York Times</span></div>
-            <div class="news-headline">Driver plows car into crowd in East Hollywood, injuring at least 30</div>
-          </div>
-          <div class="news-card">
-            <div class="news-card-header"><span class="news-date">2025-07-22</span><span class="news-source">AP News</span></div>
-            <div class="news-headline">Driver accused of ramming into crowd outside LA nightclub charged with 37 counts of attempted murder</div>
+        <!-- News + Offenders -->
+        <div class="cc-col">
+          <div class="cc-col-title">🚨 Recent Crime News</div>
+          <div class="cc-news">
+            <div class="cc-news-item">
+              <div class="cc-news-meta"><span class="cc-news-date">Aug 25, 2025</span><span class="cc-news-src">AP News</span></div>
+              <div class="cc-news-headline">Police arrest LA burglary crew suspected in nearly 100 break-ins</div>
+            </div>
+            <div class="cc-news-item">
+              <div class="cc-news-meta"><span class="cc-news-date">Jul 22, 2025</span><span class="cc-news-src">AP News</span></div>
+              <div class="cc-news-headline">Driver charged with 37 counts of attempted murder after ramming nightclub crowd</div>
+            </div>
           </div>
 
-          <div class="cp-section-title" style="color:#DC2626;margin-top:20px">⚠️ Sex Offender Proximity · Mountain View, CA</div>
-          <div class="cp-source"><span class="cp-source-name">📍 Within 100 yards</span><span class="cp-source-meta" style="color:#16A34A;font-weight:600">0 registered</span></div>
-          <div class="cp-source"><span class="cp-source-name">📍 Within 300 yards</span><span class="cp-source-meta" style="color:#16A34A;font-weight:600">0 registered</span></div>
-          <div class="cp-source"><span class="cp-source-name">📍 Within 1 mile</span><span class="cp-source-meta" style="color:#DC2626;font-weight:600">11 registered</span></div>
+          <div class="cc-col-title" style="margin-top:16px;color:#DC2626">⚠️ Sex Offender Proximity</div>
+          <div class="cc-offenders">
+            <div class="cc-offender-row"><span class="cc-offender-range">Within 100 yards</span><span class="cc-offender-count green">0</span></div>
+            <div class="cc-offender-row"><span class="cc-offender-range">Within 300 yards</span><span class="cc-offender-count green">0</span></div>
+            <div class="cc-offender-row"><span class="cc-offender-range">Within 1 mile</span><span class="cc-offender-count red">11</span></div>
+          </div>
         </div>
-      </div><!-- end cp-grid -->
 
-      <div class="cp-disclaimer" style="margin-top:16px">Data sourced from official government programs. For informational purposes only.</div>
+      </div><!-- end cc-bottom -->
+
+      <div class="cc-disclaimer">Data sourced from official government programs. For informational purposes only.</div>
     </div>
+
   </div>
 </section>
 
