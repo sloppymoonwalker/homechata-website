@@ -33,6 +33,9 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .free-badge{display:inline-block;background:linear-gradient(135deg,#C9A84C,#E8C84A);color:var(--navy-deep);padding:14px 32px;border-radius:4px;font-size:15px;font-weight:700;text-align:center;max-width:560px;margin:0 auto 28px;box-shadow:0 4px 20px rgba(201,168,76,0.4);animation:pulse 2s ease-in-out infinite}
 .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--white);color:var(--navy);padding:14px 28px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;letter-spacing:.2px;width:240px}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.2)}
+/* Android coming-soon button */
+.btn-coming-soon{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.4);padding:14px 28px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;width:240px;border:1px solid rgba(255,255,255,.15);cursor:default;position:relative}
+.btn-coming-soon .coming-tag{position:absolute;top:-10px;right:12px;background:var(--gold);color:var(--navy-deep);font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px;letter-spacing:.5px}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,.7);padding:14px 28px;border-radius:8px;border:1px solid rgba(255,255,255,.15);font-weight:600;font-size:14px;text-decoration:none;transition:all .25s}
 .btn-secondary:hover{color:var(--white);border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.05)}
 .hero-pills{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:50px;position:relative;max-width:720px;margin-left:auto;margin-right:auto}
@@ -97,16 +100,6 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .news-source{font-size:10px;color:var(--gray-400);font-weight:500}
 .news-headline{font-size:12px;line-height:1.6;color:var(--gray-700)}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.testimonials{background:var(--gray-50);padding:90px 32px;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
-.test-inner{max-width:1200px;margin:0 auto}
-.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-.test-card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:28px 24px;transition:all .3s}
-.test-card:hover{border-color:var(--navy);box-shadow:0 8px 30px rgba(31,60,136,.06);transform:translateY(-2px)}
-.test-stars{color:#F59E0B;font-size:16px;letter-spacing:2px;margin-bottom:14px}
-.test-quote{font-size:14px;line-height:1.7;color:var(--gray-700);margin-bottom:20px;font-style:italic}
-.test-author{display:flex;justify-content:space-between;align-items:center}
-.test-author strong{font-size:13px;color:var(--gray-900)}
-.test-author span{font-size:12px;color:var(--gray-400)}
 .step-card{text-align:center;padding:32px 20px}
 .step-num{width:52px;height:52px;background:var(--navy);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;margin:0 auto 18px}
 .step-card h3{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:8px}
@@ -139,8 +132,9 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
 .nav-links{display:none}.hero{padding:60px 20px 70px}.stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
 .features-grid{grid-template-columns:1fr}.crime-inner{grid-template-columns:1fr;gap:32px}.crime-section{padding:60px 20px}
 .cp-stats{grid-template-columns:repeat(2,1fr)}.cp-num{font-size:16px}.cp-grid{grid-template-columns:1fr}
-.steps-grid{grid-template-columns:1fr;gap:24px}.test-grid{grid-template-columns:1fr}.hero-pills{grid-template-columns:repeat(3,1fr);gap:6px}.hero-pill{font-size:11px;padding:7px 8px}
+.steps-grid{grid-template-columns:1fr;gap:24px}.hero-pills{grid-template-columns:repeat(3,1fr);gap:6px}.hero-pill{font-size:11px;padding:7px 8px}
 .footer-inner{flex-direction:column;text-align:center}
+.btn-coming-soon{width:100%}.btn-primary{width:100%}
 }
 @media(max-width:480px){.stat h3{font-size:32px}}
 </style>
@@ -178,14 +172,15 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
   <div class="free-badge">Your first neighborhood report is on us — completely free, no credit card needed.</div>
 
   <div class="hero-buttons">
-    <a href="https://apps.apple.com/app/homechata" class="btn-primary">
+    <a href="https://apps.apple.com/app/id6760314190" class="btn-primary">
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/></svg>
       Download for iOS
     </a>
-    <a href="https://play.google.com/store/apps/details?id=com.homechata" class="btn-primary">
+    <span class="btn-coming-soon">
+      <span class="coming-tag">COMING SOON</span>
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.86 14.39c.195.09.41.11.625.054l8.142-2.955ZM1.64 1.649C1.563 1.82 1.5 2.03 1.5 2.29v11.42c0 .26.063.47.14.642L7.583 8 1.64 1.65Zm5.943 6.351L10.627 5.04 2.485 2.085c-.215-.057-.43-.037-.625.054L7.583 8Z"/></svg>
-      Download for Android
-    </a>
+      Android
+    </span>
   </div>
 
   <div class="hero-pills">
@@ -233,6 +228,7 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
     </div>
   </div>
 </section>
+
 <section class="crime-section" id="crime">
   <div class="crime-inner">
     <div class="crime-text">
@@ -248,13 +244,11 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
       </div>
     </div>
     <div class="crime-preview">
-      <!-- Header -->
       <div class="cp-header">
         <span class="cp-title">🔍 Crime Data</span>
         <span class="cp-city">Los Angeles, CA · 2025</span>
       </div>
 
-      <!-- Hero Stats - 4 tiles -->
       <div class="cp-stats">
         <div class="cp-stat"><div class="cp-num">112,018</div><div class="cp-lbl">Total</div></div>
         <div class="cp-stat v"><div class="cp-num">25,925</div><div class="cp-lbl">Violent</div></div>
@@ -262,37 +256,49 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
         <div class="cp-stat t"><div class="cp-num">↓18%</div><div class="cp-lbl">5yr Trend</div></div>
       </div>
 
-      <!-- 2-column inner layout -->
       <div class="cp-grid">
-
-        <!-- LEFT COL: Breakdown + Trend -->
+        <!-- LEFT COL: Crime Trend (mobile-style) -->
         <div class="cp-col">
-          <div class="cp-section-title">Incident Breakdown</div>
-          <div class="cp-source"><span class="cp-source-name">Larceny-Theft</span><span class="cp-source-meta">54,540 · ~149/day</span></div>
-          <div class="cp-source"><span class="cp-source-name">Motor Vehicle Theft</span><span class="cp-source-meta">20,094 · ~55/day</span></div>
-          <div class="cp-source"><span class="cp-source-name">Agg. Assault</span><span class="cp-source-meta">17,038 · ~47/day</span></div>
-          <div class="cp-source"><span class="cp-source-name">Burglary</span><span class="cp-source-meta">11,938 · ~33/day</span></div>
-          <div class="cp-source"><span class="cp-source-name">Homicide</span><span class="cp-source-meta">225 · ~1 every 2 days</span></div>
+          <div style="font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:1.2px;text-align:center;margin-bottom:10px">5-Year Trend (2021–2025)</div>
 
-          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:12px;margin:16px 0 10px;text-align:center">
-            <div style="font-size:13px;font-weight:800;color:#15803D;margin-bottom:3px">Crime Is Trending Down</div>
-            <div style="font-size:11px;color:#16A34A;font-weight:600">Violent ↓18% · Property ↓17% since 2022</div>
+          <!-- Verdict pill -->
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:11px 16px;text-align:center;margin-bottom:12px">
+            <div style="font-size:14px;font-weight:800;color:#15803D">Crime Is Trending Down</div>
           </div>
 
-          <div class="cp-section-title">5-Year Trend (2022–2025)</div>
+          <!-- Two big cards -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+            <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:14px 10px;text-align:center">
+              <div style="font-size:13px;font-weight:700;color:#15803D;margin-bottom:2px">down</div>
+              <div style="font-size:26px;font-weight:800;color:#16A34A;line-height:1.1">18%</div>
+              <div style="font-size:11px;font-weight:600;color:var(--gray-700);margin-top:6px">Violent Crime</div>
+              <div style="font-size:10px;color:var(--gray-400);margin-top:2px">since 2021</div>
+            </div>
+            <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:14px 10px;text-align:center">
+              <div style="font-size:13px;font-weight:700;color:#15803D;margin-bottom:2px">down</div>
+              <div style="font-size:26px;font-weight:800;color:#16A34A;line-height:1.1">17%</div>
+              <div style="font-size:11px;font-weight:600;color:var(--gray-700);margin-top:6px">Property Crime</div>
+              <div style="font-size:10px;color:var(--gray-400);margin-top:2px">since 2021</div>
+            </div>
+          </div>
+
+          <!-- Year table -->
           <div style="display:grid;grid-template-columns:36px 1fr 1fr 46px;gap:5px 8px;align-items:center;font-size:12px">
             <span style="color:var(--navy);font-weight:700">Year</span>
             <span style="color:#DC2626;font-weight:700">Violent</span>
             <span style="color:#2563EB;font-weight:700">Property</span>
             <span style="color:var(--navy);font-weight:700;text-align:right">Change</span>
-            <span style="color:var(--gray-600);font-weight:600">2022</span><span style="color:#DC2626;font-weight:700">31,773</span><span style="color:#2563EB;font-weight:700">105,052</span><span style="color:var(--gray-500);text-align:right">base</span>
-            <span style="color:var(--gray-600);font-weight:600">2023</span><span style="color:#DC2626;font-weight:700">31,048</span><span style="color:#2563EB;font-weight:700">107,956</span><span style="color:#16A34A;font-weight:700;text-align:right">↓2%</span>
-            <span style="color:var(--gray-600);font-weight:600">2024</span><span style="color:#DC2626;font-weight:700">27,727</span><span style="color:#2563EB;font-weight:700">56,970</span><span style="color:#16A34A;font-weight:700;text-align:right">↓11%</span>
-            <span style="color:var(--gray-900);font-weight:800">2025</span><span style="color:#DC2626;font-weight:800">25,925</span><span style="color:#2563EB;font-weight:800">87,093</span><span style="color:#16A34A;font-weight:700;text-align:right">↓6%</span>
+            <span style="color:var(--gray-600);font-weight:600">2021</span><span style="color:#DC2626;font-weight:700">31,773</span><span style="color:#2563EB;font-weight:700">105,052</span><span style="color:var(--gray-500);text-align:right">base</span>
+            <span style="color:var(--gray-600);font-weight:600">2022</span><span style="color:#DC2626;font-weight:700">31,048</span><span style="color:#2563EB;font-weight:700">107,956</span><span style="color:#DC2626;font-weight:700;text-align:right">↑32%</span>
+            <span style="color:var(--gray-600);font-weight:600">2023</span><span style="color:#DC2626;font-weight:700">27,727</span><span style="color:#2563EB;font-weight:700">107,956</span><span style="color:#16A34A;font-weight:700;text-align:right">↓24%</span>
+            <span style="color:var(--gray-600);font-weight:600">2024</span><span style="color:#DC2626;font-weight:700">27,000</span><span style="color:#2563EB;font-weight:700">90,000</span><span style="color:#DC2626;font-weight:700;text-align:right">↑16%</span>
+            <span style="color:var(--gray-900);font-weight:800">2025</span><span style="color:#DC2626;font-weight:800">25,925</span><span style="color:#2563EB;font-weight:800">87,093</span><span style="color:#16A34A;font-weight:700;text-align:right">↓27%</span>
           </div>
+
+          <div style="margin-top:14px;font-size:10px;color:#16A34A;font-weight:600">Source: FBI Crime Data Explorer</div>
         </div>
 
-        <!-- RIGHT COL: News + Offenders + Offenses -->
+        <!-- RIGHT COL: News + Offenders -->
         <div class="cp-col">
           <div class="cp-section-title">🚨 Recent Crime News · Past 12 Months</div>
           <div class="news-card">
@@ -312,26 +318,14 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
           <div class="cp-source"><span class="cp-source-name">📍 Within 100 yards</span><span class="cp-source-meta" style="color:#16A34A;font-weight:600">0 registered</span></div>
           <div class="cp-source"><span class="cp-source-name">📍 Within 300 yards</span><span class="cp-source-meta" style="color:#16A34A;font-weight:600">0 registered</span></div>
           <div class="cp-source"><span class="cp-source-name">📍 Within 1 mile</span><span class="cp-source-meta" style="color:#DC2626;font-weight:600">11 registered</span></div>
-
-          <div class="cp-section-title" style="margin-top:20px">📋 Offenses on Record · 5 of 14</div>
-          <div class="news-card">
-            <div class="news-headline" style="color:var(--gray-700)">Lewd or lascivious acts with a child under 14 years of age</div>
-            <div style="font-size:10px;color:var(--gray-400);margin-top:4px">Convicted: 1994</div>
-          </div>
-          <div class="news-card">
-            <div class="news-headline" style="color:var(--gray-700)">Rape by force or fear</div>
-          </div>
-          <div class="news-card">
-            <div class="news-headline" style="color:var(--gray-700)">Sodomy with person under 14 years or with force</div>
-          </div>
         </div>
-
       </div><!-- end cp-grid -->
 
       <div class="cp-disclaimer" style="margin-top:16px">Data sourced from official government programs. For informational purposes only.</div>
     </div>
   </div>
 </section>
+
 <section class="section-alt" id="features">
   <div class="section reveal">
     <div class="section-label">What You Get</div>
@@ -409,51 +403,19 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
   </div>
 </section>
 
-<section class="testimonials reveal">
-  <div class="test-inner">
-    <div class="section-label" style="text-align:center;display:block">What People Are Saying</div>
-    <h2 class="section-title" style="text-align:center">Real users. Real decisions.</h2>
-    <div class="test-grid">
-      <div class="test-card">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-quote">"The sex offender proximity feature alone is worth it. I searched three neighborhoods we were considering and it completely changed which one we chose for our family."</p>
-        <div class="test-author">
-          <strong>Parent of Two</strong>
-          <span>Naperville, IL</span>
-        </div>
-      </div>
-      <div class="test-card">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-quote">"The 5-year crime trend is what sold me. I could see the neighborhood was improving year over year — that gave me the confidence to make an offer."</p>
-        <div class="test-author">
-          <strong>First-Time Home Buyer</strong>
-          <span>Baltimore, MD</span>
-        </div>
-      </div>
-      <div class="test-card">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-quote">"I was relocating for work and had never been to the area. HomeChata gave me everything — crime data, schools, hospitals, transit — before I even booked a flight to visit."</p>
-        <div class="test-author">
-          <strong>Corporate Relocator</strong>
-          <span>Columbus, OH</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="cta" id="download">
   <h2>Ready to explore your<br>next neighborhood?</h2>
   <p>Download HomeChata and get the complete picture — crime trends, sex offender proximity, and 28+ data points — instantly.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative">
-    <a href="https://apps.apple.com/app/homechata" class="btn-primary">
+    <a href="https://apps.apple.com/app/id6760314190" class="btn-primary">
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/></svg>
       Download for iOS
     </a>
-    <a href="https://play.google.com/store/apps/details?id=com.homechata" class="btn-primary">
+    <span class="btn-coming-soon" style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.3);border-color:rgba(255,255,255,.1)">
+      <span class="coming-tag">COMING SOON</span>
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.86 14.39c.195.09.41.11.625.054l8.142-2.955ZM1.64 1.649C1.563 1.82 1.5 2.03 1.5 2.29v11.42c0 .26.063.47.14.642L7.583 8 1.64 1.65Zm5.943 6.351L10.627 5.04 2.485 2.085c-.215-.057-.43-.037-.625.054L7.583 8Z"/></svg>
-      Download for Android
-    </a>
+      Android
+    </span>
   </div>
 </section>
 
@@ -463,13 +425,17 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="/cdn-cgi/l/email-protection#75161a1b01141601351d1a1810161d1401145b161a18">Contact</a>
+      <a href="mailto:contact@homechata.com">Contact</a>
     </div>
     <div class="footer-copy">&copy; 2026 Mainali Software Enterprises LLC. All rights reserved.</div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10)});
 document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('hidden')});
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');e.targe
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');e.target.classList.add('visible')}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>
