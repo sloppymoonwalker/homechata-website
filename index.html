@@ -83,19 +83,20 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .cc-tile-red{background:#FFF5F5;border-color:#FECACA}
 .cc-tile-blue{background:#EFF6FF;border-color:#BFDBFE}
 .cc-tile-green{background:#F0FDF4;border-color:#BBF7D0}
-.cc-tile-num{font-size:16px;font-weight:800;color:var(--gray-900)}
+.cc-tile-num{font-size:21px;font-weight:800;color:var(--gray-900)}
 .cc-tile-red .cc-tile-num{color:#DC2626}
 .cc-tile-blue .cc-tile-num{color:#2563EB}
 .cc-tile-green .cc-tile-num{color:#16A34A}
-.cc-tile-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-400);font-weight:600;margin-top:3px}
+.cc-tile-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-900);font-weight:600;margin-top:3px}
 /* Verdict + pct cards */
 .cc-verdict{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:10px;text-align:center;font-size:13px;font-weight:800;color:#15803D;margin-bottom:12px}
 .cc-pct-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
 .cc-pct-card{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:14px 10px;text-align:center}
-.cc-pct-dir{font-size:12px;font-weight:700;color:#15803D}
+.cc-pct-card-red{background:#FFF5F5;border-color:#FECACA}
+.cc-pct-dir{font-size:28px;font-weight:800;color:#15803D}
 .cc-pct-val{font-size:28px;font-weight:800;color:#16A34A;line-height:1.1}
-.cc-pct-lbl{font-size:11px;font-weight:600;color:var(--gray-700);margin-top:6px}
-.cc-pct-sub{font-size:10px;color:var(--gray-400);margin-top:2px}
+.cc-pct-lbl{font-size:11px;font-weight:600;color:var(--gray-900);margin-top:6px}
+.cc-pct-sub{font-size:10px;color:var(--gray-900);margin-top:2px}
 /* Bottom two-column */
 .cc-bottom{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:20px;border-top:1px solid var(--gray-100)}
 .cc-col{text-align:center}
@@ -112,14 +113,21 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .cc-table-bold td{font-weight:800;color:var(--gray-900)!important}
 .cc-source{font-size:10px;color:#16A34A;font-weight:600;margin-top:10px}
 /* News */
-.cc-news{display:flex;flex-direction:column;gap:8px}
-.cc-news-item{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:10px 12px}
+.cc-news{display:flex;flex-direction:column;gap:8px;text-align:left}
+.cc-news-item{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:10px 12px;text-align:left}
 .cc-news-meta{display:flex;justify-content:space-between;margin-bottom:4px}
 .cc-news-date{font-size:10px;font-weight:700;color:var(--navy)}
 .cc-news-src{font-size:10px;color:var(--gray-400)}
 .cc-news-headline{font-size:11px;line-height:1.55;color:var(--gray-700)}
-/* Offenders */
-.cc-offenders{display:flex;flex-direction:column;gap:0}
+/* Incident breakdown */
+.cc-breakdown{display:flex;flex-direction:column;gap:0}
+.cc-break-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--gray-100);text-align:left}
+.cc-break-row:last-child{border-bottom:none}
+.cc-break-bold{font-weight:800}
+.cc-break-name{font-size:11px;color:var(--gray-700);font-weight:500}
+.cc-break-num{font-size:12px;font-weight:800;color:var(--gray-900);display:block;text-align:right}
+.cc-break-sub{font-size:9px;color:var(--gray-900);display:block;text-align:right}
+.cc-offender-count.orange{color:#D97706;background:#FFFBEB}
 .cc-offender-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--gray-100)}
 .cc-offender-row:last-child{border-bottom:none}
 .cc-offender-range{font-size:12px;color:var(--gray-700);font-weight:500}
@@ -130,7 +138,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 @media(max-width:900px){
   .crime-outer{grid-template-columns:1fr;gap:36px}
   .cc-tiles{grid-template-columns:repeat(2,1fr)}
-  .cc-bottom{grid-template-columns:1fr}
+  .cc-bottom{grid-template-columns:1fr!important}
 }
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 .step-card{text-align:center;padding:32px 20px}
@@ -194,7 +202,7 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
     <h3>Why use HomeChata?</h3>
     <div class="why-points">
       <div class="why-item"><strong>Your biggest investment deserves real intelligence.</strong> Get FBI-verified crime statistics, 5-year crime trends, sex offender proximity, air quality, and community amenities — all before you sign.</div>
-      <div class="why-item"><strong>Know who lives near your next home.</strong> See registered sex offender counts within 100 yards, 300 yards, and 1 mile — sourced directly from official government registry programs.</div>
+      <div class="why-item"><strong>Know who lives near your next home.</strong> See registered sex offender counts within 100 yards, 300 yards, 1 mile, and 2 miles — sourced directly from official government registry programs.</div>
       <div class="why-item"><strong>Crime is trending — know which direction.</strong> See violent and property crime data with 5-year historical trends, so you know if a neighborhood is improving or declining.</div>
       <div class="why-item"><strong>Live closer to what matters.</strong> Schools, hospitals, daycare, parks, gyms, transit, grocery stores — sorted by distance from any address across 28+ categories.</div>
       <div class="why-item"><strong>Free to start. No subscription. Ever.</strong> Get your first full report free — crime data, sex offender proximity, local news, and all 28+ categories. Pay only when you need more.</div>
@@ -272,7 +280,7 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
       <div class="crime-list">
         <div class="crime-item"><div class="crime-item-dot"></div>Violent &amp; property crime counts with 5-year historical trend</div>
         <div class="crime-item"><div class="crime-item-dot"></div>Incident breakdown — homicide, assault, robbery, burglary, larceny</div>
-        <div class="crime-item"><div class="crime-item-dot"></div>Registered sex offender counts at 100yd, 300yd, and 1 mile</div>
+        <div class="crime-item"><div class="crime-item-dot"></div>Registered sex offender counts at 100yd, 300yd, 1 mile, and 2 miles</div>
         <div class="crime-item"><div class="crime-item-dot"></div>Recent local crime news from the past 12 months</div>
         <div class="crime-item"><div class="crime-item-dot"></div>Crime trend verdict — improving, rising, stable, or mixed</div>
       </div>
@@ -284,75 +292,92 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
       <!-- Card header -->
       <div class="cc-header">
         <div class="cc-title">🔍 Crime Data</div>
-        <div class="cc-city">Los Angeles, CA · 2025</div>
+        <div class="cc-city">Arlington, VA · 2025</div>
       </div>
 
       <!-- 4 stat tiles -->
       <div class="cc-tiles">
-        <div class="cc-tile"><div class="cc-tile-num">112,018</div><div class="cc-tile-lbl">Total Crimes</div></div>
-        <div class="cc-tile cc-tile-red"><div class="cc-tile-num">25,925</div><div class="cc-tile-lbl">Violent</div></div>
-        <div class="cc-tile cc-tile-blue"><div class="cc-tile-num">87,093</div><div class="cc-tile-lbl">Property</div></div>
-        <div class="cc-tile cc-tile-green"><div class="cc-tile-num">↓18%</div><div class="cc-tile-lbl">5yr Trend</div></div>
+        <div class="cc-tile"><div class="cc-tile-num">4,754</div><div class="cc-tile-lbl">Total Crimes</div></div>
+        <div class="cc-tile cc-tile-red"><div class="cc-tile-num">671</div><div class="cc-tile-lbl">Violent</div></div>
+        <div class="cc-tile cc-tile-blue"><div class="cc-tile-num">4,083</div><div class="cc-tile-lbl">Property</div></div>
+        <div class="cc-tile cc-tile-red"><div class="cc-tile-num">↑Rising</div><div class="cc-tile-lbl">5yr Trend</div></div>
       </div>
 
-      <!-- Trend verdict + two big % cards -->
-      <div class="cc-verdict">Crime Is Trending Down</div>
+      <!-- Trend verdict -->
+      <div class="cc-verdict" style="background:#FFF5F5;border-color:#FECACA;color:#DC2626">Crime Has Been Rising</div>
+
+      <!-- Two big % cards -->
       <div class="cc-pct-row">
-        <div class="cc-pct-card">
-          <div class="cc-pct-dir">down</div>
-          <div class="cc-pct-val">18%</div>
+        <div class="cc-pct-card cc-pct-card-red">
+          <div class="cc-pct-dir" style="color:#DC2626">up</div>
+          <div class="cc-pct-val" style="color:#DC2626">75%</div>
           <div class="cc-pct-lbl">Violent Crime</div>
           <div class="cc-pct-sub">since 2021</div>
         </div>
-        <div class="cc-pct-card">
-          <div class="cc-pct-dir">down</div>
-          <div class="cc-pct-val">17%</div>
+        <div class="cc-pct-card cc-pct-card-red">
+          <div class="cc-pct-dir" style="color:#DC2626">up</div>
+          <div class="cc-pct-val" style="color:#DC2626">48%</div>
           <div class="cc-pct-lbl">Property Crime</div>
           <div class="cc-pct-sub">since 2021</div>
         </div>
       </div>
 
-      <!-- Two columns below: trend table | news + offenders -->
-      <div class="cc-bottom">
+      <!-- Three columns: breakdown | news | offenders -->
+      <div class="cc-bottom" style="grid-template-columns:1fr 1fr 1fr">
 
-        <!-- Trend table -->
+        <!-- Incident Breakdown -->
         <div class="cc-col">
-          <div class="cc-col-title">5-Year Trend (2021–2025)</div>
-          <table class="cc-table">
-            <thead>
-              <tr><th>Year</th><th style="color:#DC2626">Violent</th><th style="color:#2563EB">Property</th><th>Change</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>2021</td><td style="color:#DC2626;font-weight:700">31,773</td><td style="color:#2563EB;font-weight:700">105,052</td><td style="color:var(--gray-400)">base</td></tr>
-              <tr><td>2022</td><td style="color:#DC2626;font-weight:700">31,048</td><td style="color:#2563EB;font-weight:700">107,956</td><td style="color:#DC2626;font-weight:700">↑32%</td></tr>
-              <tr><td>2023</td><td style="color:#DC2626;font-weight:700">27,727</td><td style="color:#2563EB;font-weight:700">107,956</td><td style="color:#16A34A;font-weight:700">↓24%</td></tr>
-              <tr><td>2024</td><td style="color:#DC2626;font-weight:700">27,000</td><td style="color:#2563EB;font-weight:700">90,000</td><td style="color:#DC2626;font-weight:700">↑16%</td></tr>
-              <tr class="cc-table-bold"><td>2025</td><td style="color:#DC2626">25,925</td><td style="color:#2563EB">87,093</td><td style="color:#16A34A">↓27%</td></tr>
-            </tbody>
-          </table>
-          <div class="cc-source">Source: FBI Crime Data Explorer</div>
+          <div class="cc-col-title">📊 Incident Breakdown</div>
+          <div class="cc-breakdown">
+            <div class="cc-break-row"><span class="cc-break-name">Larceny-Theft</span><div><span class="cc-break-num">3,685</span><span class="cc-break-sub">~10/day</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Agg. Assault</span><div><span class="cc-break-num">418</span><span class="cc-break-sub">~1/day</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Motor Vehicle</span><div><span class="cc-break-num">219</span><span class="cc-break-sub">~1 per 2 days</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Robbery</span><div><span class="cc-break-num">204</span><span class="cc-break-sub">~1 per 2 days</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Burglary</span><div><span class="cc-break-num">172</span><span class="cc-break-sub">~1 per 2 days</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Rape</span><div><span class="cc-break-num">48</span><span class="cc-break-sub">~1 per 8 days</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Arson</span><div><span class="cc-break-num">7</span><span class="cc-break-sub">~1 per 52 days</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Homicide</span><div><span class="cc-break-num">1</span><span class="cc-break-sub">~1 per year</span></div></div>
+          </div>
+          <div class="cc-source" style="text-align:left">Source: FBI Crime Data Explorer</div>
         </div>
 
-        <!-- News + Offenders -->
+        <!-- Recent News -->
         <div class="cc-col">
           <div class="cc-col-title">🚨 Recent Crime News</div>
           <div class="cc-news">
             <div class="cc-news-item">
-              <div class="cc-news-meta"><span class="cc-news-date">Aug 25, 2025</span><span class="cc-news-src">AP News</span></div>
-              <div class="cc-news-headline">Police arrest LA burglary crew suspected in nearly 100 break-ins</div>
+              <div class="cc-news-meta"><span class="cc-news-date">Dec 13, 2025</span><span class="cc-news-src">Police1</span></div>
+              <div class="cc-news-headline">Police report declines in serious crime categories, including nearly 50% drop in aggravated assaults</div>
             </div>
             <div class="cc-news-item">
-              <div class="cc-news-meta"><span class="cc-news-date">Jul 22, 2025</span><span class="cc-news-src">AP News</span></div>
-              <div class="cc-news-headline">Driver charged with 37 counts of attempted murder after ramming nightclub crowd</div>
+              <div class="cc-news-meta"><span class="cc-news-date">Dec 13, 2025</span><span class="cc-news-src">WOSU</span></div>
+              <div class="cc-news-headline">Police working to fix error that led to undercounting of more than 100,000 crimes</div>
+            </div>
+            <div class="cc-news-item">
+              <div class="cc-news-meta"><span class="cc-news-date">Oct 4, 2025</span><span class="cc-news-src">NBC News</span></div>
+              <div class="cc-news-headline">Suspect arrested following string of armed robberies near downtown corridor</div>
+            </div>
+            <div class="cc-news-item">
+              <div class="cc-news-meta"><span class="cc-news-date">Aug 17, 2025</span><span class="cc-news-src">AP News</span></div>
+              <div class="cc-news-headline">Car theft ring dismantled after citywide investigation spanning four months</div>
+            </div>
+            <div class="cc-news-item">
+              <div class="cc-news-meta"><span class="cc-news-date">Jun 23, 2025</span><span class="cc-news-src">Reuters</span></div>
+              <div class="cc-news-headline">Ten people injured in mass shooting in Short North district late Saturday night</div>
             </div>
           </div>
+        </div>
 
-          <div class="cc-col-title" style="margin-top:16px;color:#DC2626">⚠️ Sex Offender Proximity</div>
+        <!-- Sex Offender Proximity -->
+        <div class="cc-col">
+          <div class="cc-col-title">🚔 Sex Offender Proximity</div>
           <div class="cc-offenders">
-            <div class="cc-offender-row"><span class="cc-offender-range">Within 100 yards</span><span class="cc-offender-count green">0</span></div>
-            <div class="cc-offender-row"><span class="cc-offender-range">Within 300 yards</span><span class="cc-offender-count green">0</span></div>
-            <div class="cc-offender-row"><span class="cc-offender-range">Within 1 mile</span><span class="cc-offender-count red">11</span></div>
+            <div class="cc-offender-row"><span class="cc-offender-range">📍 Within 100 yards</span><span class="cc-offender-count green">0</span></div>
+            <div class="cc-offender-row"><span class="cc-offender-range">📍 Within 300 yards</span><span class="cc-offender-count orange">2</span></div>
+            <div class="cc-offender-row"><span class="cc-offender-range">📍 Within 1 mile</span><span class="cc-offender-count orange">17</span></div>
+            <div class="cc-offender-row"><span class="cc-offender-range">📍 Within 2 miles</span><span class="cc-offender-count red">96</span></div>
           </div>
+          <div style="margin-top:12px;font-size:10px;color:#16A34A;font-weight:600;line-height:1.5;text-align:left">Source: U.S. Dept. of Justice<br>National Sex Offender Public Registry</div>
         </div>
 
       </div><!-- end cc-bottom -->
@@ -378,7 +403,7 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
       <div class="feature-card">
         <div class="feature-icon">⚠️</div>
         <h3>Sex Offender Proximity</h3>
-        <p>See the number of registered sex offenders within 100 yards, 300 yards, and 1 mile of any address — sourced from official government sex offender registry programs.</p>
+        <p>See the number of registered sex offenders within 100 yards, 300 yards, 1 mile, and 2 miles of any address — sourced from official government sex offender registry programs.</p>
         <p class="feature-why">Know who lives near your next home before you move in.</p>
       </div>
       <div class="feature-card">
@@ -462,17 +487,13 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="mailto:contact@homechata.com">Contact</a>
+      <a href="/cdn-cgi/l/email-protection#4625292832272532062e292b23252e2732276825292b">Contact</a>
     </div>
     <div class="footer-copy">&copy; 2026 Mainali Software Enterprises LLC. All rights reserved.</div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10)});
 document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('hidden')});
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');e.target.classList.add('visible')}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
-</script>
-</body>
-</html>
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');e.targe
