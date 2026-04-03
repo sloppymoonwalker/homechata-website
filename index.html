@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HomeChata — Know Your Neighborhood Before You Sign</title>
-<meta name="description" content="HomeChata delivers comprehensive neighborhood intelligence — crime data, sex offender proximity, air quality, schools, transit, and 28+ data points — for any U.S. address.">
+<title>HomeChata — See What the Listing Photo Doesn't Show</title>
+<meta name="description" content="Crime trends, sex offenders, schools & air quality for any US address — one free report, 10 seconds. Everything your listing doesn't tell you.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#1F3C88;--navy-dark:#152A61;--navy-deep:#0C1B3D;--navy-light:#2D4FA0;--gold:#C9A84C;--white:#FFFFFF;--gray-50:#F8F9FA;--gray-100:#F1F3F5;--gray-200:#E2E5E9;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151;--gray-900:#111827}
@@ -29,7 +29,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 
 /* DOWNLOAD BUTTONS — now immediately below subheading */
 .hero-buttons{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;margin-bottom:16px}
-.free-badge{display:inline-block;background:linear-gradient(135deg,#C9A84C,#E8C84A);color:var(--navy-deep);padding:14px 32px;border-radius:4px;font-size:15px;font-weight:700;text-align:center;max-width:560px;margin:0 auto 40px;box-shadow:0 4px 20px rgba(201,168,76,0.4);animation:pulse 2s ease-in-out infinite;position:relative}
+.free-badge{display:inline-block;background:linear-gradient(135deg,#C9A84C,#E8C84A);color:var(--navy-deep);padding:14px 36px;border-radius:4px;font-size:16px;font-weight:800;text-align:center;max-width:560px;margin:0 auto 40px;box-shadow:0 4px 20px rgba(201,168,76,0.4);animation:pulse 2s ease-in-out infinite;position:relative;letter-spacing:.8px;text-transform:uppercase}
 .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--white);color:var(--navy);padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;letter-spacing:.2px;min-width:180px}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.2)}
 .btn-coming-soon{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.4);padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;min-width:180px;border:1px solid rgba(255,255,255,.15);cursor:default;position:relative}
@@ -209,9 +209,9 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
 
 <!-- ① HERO — heading + subheading -->
 <section class="hero">
-  <div class="hero-label">Neighborhood Intelligence. Move Confidently.</div>
-  <h1>Know Your Neighborhood<br>Before You Sign</h1>
-  <p class="hero-sub">HomeChata delivers comprehensive neighborhood intelligence — crime trends, sex offender proximity, air quality, schools, transit, and 28+ data points — for any U.S. address, instantly.</p>
+  <div class="hero-label">Real Data. Smart Decisions.</div>
+  <h1>See What the Listing<br>Photo Doesn't Show</h1>
+  <p class="hero-sub">Everything your listing doesn't tell you — crime trends, sex offenders, schools & air quality for any US address. One free report. 10 seconds.</p>
 
   <!-- ② DOWNLOAD BUTTONS — right below subheading -->
   <div class="hero-buttons" id="download">
@@ -226,62 +226,17 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
     </span>
   </div>
 
-  <div class="free-badge">Your first neighborhood report is on us — completely free, no credit card needed.</div>
+  <div class="free-badge">1 FREE REPORT &nbsp;·&nbsp; No Credit Card &nbsp;·&nbsp; No Subscription</div>
 
-  <!-- 28+ category pills -->
-  <div class="hero-pills">
-    <div class="hero-pill"><span>🔍</span> Crime Data</div>
-    <div class="hero-pill"><span>⚠️</span> Sex Offenders</div>
-    <div class="hero-pill"><span>🚨</span> Crime News</div>
-    <div class="hero-pill"><span>🌿</span> Air Quality</div>
-    <div class="hero-pill"><span>🏘️</span> Nearby Cities</div>
-    <div class="hero-pill"><span>🏥</span> Hospitals</div>
-    <div class="hero-pill"><span>🚑</span> Urgent Care</div>
-    <div class="hero-pill"><span>👶</span> Daycare</div>
-    <div class="hero-pill"><span>📚</span> Schools</div>
-    <div class="hero-pill"><span>🎓</span> Universities</div>
-    <div class="hero-pill"><span>🛒</span> Grocery Stores</div>
-    <div class="hero-pill"><span>🚌</span> Bus Stops</div>
-    <div class="hero-pill"><span>🚂</span> Train Stations</div>
-    <div class="hero-pill"><span>✈️</span> Airports</div>
-    <div class="hero-pill"><span>🌳</span> Parks</div>
-    <div class="hero-pill"><span>🐶</span> Dog Parks</div>
-    <div class="hero-pill"><span>🥾</span> Trails & Nature</div>
-    <div class="hero-pill"><span>🚴</span> Bike Trails</div>
-    <div class="hero-pill"><span>🏋️</span> Gym</div>
-    <div class="hero-pill"><span>⛳</span> Golf Courses</div>
-    <div class="hero-pill"><span>🍽️</span> Restaurants</div>
-    <div class="hero-pill"><span>☕</span> Cafes</div>
-    <div class="hero-pill"><span>⚡</span> EV Charging</div>
-    <div class="hero-pill"><span>⛽</span> Gas Stations</div>
-  </div>
 </section>
 
-<!-- STATS BAR -->
-<section class="stats">
-  <div class="stats-inner">
-    <div class="stat"><h3>28+</h3><p>Data Categories</p></div>
-    <div class="stat"><h3>50</h3><p>U.S. States</p></div>
-    <div class="stat"><h3>5yr</h3><p>Crime Trend Data</p></div>
-    <div class="stat"><h3>1mi</h3><p>Offender Radius</p></div>
-  </div>
-</section>
-
-<!-- ③ PUBLIC SAFETY INTELLIGENCE -->
+<!-- PUBLIC SAFETY INTELLIGENCE — directly below free badge -->
 <section class="crime-section" id="crime">
   <div class="crime-outer">
 
     <div class="crime-text">
-      <div class="section-label">Public Safety Intelligence</div>
-      <h2 class="section-title">Crime data &amp; sex offender proximity — in every report</h2>
-      <p style="font-size:15px;line-height:1.75;color:var(--gray-500);margin-bottom:28px">HomeChata delivers authoritative public safety intelligence from official government sources. Every report includes verified crime statistics, 5-year trend analysis, and registered sex offender proximity data.</p>
-      <div class="crime-list">
-        <div class="crime-item"><div class="crime-item-dot"></div>Violent &amp; property crime counts with 5-year historical trend</div>
-        <div class="crime-item"><div class="crime-item-dot"></div>Incident breakdown — homicide, assault, robbery, burglary, larceny</div>
-        <div class="crime-item"><div class="crime-item-dot"></div>Registered sex offender counts at 100yd, 300yd, 1 mile, and 2 miles</div>
-        <div class="crime-item"><div class="crime-item-dot"></div>Recent local crime news from the past 12 months</div>
-        <div class="crime-item"><div class="crime-item-dot"></div>Crime trend verdict — improving, rising, stable, or mixed</div>
-      </div>
+      <div class="section-label" style="display:block;text-align:center">Public Safety Intelligence</div>
+      <h2 class="section-title" style="text-align:center">Crime data &amp; sex offender proximity — in every report</h2>
     </div>
 
     <div class="crime-card">
@@ -367,12 +322,51 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
   </div>
 </section>
 
-<!-- ④ COMPREHENSIVE NEIGHBORHOOD INTELLIGENCE -->
+<!-- STATS BAR -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat"><h3>28+</h3><p>Data Categories</p></div>
+    <div class="stat"><h3>50</h3><p>U.S. States</p></div>
+    <div class="stat"><h3>5yr</h3><p>Crime Trend Data</p></div>
+    <div class="stat"><h3>1mi</h3><p>Offender Radius</p></div>
+  </div>
+</section>
+
+<!-- HERO PILLS -->
+<section class="hero" style="padding:20px 32px 60px;background:linear-gradient(180deg,var(--navy) 0%,var(--navy-light) 100%)">
+  <div class="hero-pills">
+    <div class="hero-pill"><span>🔍</span> Crime Data</div>
+    <div class="hero-pill"><span>⚠️</span> Sex Offenders</div>
+    <div class="hero-pill"><span>🚨</span> Crime News</div>
+    <div class="hero-pill"><span>🌿</span> Air Quality</div>
+    <div class="hero-pill"><span>🏘️</span> Nearby Cities</div>
+    <div class="hero-pill"><span>🏥</span> Hospitals</div>
+    <div class="hero-pill"><span>🚑</span> Urgent Care</div>
+    <div class="hero-pill"><span>👶</span> Daycare</div>
+    <div class="hero-pill"><span>📚</span> Schools</div>
+    <div class="hero-pill"><span>🎓</span> Universities</div>
+    <div class="hero-pill"><span>🛒</span> Grocery Stores</div>
+    <div class="hero-pill"><span>🚌</span> Bus Stops</div>
+    <div class="hero-pill"><span>🚂</span> Train Stations</div>
+    <div class="hero-pill"><span>✈️</span> Airports</div>
+    <div class="hero-pill"><span>🌳</span> Parks</div>
+    <div class="hero-pill"><span>🐶</span> Dog Parks</div>
+    <div class="hero-pill"><span>🥾</span> Trails & Nature</div>
+    <div class="hero-pill"><span>🚴</span> Bike Trails</div>
+    <div class="hero-pill"><span>🏋️</span> Gym</div>
+    <div class="hero-pill"><span>⛳</span> Golf Courses</div>
+    <div class="hero-pill"><span>🍽️</span> Restaurants</div>
+    <div class="hero-pill"><span>☕</span> Cafes</div>
+    <div class="hero-pill"><span>⚡</span> EV Charging</div>
+    <div class="hero-pill"><span>⛽</span> Gas Stations</div>
+  </div>
+</section>
+<!-- COMPREHENSIVE NEIGHBORHOOD INTELLIGENCE -->
 <section class="section-alt" id="features">
   <div class="section reveal">
-    <div class="section-label">What You Get</div>
-    <h2 class="section-title">Comprehensive neighborhood intelligence</h2>
-    <p class="section-desc">From public safety to daily amenities — one address search delivers the complete picture of any neighborhood in the U.S.</p>
+    <div class="section-label" style="display:block;text-align:center">What You Get</div>
+    <h2 class="section-title" style="text-align:center">Everything buyers &amp; renters need before they sign</h2>
+    <p class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto">From public safety to daily amenities — one address search delivers the complete picture of any neighborhood in the U.S.</p>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">🔍</div>
@@ -435,9 +429,9 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
 <!-- ⑤ THREE STEPS -->
 <section id="how">
   <div class="section reveal">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">Three steps to know any neighborhood</h2>
-    <p class="section-desc">Create a free account, get your first report free. Results in seconds.</p>
+    <div class="section-label" style="display:block;text-align:center">How It Works</div>
+    <h2 class="section-title" style="text-align:center">Three steps to know any address</h2>
+    <p class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto">Create a free account, get your first report free. Results in seconds.</p>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">1</div>
@@ -461,9 +455,9 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
 <!-- ⑥ WHY USE HOMECHATA — moved from hero to bottom -->
 <section class="why-section" id="why">
   <div class="why-inner">
-    <div class="section-label">Why HomeChata</div>
-    <h2 class="section-title">Your biggest investment deserves real intelligence</h2>
-    <p class="section-desc">Stop guessing. Stop relying on gut feeling or scattered data across 5 different websites. HomeChata puts everything in one place — free.</p>
+    <div class="section-label" style="display:block;text-align:center">Why HomeChata</div>
+    <h2 class="section-title" style="text-align:center">Your biggest investment deserves real intelligence</h2>
+    <p class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto">Stop guessing. Stop relying on gut feeling or scattered data across 5 different websites. HomeChata puts everything in one place — free.</p>
     <div class="why-points-grid">
       <div class="why-card">
         <div class="why-card-icon">🏠</div>
@@ -501,7 +495,7 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Ready to explore your<br>next neighborhood?</h2>
+  <h2>The data behind every<br>smart home decision</h2>
   <p>Download HomeChata and get the complete picture — crime trends, sex offender proximity, and 28+ data points — instantly.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative">
     <a href="https://apps.apple.com/app/id6760314190" class="btn-primary">
