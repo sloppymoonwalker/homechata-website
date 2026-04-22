@@ -65,7 +65,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .crime-card{background:var(--white);border:1px solid var(--gray-200);border-radius:20px;padding:28px;box-shadow:0 8px 40px rgba(31,60,136,.1)}
 .cc-header{text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--gray-100)}
 .cc-title{font-size:13px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
-.cc-city{font-size:12px;color:var(--gray-400);font-weight:600}
+.cc-city{font-size:12px;color:var(--gray-400);font-weight:600;line-height:1.5}
 .cc-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
 .cc-tile{text-align:center;padding:12px 6px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px}
 .cc-tile-red{background:#FFF5F5;border-color:#FECACA}
@@ -96,7 +96,9 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .cc-news-meta{display:flex;justify-content:space-between;margin-bottom:4px}
 .cc-news-date{font-size:10px;font-weight:700;color:var(--navy)}
 .cc-news-src{font-size:10px;color:var(--gray-400)}
-.cc-news-headline{font-size:11px;line-height:1.55;color:var(--gray-700)}
+.cc-news-headline{display:flex;align-items:center;gap:10px;font-size:11px;line-height:1.55;color:var(--gray-700)}
+.cc-news-headline-text{flex:1}
+.cc-news-chevron{color:var(--navy);font-size:16px;font-weight:700;flex-shrink:0;line-height:1}
 .cc-breakdown{display:flex;flex-direction:column;gap:0}
 .cc-break-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--gray-100);text-align:left}
 .cc-break-row:last-child{border-bottom:none}
@@ -111,6 +113,29 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(-
 .cc-offender-count.orange{color:#D97706;background:#FFFBEB}
 .cc-offender-count.red{color:#DC2626;background:#FFF5F5}
 .cc-disclaimer{margin-top:20px;font-size:10px;color:var(--gray-400);text-align:center;font-style:italic;padding-top:16px;border-top:1px solid var(--gray-100)}
+
+/* 5-YEAR TREND TABLE */
+.cc-trend{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:16px 18px;margin-bottom:20px}
+.cc-trend-title{font-size:11px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy);margin-bottom:12px}
+.cc-trend-table{width:100%;border-collapse:collapse;font-size:12px}
+.cc-trend-table td{padding:8px 4px;border-bottom:1px solid var(--gray-200);vertical-align:middle}
+.cc-trend-table tr:last-child td{border-bottom:none}
+.cc-trend-year{font-weight:700;color:var(--gray-900);white-space:nowrap}
+.cc-trend-v{color:#DC2626;font-weight:700;white-space:nowrap}
+.cc-trend-p{color:#2563EB;font-weight:700;white-space:nowrap}
+.cc-trend-lbl{color:var(--gray-500);font-weight:400;margin-left:3px;font-size:11px}
+.cc-trend-chg{text-align:right;white-space:nowrap;font-weight:700;font-size:11px}
+.cc-trend-chg .v-chg{color:#DC2626;margin-right:6px}
+.cc-trend-chg .p-chg{color:#2563EB}
+.cc-trend-chg .base{color:var(--gray-400);font-weight:500;font-style:italic}
+.cc-trend-source{font-size:10px;color:#16A34A;font-weight:600;text-align:left;margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-200)}
+@media(max-width:600px){
+  .cc-trend-table{font-size:10px}
+  .cc-trend-table td{padding:7px 1px}
+  .cc-trend-lbl{font-size:9px;margin-left:2px}
+  .cc-trend-chg{font-size:10px}
+  .cc-trend-chg .v-chg{margin-right:3px}
+}
 
 /* FEATURES */
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -242,41 +267,77 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
     <div class="crime-card">
       <div class="cc-header">
         <div class="cc-title">🔍 Crime Data</div>
-        <div class="cc-city">Arlington, VA · 2025</div>
+        <div class="cc-city">📍 1600 Pennsylvania Avenue Northwest, Washington, DC, USA · 2025</div>
       </div>
       <div class="cc-tiles">
-        <div class="cc-tile"><div class="cc-tile-num">4,754</div><div class="cc-tile-lbl">Total Crimes</div></div>
-        <div class="cc-tile cc-tile-red"><div class="cc-tile-num">671</div><div class="cc-tile-lbl">Violent</div></div>
-        <div class="cc-tile cc-tile-blue"><div class="cc-tile-num">4,083</div><div class="cc-tile-lbl">Property</div></div>
+        <div class="cc-tile"><div class="cc-tile-num">26,401</div><div class="cc-tile-lbl">Total Crimes</div></div>
+        <div class="cc-tile cc-tile-red"><div class="cc-tile-num">5,173</div><div class="cc-tile-lbl">Violent</div></div>
+        <div class="cc-tile cc-tile-blue"><div class="cc-tile-num">21,228</div><div class="cc-tile-lbl">Property</div></div>
         <div class="cc-tile cc-tile-red"><div class="cc-tile-num">↑Rising</div><div class="cc-tile-lbl">5yr Trend</div></div>
       </div>
       <div class="cc-verdict" style="background:#FFF5F5;border-color:#FECACA;color:#DC2626">Crime Has Been Rising</div>
       <div class="cc-pct-row">
         <div class="cc-pct-card cc-pct-card-red">
           <div class="cc-pct-dir" style="color:#DC2626">up</div>
-          <div class="cc-pct-val" style="color:#DC2626">75%</div>
+          <div class="cc-pct-val" style="color:#DC2626">108%</div>
           <div class="cc-pct-lbl">Violent Crime</div>
           <div class="cc-pct-sub">since 2021</div>
         </div>
         <div class="cc-pct-card cc-pct-card-red">
           <div class="cc-pct-dir" style="color:#DC2626">up</div>
-          <div class="cc-pct-val" style="color:#DC2626">48%</div>
+          <div class="cc-pct-val" style="color:#DC2626">86%</div>
           <div class="cc-pct-lbl">Property Crime</div>
           <div class="cc-pct-sub">since 2021</div>
         </div>
       </div>
+
+      <!-- 5-YEAR TREND TABLE (year-by-year) -->
+      <div class="cc-trend">
+        <div class="cc-trend-title">5-Year Trend (2021–2025)</div>
+        <table class="cc-trend-table">
+          <tr>
+            <td class="cc-trend-year">2021</td>
+            <td><span class="cc-trend-v">2,490</span><span class="cc-trend-lbl">violent</span></td>
+            <td><span class="cc-trend-p">11,421</span><span class="cc-trend-lbl">property</span></td>
+            <td class="cc-trend-chg"><span class="base">base</span></td>
+          </tr>
+          <tr>
+            <td class="cc-trend-year">2022</td>
+            <td><span class="cc-trend-v">5,041</span><span class="cc-trend-lbl">violent</span></td>
+            <td><span class="cc-trend-p">23,523</span><span class="cc-trend-lbl">property</span></td>
+            <td class="cc-trend-chg"><span class="v-chg">↑102%</span><span class="p-chg">↑106%</span></td>
+          </tr>
+          <tr>
+            <td class="cc-trend-year">2023</td>
+            <td><span class="cc-trend-v">7,147</span><span class="cc-trend-lbl">violent</span></td>
+            <td><span class="cc-trend-p">28,288</span><span class="cc-trend-lbl">property</span></td>
+            <td class="cc-trend-chg"><span class="v-chg">↑42%</span><span class="p-chg">↑20%</span></td>
+          </tr>
+          <tr>
+            <td class="cc-trend-year">2024</td>
+            <td><span class="cc-trend-v">6,569</span><span class="cc-trend-lbl">violent</span></td>
+            <td><span class="cc-trend-p">25,423</span><span class="cc-trend-lbl">property</span></td>
+            <td class="cc-trend-chg"><span class="v-chg">↓8%</span><span class="p-chg">↓10%</span></td>
+          </tr>
+          <tr>
+            <td class="cc-trend-year">2025</td>
+            <td><span class="cc-trend-v">5,173</span><span class="cc-trend-lbl">violent</span></td>
+            <td><span class="cc-trend-p">21,228</span><span class="cc-trend-lbl">property</span></td>
+            <td class="cc-trend-chg"><span class="v-chg">↓21%</span><span class="p-chg">↓17%</span></td>
+          </tr>
+        </table>
+        <div class="cc-trend-source">Source: FBI Crime Data Explorer</div>
+      </div>
+
       <div class="cc-bottom">
         <div class="cc-col">
           <div class="cc-col-title">📊 Incident Breakdown</div>
           <div class="cc-breakdown">
-            <div class="cc-break-row"><span class="cc-break-name">Larceny-Theft</span><div><span class="cc-break-num">3,685</span><span class="cc-break-sub">~10/day</span></div></div>
-            <div class="cc-break-row"><span class="cc-break-name">Agg. Assault</span><div><span class="cc-break-num">418</span><span class="cc-break-sub">~1/day</span></div></div>
-            <div class="cc-break-row"><span class="cc-break-name">Motor Vehicle</span><div><span class="cc-break-num">219</span><span class="cc-break-sub">~1 per 2 days</span></div></div>
-            <div class="cc-break-row"><span class="cc-break-name">Robbery</span><div><span class="cc-break-num">204</span><span class="cc-break-sub">~1 per 2 days</span></div></div>
-            <div class="cc-break-row"><span class="cc-break-name">Burglary</span><div><span class="cc-break-num">172</span><span class="cc-break-sub">~1 per 2 days</span></div></div>
-            <div class="cc-break-row"><span class="cc-break-name">Rape</span><div><span class="cc-break-num">48</span><span class="cc-break-sub">~1 per 8 days</span></div></div>
-            <div class="cc-break-row"><span class="cc-break-name">Arson</span><div><span class="cc-break-num">7</span><span class="cc-break-sub">~1 per 52 days</span></div></div>
-            <div class="cc-break-row"><span class="cc-break-name">Homicide</span><div><span class="cc-break-num">1</span><span class="cc-break-sub">~1 per year</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Larceny-Theft</span><div><span class="cc-break-num">15,393</span><span class="cc-break-sub">~42/day</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Motor Vehicle</span><div><span class="cc-break-num">4,498</span><span class="cc-break-sub">~12/day</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Agg. Assault</span><div><span class="cc-break-num">2,701</span><span class="cc-break-sub">~7/day</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Robbery</span><div><span class="cc-break-num">2,194</span><span class="cc-break-sub">~6/day</span></div></div>
+            <div class="cc-break-row"><span class="cc-break-name">Burglary</span><div><span class="cc-break-num">1,337</span><span class="cc-break-sub">~4/day</span></div></div>
           </div>
           <div class="cc-source" style="text-align:left">Source: FBI Crime Data Explorer</div>
         </div>
@@ -284,24 +345,24 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
           <div class="cc-col-title">🚨 Recent Crime News</div>
           <div class="cc-news">
             <div class="cc-news-item">
-              <div class="cc-news-meta"><span class="cc-news-date">Dec 13, 2025</span><span class="cc-news-src">Police1</span></div>
-              <div class="cc-news-headline">Police report declines in serious crime categories, including nearly 50% drop in aggravated assaults</div>
+              <div class="cc-news-meta"><span class="cc-news-date">2026-03-31</span><span class="cc-news-src">The Washington Post</span></div>
+              <div class="cc-news-headline"><span class="cc-news-headline-text">Police arrest suspect in gruesome slaying in historic D.C. neighborhood</span><span class="cc-news-chevron">›</span></div>
             </div>
             <div class="cc-news-item">
-              <div class="cc-news-meta"><span class="cc-news-date">Dec 13, 2025</span><span class="cc-news-src">WOSU</span></div>
-              <div class="cc-news-headline">Police working to fix error that led to undercounting of more than 100,000 crimes</div>
+              <div class="cc-news-meta"><span class="cc-news-date">2026-03-30</span><span class="cc-news-src">The Washington Post</span></div>
+              <div class="cc-news-headline"><span class="cc-news-headline-text">Justice Dept. suit challenging D.C.'s ban on AR-15s alarms ex-DOJ attorneys</span><span class="cc-news-chevron">›</span></div>
             </div>
             <div class="cc-news-item">
-              <div class="cc-news-meta"><span class="cc-news-date">Oct 4, 2025</span><span class="cc-news-src">NBC News</span></div>
-              <div class="cc-news-headline">Suspect arrested following string of armed robberies near downtown corridor</div>
+              <div class="cc-news-meta"><span class="cc-news-date">2026-03-20</span><span class="cc-news-src">The Washington Post</span></div>
+              <div class="cc-news-headline"><span class="cc-news-headline-text">Officer fatally shot driver who pulled off during traffic stop, police say</span><span class="cc-news-chevron">›</span></div>
             </div>
             <div class="cc-news-item">
-              <div class="cc-news-meta"><span class="cc-news-date">Aug 17, 2025</span><span class="cc-news-src">AP News</span></div>
-              <div class="cc-news-headline">Car theft ring dismantled after citywide investigation spanning four months</div>
+              <div class="cc-news-meta"><span class="cc-news-date">2026-03-18</span><span class="cc-news-src">The Washington Post</span></div>
+              <div class="cc-news-headline"><span class="cc-news-headline-text">Walgreens robberies rattled D.C.'s Chinatown. The ringleader is going to prison.</span><span class="cc-news-chevron">›</span></div>
             </div>
             <div class="cc-news-item">
-              <div class="cc-news-meta"><span class="cc-news-date">Jun 23, 2025</span><span class="cc-news-src">Reuters</span></div>
-              <div class="cc-news-headline">Ten people injured in mass shooting in Short North district late Saturday night</div>
+              <div class="cc-news-meta"><span class="cc-news-date">2026-03-14</span><span class="cc-news-src">The Washington Post</span></div>
+              <div class="cc-news-headline"><span class="cc-news-headline-text">Pardoned Jan. 6 rioter accused of touching officer at Capitol</span><span class="cc-news-chevron">›</span></div>
             </div>
           </div>
         </div>
@@ -523,7 +584,12 @@ footer{background:var(--navy-deep);padding:40px 32px;border-top:1px solid rgba(2
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10)});
 document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('hidden')});
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');e.targ
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('hidden');e.target.classList.add('visible');obs.unobserve(e.target);}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>
