@@ -342,6 +342,49 @@ img{max-width:100%;display:block}
 
 /* ==== FINAL CTA ==== */
 .blue-bottom{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%)}
+/* Pricing */
+.pricing{background:var(--bg-soft);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft)}
+.price-heading{font-size:clamp(25px,3vw,32px);font-weight:800;color:var(--text);line-height:1.15;letter-spacing:-.8px;max-width:600px;margin:0 auto 12px}
+.price-sub{max-width:560px;margin:0 auto;font-size:15px;color:var(--text-2)}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:960px;margin:38px auto 0;align-items:stretch}
+.price-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 18px;text-align:left;box-shadow:0 8px 22px -18px rgba(15,23,42,.22)}
+.price-card.featured{border:1.5px solid var(--navy-2);box-shadow:0 14px 32px -20px rgba(31,60,136,.4)}
+.price-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);color:#fff;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:5px 11px;border-radius:100px;white-space:nowrap}
+.price-tier{font-size:13px;font-weight:700;color:var(--navy-2);letter-spacing:.2px;margin-bottom:8px}
+.price-amount{font-size:27px;font-weight:800;color:var(--text);letter-spacing:-1px;line-height:1}
+.price-unit{font-size:12px;color:var(--text-3);margin-top:5px}
+.price-reports{margin:12px 0 2px;font-size:13.5px;font-weight:700;color:var(--text)}
+.price-features{list-style:none;margin:12px 0 18px;padding:0;display:flex;flex-direction:column;gap:8px;flex:1}
+.price-features li{position:relative;padding-left:23px;font-size:13px;color:var(--text-2);line-height:1.4}
+.price-features li::before{content:"";position:absolute;left:0;top:1px;width:15px;height:15px;border-radius:50%;background:var(--green-soft)}
+.price-features li::after{content:"";position:absolute;left:4.5px;top:5px;width:5px;height:2.5px;border-left:1.6px solid var(--green);border-bottom:1.6px solid var(--green);transform:rotate(-45deg)}
+.price-cta{display:block;text-align:center;padding:10px 14px;border-radius:100px;font-size:13px;font-weight:700;transition:all .2s;background:var(--bg-tint);color:var(--navy);border:1px solid rgba(59,91,219,.18)}
+.price-cta:hover{background:#E3ECFF}
+.price-card.featured .price-cta{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);color:#fff;border:none}
+.price-card.featured .price-cta:hover{filter:brightness(1.06)}
+.price-note{text-align:center;max-width:600px;margin:26px auto 0;font-size:12.5px;color:var(--text-3);line-height:1.6}
+@media(max-width:980px){.price-grid{grid-template-columns:repeat(2,1fr);max-width:520px}}
+@media(max-width:560px){.price-grid{grid-template-columns:1fr;max-width:340px}}
+.price-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+.price-modal.open{opacity:1;visibility:visible}
+.price-modal-backdrop{position:absolute;inset:0;background:rgba(10,18,38,.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.price-modal-card{position:relative;background:#fff;border-radius:24px;max-width:460px;width:100%;padding:34px 30px 26px;box-shadow:0 50px 110px -30px rgba(15,23,42,.55);transform:translateY(16px) scale(.97);transition:transform .3s cubic-bezier(.2,.7,.2,1);max-height:88vh;overflow-y:auto;text-align:center}
+.price-modal.open .price-modal-card{transform:none}
+.ptable{margin:22px auto 0;max-width:410px;border:1px solid var(--border);border-radius:16px;overflow:hidden;text-align:left;box-shadow:0 12px 34px -22px rgba(15,23,42,.28)}
+.prow{display:flex;align-items:center;gap:13px;padding:15px 16px;border-top:1px solid var(--border-soft)}
+.prow:first-child{border-top:none}
+.prow.featured{background:var(--bg-tint)}
+.prow-main{flex:1;min-width:0}
+.prow-name{font-size:15px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;line-height:1.2}
+.prow-pop{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff;background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);padding:3px 8px;border-radius:100px;white-space:nowrap}
+.prow-sub{font-size:12.5px;color:var(--text-3);font-weight:600;margin-top:2px}
+.prow.featured .prow-sub{color:var(--navy-2)}
+.prow-price{flex:none;font-size:18px;font-weight:800;color:var(--text);letter-spacing:-.5px}
+.price-cta.primary{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);color:#fff;border:none}
+.price-cta.primary:hover{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);filter:brightness(1.07)}
+.pm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px;padding-top:8px;text-align:left}
+.pm-grid .price-card{box-shadow:0 6px 18px -14px rgba(15,23,42,.2)}
+@media(max-width:600px){.pm-grid{grid-template-columns:1fr;gap:16px}.price-modal-card{padding:28px 20px 22px}}
 .final-cta{padding:40px 28px;background:transparent;text-align:center;color:white;position:relative;overflow:hidden}
 .final-cta-inner{position:relative;max-width:760px;margin:0 auto}
 .final-cta h2{font-size:clamp(36px,4.5vw,56px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:18px}
@@ -574,9 +617,12 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   .dark-section h2{font-size:36px}
 }
 @media(max-width:640px){
-  .nav-links{display:none}
+  html{scroll-padding-top:118px}
+  .nav-links{display:flex;order:3;flex-basis:100%;width:100%;justify-content:center;gap:22px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-top:2px}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{font-size:13px;white-space:nowrap}
+  .nav-inner{padding:12px 20px;flex-wrap:wrap;row-gap:11px}
   .promo-badge{white-space:normal;font-size:11px;letter-spacing:.3px;padding:9px 16px;line-height:1.6}
-  .nav-inner{padding:14px 20px}
   .hero{padding:50px 20px 40px}
   .section{padding:70px 20px}
   .pdf-section{padding:70px 20px}
@@ -656,13 +702,17 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 /* Cards slide inward and overlap the phone edges as the screen narrows (never below) */
 @media(max-width:1180px){.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel{--px:175px}}
 @media(max-width:900px){.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel{--px:60px;--pw:190px}}
-@media(max-width:680px){.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel{--px:34px;--pw:162px}
+@media(max-width:680px){.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel{--px:34px;--pw:170px}
   .cpill{gap:9px;padding:11px 12px}
   .cpill-ic{width:30px;height:30px}
   .cpill-title{font-size:12.5px}.cpill-sub{font-size:10.5px}
+  .cp1,.cp2,.cp3{left:0}
+  .cp4,.cp5,.cp6{right:0}
 }
-@media(max-width:440px){.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel{--px:12px;--pw:132px}
-  .cpill-title{font-size:11.5px}.cpill-sub{font-size:9.5px;white-space:normal}
+@media(max-width:440px){.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel{--px:12px;--pw:140px}
+  .cpill{gap:7px;padding:10px 11px}
+  .cpill-ic{width:26px;height:26px}
+  .cpill-title{font-size:11px}.cpill-sub{font-size:9.5px;white-space:normal}
 }
 
 /* ==== REALISTIC IPHONE MOCKUP (hero screen 1) ==== */
@@ -769,7 +819,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
       <img class="nav-logo-mark" src="data:image/png;base64,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" alt="HomeChata">
       HomeChata
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#crime">Crime</a>
       <a href="#demographics">Demographics</a>
       <a href="#risk">Risk</a>
@@ -891,13 +941,13 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
               <div class="ip-nav"><span>&larr; Home</span><span>Report Issue</span></div>
               <div class="ip-title">Area Insights</div>
               <div class="ip-addr">
-                <span class="ip-pin">📍</span> 175 Northwest 1st Avenue, Miami, FL, USA
+                <span class="ip-pin">📍</span> 5124 Woodhaven Ln, Lake Highlands, Dallas, TX, USA
                 <svg class="ip-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>
               </div>
               <div class="ip-divider"></div>
               <div class="ip-section">🔍 Crime Data</div>
               <div class="ip-banner">
-                <div class="ip-banner-title">Miami Police Department · 2025</div>
+                <div class="ip-banner-title">Dallas Police Department · 2025</div>
                 <div class="ip-banner-sub">FBI UCR Program</div>
               </div>
               <div class="ip-stats">
@@ -978,7 +1028,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
               <div class="ip-nav"><span>&larr; Home</span><span>Report Issue</span></div>
               <div class="ip-title">Area Insights</div>
               <div class="ip-addr">
-                <span class="ip-pin">📍</span> 3000 Main St, Main Street District, Dallas, TX, USA
+                <span class="ip-pin">📍</span> 5124 Woodhaven Ln, Lake Highlands, Dallas, TX, USA
                 <svg class="ip-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>
               </div>
               <div class="ip-divider"></div>
@@ -1056,7 +1106,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
               <div class="ip-nav"><span>&larr; Home</span><span>Report Issue</span></div>
               <div class="ip-title">Area Insights</div>
               <div class="ip-addr">
-                <span class="ip-pin">📍</span> 3000 Main St, Main Street District, Dallas, TX, USA
+                <span class="ip-pin">📍</span> 5124 Woodhaven Ln, Lake Highlands, Dallas, TX, USA
                 <svg class="ip-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>
               </div>
               <div class="ip-divider"></div>
@@ -1099,8 +1149,8 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
           <span><div class="cpill-title">Schools</div><div class="cpill-sub">0.4 mi away</div></span>
         </div>
         <div class="cpill amber cp2">
-          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
-          <span><div class="cpill-title">Costco</div><div class="cpill-sub">5.9 mi away</div></span>
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>
+          <span><div class="cpill-title">Wholesalers</div><div class="cpill-sub">Sam's Club · 2.3 mi</div></span>
         </div>
         <div class="cpill red cp3">
           <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span>
@@ -1140,12 +1190,12 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
               <div class="ip-nav"><span>&larr; Home</span><span>Report Issue</span></div>
               <div class="ip-title">Area Insights</div>
               <div class="ip-addr">
-                <span class="ip-pin">📍</span> 3000 Main St, Main Street District, Dallas, TX, USA
+                <span class="ip-pin">📍</span> 5124 Woodhaven Ln, Lake Highlands, Dallas, TX, USA
                 <svg class="ip-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>
               </div>
               <div class="ip-divider"></div>
               <div class="ip-amgrp">
-                <div class="ip-amhd">📦 Wholesalers</div>
+                <div class="ip-amhd">🛒 Wholesalers</div>
                 <div class="ip-amrow"><div class="ip-aml"><div class="ip-amnm">Sam's Club Now</div></div><div class="ip-amr">2.3 mi · <span class="st">★</span>4.2<span class="ch">›</span></div></div>
                 <div class="ip-amrow"><div class="ip-aml"><div class="ip-amnm">Costco Business Center</div></div><div class="ip-amr">5.9 mi · <span class="st">★</span>4.6<span class="ch">›</span></div></div>
                 <div class="ip-amrow"><div class="ip-aml"><div class="ip-amnm">BJ's Wholesale Club</div></div><div class="ip-amr">15.4 mi · <span class="st">★</span>3.9<span class="ch">›</span></div></div>
@@ -1198,6 +1248,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
       HomeChata
     </div>
     <div class="footer-links">
+      <a href="#" data-open-pricing>Pricing</a>
       <a href="https://homechata.com/privacy.html">Privacy</a>
       <a href="https://homechata.com/terms.html">Terms</a>
       <a href="mailto:contact@homechata.com">Contact</a>
@@ -1206,6 +1257,50 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   </div>
 </footer>
 </div>
+
+<!-- PRICING MODAL -->
+<div class="price-modal" id="priceModal" aria-hidden="true" role="dialog" aria-label="HomeChata pricing">
+  <div class="price-modal-backdrop" data-pmclose></div>
+  <div class="price-modal-card">
+    <button class="rev-modal-close" data-pmclose type="button" aria-label="Close pricing">&times;</button>
+    <div>
+      <span class="section-eyebrow">Pricing</span>
+      <h2 class="price-heading" style="margin-top:6px">Simple, one-time pricing</h2>
+    </div>
+    <div class="ptable">
+      <div class="prow">
+        <div class="prow-main">
+          <div class="prow-name">Free</div>
+          <div class="prow-sub">1 report</div>
+        </div>
+        <div class="prow-price">$0</div>
+      </div>
+      <div class="prow">
+        <div class="prow-main">
+          <div class="prow-name">Starter Pack</div>
+          <div class="prow-sub">5 reports</div>
+        </div>
+        <div class="prow-price">$12.99</div>
+      </div>
+      <div class="prow featured">
+        <div class="prow-main">
+          <div class="prow-name">Value Pack <span class="prow-pop">Popular</span></div>
+          <div class="prow-sub">10 reports</div>
+        </div>
+        <div class="prow-price">$21.99</div>
+      </div>
+      <div class="prow">
+        <div class="prow-main">
+          <div class="prow-name">Pro Pack</div>
+          <div class="prow-sub">15 reports</div>
+        </div>
+        <div class="prow-price">$29.99</div>
+      </div>
+    </div>
+    <a href="#download" class="price-cta primary" data-pmclose style="display:block;max-width:280px;margin:22px auto 0">Get the app</a>
+  </div>
+</div>
+
 
 <script>
 // Nav shadow on scroll
@@ -1255,6 +1350,17 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && modal.classList.contains('open')) closeModal();
   });
+})();
+
+// Pricing modal
+(function(){
+  var pm = document.getElementById('priceModal');
+  if(!pm) return;
+  function openPM(e){ if(e){ e.preventDefault(); } pm.classList.add('open'); pm.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function closePM(){ pm.classList.remove('open'); pm.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open-pricing]'), function(el){ el.addEventListener('click', openPM); });
+  Array.prototype.forEach.call(pm.querySelectorAll('[data-pmclose]'), function(el){ el.addEventListener('click', closePM); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && pm.classList.contains('open')) closePM(); });
 })();
 </script>
 </body>
