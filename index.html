@@ -618,7 +618,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 }
 @media(max-width:640px){
   html{scroll-padding-top:118px}
-  .nav-links{display:flex;order:3;flex-basis:100%;width:100%;justify-content:center;gap:22px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-top:2px}
+  .nav-links{display:flex;order:3;flex-basis:100%;width:100%;justify-content:center;gap:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-top:2px}
   .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{font-size:13px;white-space:nowrap}
   .nav-inner{padding:12px 20px;flex-wrap:wrap;row-gap:11px}
@@ -706,8 +706,9 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   .cpill{gap:9px;padding:11px 12px}
   .cpill-ic{width:30px;height:30px}
   .cpill-title{font-size:12.5px}.cpill-sub{font-size:10.5px}
-  .cp1,.cp2,.cp3{left:0}
-  .cp4,.cp5,.cp6{right:0}
+  .stack-card{overflow:visible}
+  .cp1,.cp2,.cp3{left:-34px}
+  .cp4,.cp5,.cp6{right:-34px}
 }
 @media(max-width:440px){.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel{--px:12px;--pw:140px}
   .cpill{gap:7px;padding:10px 11px}
@@ -824,6 +825,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
       <a href="#demographics">Demographics</a>
       <a href="#risk">Risk</a>
       <a href="#amenities">Amenities</a>
+      <a href="#" data-open-pricing>Pricing</a>
     </div>
     <a href="#download" class="nav-cta">Get the app</a>
   </div>
