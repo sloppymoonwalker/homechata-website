@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support | HomeChata</title>
+<meta name="description" content="HomeChata support. Contact us, get help with credits and purchases, manage your account, or report a data issue.">
+<style>
+  :root {
+    --navy: #1F3C88;
+    --navy-dark: #142a5f;
+    --ink: #1a1a1a;
+    --muted: #6B7280;
+    --rule: #E2E5E9;
+    --bg: #EEF2FA;
+    --card: #FFFFFF;
+    --toc-bg: #F8F9FA;
+    --tag: #9CA3AF;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Charter, 'Iowan Old Style', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .wrap {
+    max-width: 820px;
+    margin: 32px auto;
+    padding: 56px 48px 64px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--navy);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(31, 60, 136, 0.06);
+  }
+  .page-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--tag);
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 38px;
+    line-height: 1.15;
+    font-weight: 800;
+    color: var(--navy-dark);
+    margin: 0 0 16px;
+    letter-spacing: -0.5px;
+  }
+  .last-updated {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 0;
+  }
+  .intro {
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0 0 32px;
+  }
+  .contact-card {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--navy);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 0 0 36px;
+  }
+  .contact-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--tag);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .contact-email {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--navy-dark);
+    margin: 0 0 10px;
+    letter-spacing: -0.3px;
+    word-break: break-word;
+  }
+  .contact-email a { color: var(--navy-dark); text-decoration: none; }
+  .contact-email a:hover { text-decoration: underline; }
+  .contact-meta {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .toc {
+    background: var(--toc-bg);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 36px 0 48px;
+  }
+  .toc-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--tag);
+    text-transform: uppercase;
+    margin: 0 0 14px;
+  }
+  .toc ol {
+    margin: 0;
+    padding: 0 0 0 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--muted);
+  }
+  .toc ol li::marker { color: var(--tag); }
+  .toc a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  .toc a:hover { color: var(--navy); }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+    margin: 44px 0 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    letter-spacing: -0.2px;
+  }
+  h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 22px 0 8px;
+    letter-spacing: 0.1px;
+  }
+  p { margin: 0 0 14px; color: var(--ink); }
+  .bold-block { font-weight: 700; margin: 0 0 14px; }
+  ul { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 6px; padding-left: 4px; }
+  a { color: var(--navy); }
+  .ack {
+    margin-top: 40px;
+    padding: 20px 24px;
+    background: var(--bg);
+    border-left: 4px solid var(--navy);
+    font-weight: 700;
+    border-radius: 4px;
+  }
+  .footer-links {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .footer-links a { color: var(--muted); text-decoration: none; margin-right: 20px; }
+  .footer-links a:hover { color: var(--navy); }
+  .copyright { margin-top: 12px; font-size: 13px; color: var(--tag); }
+  @media (max-width: 600px) {
+    .wrap { margin: 16px auto; padding: 32px 24px 48px; border-radius: 4px; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 19px; }
+    .contact-card { padding: 22px 20px; }
+    .contact-email { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="page-header">
+    <p class="eyebrow">Support</p>
+    <h1>HomeChata Support</h1>
+    <p class="last-updated">Last Updated: August 8, 2026</p>
+  </header>
+
+  <div class="contact-card">
+    <p class="contact-label">Contact Us</p>
+    <p class="contact-email"><a href="mailto:contact@homechata.com">contact@homechata.com</a></p>
+    <p class="contact-meta">
+      Mainali Software Enterprises LLC<br>
+      We read every message and typically respond within 1&ndash;2 business days.
+    </p>
+  </div>
+
+  <p class="intro">
+    HomeChata is a neighborhood intelligence app for homebuyers and renters. Enter any U.S. address and receive a report covering crime and public safety, registered sex offender proximity, demographic and economic context, flood hazard zones, disaster history, natural hazard risk, radon potential, drinking water quality, air quality, and nearby amenities. The answers below cover the questions we are asked most often. If you do not find what you need, email us directly at the address above.
+  </p>
+
+  <nav class="toc">
+    <p class="toc-title">Table of Contents</p>
+    <ol>
+      <li><a href="#s1">Credits and How They Work</a></li>
+      <li><a href="#s2">Purchases, Restores, and Refunds</a></li>
+      <li><a href="#s3">Account and Sign-In</a></li>
+      <li><a href="#s4">Reports and Data</a></li>
+      <li><a href="#s5">Privacy and Location Access</a></li>
+      <li><a href="#s6">Deleting Your Account</a></li>
+      <li><a href="#s7">Troubleshooting</a></li>
+      <li><a href="#s8">Contact and Response Times</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="s1">1. Credits and How They Work</h2>
+
+  <h3>What is a credit?</h3>
+  <p>One credit is used each time you search an address and view its neighborhood report. Every new account includes one free credit, so you can see a complete report before deciding whether to purchase more.</p>
+
+  <h3>Is HomeChata a subscription?</h3>
+  <p class="bold-block">No. All credit packs are one-time purchases. There are no subscriptions, no automatic renewals, and no recurring charges.</p>
+
+  <h3>Do credits expire?</h3>
+  <p>No. Credits remain on your account until you use them. If you purchase another pack while credits remain, the new credits are added to your existing balance.</p>
+
+  <h3>Will I be charged twice for the same address?</h3>
+  <p>No. If you return to an address you have already viewed, the saved report is returned without consuming an additional credit.</p>
+
+  <h2 id="s2">2. Purchases, Restores, and Refunds</h2>
+
+  <h3>I purchased credits but my balance did not update.</h3>
+  <p>Purchases occasionally take a moment to process. Close the app fully, reopen it, and check your balance again. If it still looks wrong, email us with the approximate date and amount of the purchase and we will correct it.</p>
+
+  <h3>How do I restore purchases on a new device?</h3>
+  <p>Sign in with the same Apple ID or Google account you used originally and your credit balance will follow your account. If your balance does not appear, contact us and we will restore it manually.</p>
+
+  <h3>How do I request a refund?</h3>
+  <p>All payments are processed by the Apple App Store or Google Play Store, and refunds are handled under their respective policies. Apple customers can request a refund at reportaproblem.apple.com. If a technical problem prevented you from using credits you paid for, email us and we will work with you to resolve it.</p>
+
+  <h3>Where can I see what I paid?</h3>
+  <p>Your purchase history is available through your Apple ID or Google Play account. HomeChata does not receive, process, or store payment card information.</p>
+
+  <h2 id="s3">3. Account and Sign-In</h2>
+
+  <h3>How do I create an account?</h3>
+  <p>You can register with your email address, or sign in using your Google account or Apple ID. If you use a third-party provider, we receive only your name and email address.</p>
+
+  <h3>I cannot sign in.</h3>
+  <p>Confirm you are using the same sign-in method you originally registered with — an account created through Apple sign-in is separate from one created with an email address. If you are still locked out, email us from the address associated with your account and we will help.</p>
+
+  <h2 id="s4">4. Reports and Data</h2>
+
+  <h3>The data for my address looks wrong.</h3>
+  <p>Please tell us. Use the <strong>Report Issue</strong> link inside the app, or email us the address along with a description of what looks incorrect. Two things account for most surprises: crime figures depend on which law enforcement agency reports for that address, and Census figures describe the surrounding census tract rather than a single property or block.</p>
+
+  <h3>Why are only a few amenities listed for my address?</h3>
+  <p>Amenity coverage reflects what is present in the underlying location data. Rural areas and newly built developments typically return fewer nearby results than dense urban ones.</p>
+
+  <h3>Does HomeChata rate or score neighborhoods?</h3>
+  <p class="bold-block">No. HomeChata presents factual data from public sources. We do not assign scores, ratings, or recommendations regarding any neighborhood, address, or community. Conclusions are yours to draw.</p>
+
+  <h3>Do you cover addresses outside the United States?</h3>
+  <p>Not at this time. HomeChata draws on U.S. federal, state, and local data sources, so reports are available for U.S. addresses only.</p>
+
+  <h3>Can I save or share a report?</h3>
+  <p>Yes. Reports can be saved to your account and downloaded as a PDF for personal, non-commercial use, including sharing with family members or professionals assisting you with a housing decision.</p>
+
+  <h2 id="s5">5. Privacy and Location Access</h2>
+
+  <h3>Why does the app ask for my location?</h3>
+  <p>Only when you choose to search your current location. We request location access in that moment and do not track, log, or store your location. You can search any address manually without granting location access.</p>
+
+  <h3>What data does HomeChata collect about me?</h3>
+  <p>Your name and email address for your account, the addresses you search in order to generate reports, and standard technical diagnostics. Full detail is available in our <a href="https://homechata.com/privacy.html">Privacy Policy</a>.</p>
+
+  <h3>Do you sell my information?</h3>
+  <p class="bold-block">No. HomeChata does not sell, rent, or trade your personal information to any third party for any purpose.</p>
+
+  <h2 id="s6">6. Deleting Your Account</h2>
+
+  <h3>How do I delete my account?</h3>
+  <p>You can delete your account directly in the app. Open the <strong>Menu</strong> and select <strong>Account Deletion</strong>. No email or request to us is required.</p>
+
+  <h3>What happens when I delete my account?</h3>
+  <ul>
+    <li>Your personal information is permanently deleted within 30 days, except where retention is required for legal, tax, or regulatory compliance</li>
+    <li>Any unused credits are forfeited and cannot be recovered or refunded</li>
+    <li>Saved addresses and reports are removed from your account</li>
+    <li>Transaction records may be retained as required by applicable law</li>
+  </ul>
+  <p class="bold-block">Account deletion is irreversible and cannot be undone.</p>
+  <p>If you have unused credits, use them before deleting — they cannot be transferred to a new account. If you are having a problem with the app, email us first at contact@homechata.com; most issues can be resolved without deleting your account.</p>
+
+  <h2 id="s7">7. Troubleshooting</h2>
+
+  <h3>The app will not load, or a report will not generate.</h3>
+  <p>Check your internet connection, then close the app fully and reopen it. If the problem continues, confirm you are running the latest version from the App Store or Google Play. If it still fails, email us with your device model, operating system version, and the address you were searching.</p>
+
+  <h3>An address is not recognized.</h3>
+  <p>Some address types — including newly built developments, rural routes, tribal lands, and military installations — may not resolve through the official geocoding services we rely on. Try a nearby street address, or contact us and we will look into it.</p>
+
+  <h3>Reporting a bug or requesting a feature</h3>
+  <p>We welcome both. Email contact@homechata.com with as much detail as you can provide. We read every message.</p>
+
+  <h2 id="s8">8. Contact and Response Times</h2>
+  <p>For any question not answered above, please contact us:</p>
+  <p>
+    Mainali Software Enterprises LLC<br>
+    Email: <a href="mailto:contact@homechata.com">contact@homechata.com</a><br>
+    Website: <a href="https://homechata.com">homechata.com</a>
+  </p>
+  <p>Please include your name, the email address associated with your account, and a detailed description of your question or issue. Telling us the address you searched and your device type helps us resolve things faster. We typically respond within 1&ndash;2 business days.</p>
+
+  <div class="ack">Need help with something not covered here? Email contact@homechata.com and we will get back to you.</div>
+
+  <div class="footer-links">
+    <div class="copyright">&copy; 2026 Mainali Software Enterprises LLC</div>
+  </div>
+
+</div>
+
+</body>
+</html>
