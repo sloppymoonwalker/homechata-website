@@ -828,24 +828,13 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .hc-rotator > .stack-card{
   grid-area:1/1;justify-self:center;width:100%;margin:0 auto;
   opacity:0;visibility:hidden;pointer-events:none;
-  transition:opacity .5s ease, visibility 0s linear .5s}
+  /* leaving: fade out first, on its own */
+  transition:opacity .40s cubic-bezier(.4,0,1,1), visibility 0s linear .40s}
 .hc-rotator > .stack-card.is-live{
   opacity:1;visibility:visible;pointer-events:auto;
-  transition:opacity .5s ease, visibility 0s linear 0s}
+  /* arriving: wait for the old panel to clear, then fade up */
+  transition:opacity .50s cubic-bezier(0,0,.2,1) .34s, visibility 0s linear .34s}
 
-.hc-dots{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:28px auto 0}
-.hc-dot-tab{font-family:inherit;font-size:13.5px;font-weight:700;letter-spacing:.2px;
-  color:#5A6B8C;background:#FFFFFF;border:1px solid #DCE4F2;border-radius:999px;
-  padding:9px 17px;cursor:pointer;
-  transition:background .15s,color .15s,border-color .15s}
-.hc-dot-tab:hover{color:#1F3C88;border-color:#B9C8E6}
-.hc-dot-tab:focus-visible{outline:2px solid #1F3C88;outline-offset:2px}
-.hc-dot-tab.is-on{color:#FFFFFF;background:#1F3C88;border-color:#1F3C88}
-
-@media (max-width:600px){
-  .hc-dots{margin-top:20px;gap:6px}
-  .hc-dot-tab{font-size:12.5px;padding:8px 13px}
-}
 </style>
 </head>
 <body>
@@ -1259,13 +1248,6 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
       </div>
     </div>
   </div>
-  </div>
-
-  <div class="hc-dots" role="tablist" aria-label="Report sections">
-    <button type="button" class="hc-dot-tab is-on" role="tab" aria-selected="true">Crime</button>
-    <button type="button" class="hc-dot-tab" role="tab" aria-selected="false">Demographics</button>
-    <button type="button" class="hc-dot-tab" role="tab" aria-selected="false">Risk</button>
-    <button type="button" class="hc-dot-tab" role="tab" aria-selected="false">Amenities</button>
   </div>
 
 </div>
