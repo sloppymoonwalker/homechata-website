@@ -818,6 +818,34 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 @media(max-width:980px){
   .stack-card.hero-panel{gap:24px;padding:34px 22px}
 }
+
+/* ============ ONE ROTATING PANEL (was four stacked sections) ============
+   The four .stack-card panels are unchanged. They are placed in a single
+   grid cell so they overlap, and cross-faded one at a time. The cell takes
+   the height of the tallest panel, so the page never jumps between slides.
+   ====================================================================== */
+.hc-rotator{display:grid;position:relative}
+.hc-rotator > .stack-card{
+  grid-area:1/1;justify-self:center;width:100%;margin:0 auto;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .5s ease, visibility 0s linear .5s}
+.hc-rotator > .stack-card.is-live{
+  opacity:1;visibility:visible;pointer-events:auto;
+  transition:opacity .5s ease, visibility 0s linear 0s}
+
+.hc-dots{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:28px auto 0}
+.hc-dot-tab{font-family:inherit;font-size:13.5px;font-weight:700;letter-spacing:.2px;
+  color:#5A6B8C;background:#FFFFFF;border:1px solid #DCE4F2;border-radius:999px;
+  padding:9px 17px;cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s}
+.hc-dot-tab:hover{color:#1F3C88;border-color:#B9C8E6}
+.hc-dot-tab:focus-visible{outline:2px solid #1F3C88;outline-offset:2px}
+.hc-dot-tab.is-on{color:#FFFFFF;background:#1F3C88;border-color:#1F3C88}
+
+@media (max-width:600px){
+  .hc-dots{margin-top:20px;gap:6px}
+  .hc-dot-tab{font-size:12.5px;padding:8px 13px}
+}
 </style>
 </head>
 <body>
@@ -830,10 +858,10 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
       HomeChata
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#crime">Crime</a>
-      <a href="#demographics">Demographics</a>
-      <a href="#risk">Risk</a>
-      <a href="#amenities">Amenities</a>
+      <a href="#crime" data-cat-link="crime">Crime</a>
+      <a href="#demographics" data-cat-link="demographics">Demographics</a>
+      <a href="#risk" data-cat-link="risk">Risk</a>
+      <a href="#amenities" data-cat-link="amenities">Amenities</a>
       <a href="#" data-open-pricing>Pricing</a>
     </div>
     <a href="#download" class="nav-cta">Get the app</a>
@@ -900,6 +928,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 <!-- STICKY STACK SPOTLIGHTS (cards pile up as you scroll) -->
 <div class="stack-wrap">
   <!-- HERO PANEL: screen 1 (phone + pills + trust) -->
+  <div class="hc-rotator">
   <section class="stack-card hero-panel" id="crime">
     <div class="demo-head">
       <div class="stack-eyebrow"><span class="stack-eyebrow-dot"></span>CRIME DATA</div>
@@ -1230,6 +1259,14 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
       </div>
     </div>
   </div>
+  </div>
+
+  <div class="hc-dots" role="tablist" aria-label="Report sections">
+    <button type="button" class="hc-dot-tab is-on" role="tab" aria-selected="true">Crime</button>
+    <button type="button" class="hc-dot-tab" role="tab" aria-selected="false">Demographics</button>
+    <button type="button" class="hc-dot-tab" role="tab" aria-selected="false">Risk</button>
+    <button type="button" class="hc-dot-tab" role="tab" aria-selected="false">Amenities</button>
+  </div>
 
 </div>
 
@@ -1372,6 +1409,72 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
   Array.prototype.forEach.call(document.querySelectorAll('[data-open-pricing]'), function(el){ el.addEventListener('click', openPM); });
   Array.prototype.forEach.call(pm.querySelectorAll('[data-pmclose]'), function(el){ el.addEventListener('click', closePM); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && pm.classList.contains('open')) closePM(); });
+})();
+
+// One rotating panel in place of the four stacked sections.
+(function(){
+  var INTERVAL = 4000;          // <-- retime the rotation here (milliseconds)
+
+  var rot = document.querySelector('.hc-rotator');
+  if(!rot) return;
+  var panels = rot.querySelectorAll('.stack-card');
+  var tabs   = document.querySelectorAll('.hc-dot-tab');
+  if(!panels.length) return;
+
+  var i = 0, timer = null, paused = false;
+
+  function show(n){
+    i = (n + panels.length) % panels.length;
+    for(var k = 0; k < panels.length; k++){
+      var on = (k === i);
+      panels[k].classList.toggle('is-live', on);
+      panels[k].setAttribute('aria-hidden', on ? 'false' : 'true');
+    }
+    Array.prototype.forEach.call(tabs, function(t, k){
+      var on = (k === i);
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+
+  function next(){ if(!paused) show(i + 1); }
+  function start(){ stop(); timer = setInterval(next, INTERVAL); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+
+  Array.prototype.forEach.call(tabs, function(t, k){
+    t.addEventListener('click', function(){ show(k); start(); });
+  });
+
+  // Nav links keep their #crime / #demographics / #risk / #amenities hrefs,
+  // which still scroll here; this just brings the right panel to the front.
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cat-link]'), function(a){
+    a.addEventListener('click', function(){
+      var key = a.getAttribute('data-cat-link');
+      for(var k = 0; k < panels.length; k++){
+        if(panels[k].id === key){ show(k); start(); return; }
+      }
+    });
+  });
+
+  // Hold the current panel while someone is reading or tabbing through it
+  rot.addEventListener('mouseenter', function(){ paused = true; });
+  rot.addEventListener('mouseleave', function(){ paused = false; });
+  rot.addEventListener('focusin',    function(){ paused = true; });
+  rot.addEventListener('focusout',   function(){ paused = false; });
+
+  show(0);
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced) start();
+
+  if(window.IntersectionObserver){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ if(!reduced && !timer) start(); }
+        else stop();
+      });
+    }, { threshold: 0.2 }).observe(rot);
+  }
 })();
 </script>
 </body>
