@@ -863,6 +863,10 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .reviews-below{background:#FFFFFF;padding:4px 28px 58px}
 .reviews-below .hero-reviews{margin-top:0}
 @media (max-width:600px){.reviews-below{padding:0 20px 44px}}
+
+/* Utilities: the screen is the real app screenshot, so the map is genuine */
+.util-panel .ip-body{padding:0}
+.ip-shot{display:block;width:100%;height:auto}
 </style>
 </head>
 <body>
@@ -1183,27 +1187,19 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
       <div class="cpill-wrap">
         <div class="cpill navy cp1">
           <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"/></svg></span>
-          <span><div class="cpill-title">High-Voltage</div><div class="cpill-sub">About 0.4 miles</div></span>
-        </div>
-        <div class="cpill blue cp2">
-          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M7 22l5-14 5 14M6 8h12M5 14h14"/></svg></span>
-          <span><div class="cpill-title">Structure</div><div class="cpill-sub">Overhead</div></span>
+          <span><div class="cpill-title">High Voltage</div><div class="cpill-sub">About 0.4 miles</div></span>
         </div>
         <div class="cpill amber cp3">
-          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M13.4 10.6 19 5"/><path d="M4.6 19a9 9 0 1 1 14.8 0"/></svg></span>
-          <span><div class="cpill-title">Voltage</div><div class="cpill-sub">69 kV</div></span>
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.6"/><path d="M12 2a9 18 0 0 0 0 20 9 18 0 0 0 0-20Z"/><path d="M3.3 7a18 9 0 0 0 17.4 10A18 9 0 0 0 3.3 7Z"/></svg></span>
+          <span><div class="cpill-title">Radon</div><div class="cpill-sub">EPA zone rating</div></span>
         </div>
-        <div class="cpill navy cp4">
-          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01"/></svg></span>
-          <span><div class="cpill-title">Operator</div><div class="cpill-sub">Northwestern Energy</div></span>
-        </div>
-        <div class="cpill blue cp5">
-          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
-          <span><div class="cpill-title">Status</div><div class="cpill-sub">Not recorded</div></span>
-        </div>
-        <div class="cpill green cp6">
+        <div class="cpill green cp4">
           <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
           <span><div class="cpill-title">Air Quality</div><div class="cpill-sub">AQI 54 · Moderate</div></span>
+        </div>
+        <div class="cpill blue cp6">
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7 6.5 9a7.5 7.5 0 1 0 11 0Z"/></svg></span>
+          <span><div class="cpill-title">Water System</div><div class="cpill-sub">Supplier on record</div></span>
         </div>
       </div>
       <div class="iphone">
@@ -1223,21 +1219,8 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
               </span>
             </div>
             <div class="ip-body">
-              <div class="ip-nav"><span>&larr; Home</span><span>Report Issue</span></div>
-              <div class="ip-title">Area Insights</div>
-              <div class="ip-addr">
-                <span class="ip-pin">📍</span> 5124 Woodhaven Ln, Lake Highlands, Dallas, TX, USA
-                <svg class="ip-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>
-              </div>
-              <div class="ip-divider"></div>
-              <div class="ip-section">⚡ High-Voltage Transmission</div>
-              <div class="ip-frow"><span class="l">Nearest line</span><span class="v">About 0.4 miles</span></div>
-              <div class="ip-frow"><span class="l">Structure</span><span class="v">Overhead</span></div>
-              <div class="ip-frow"><span class="l">Voltage</span><span class="v">69 kV</span></div>
-              <div class="ip-frow"><span class="l">Status</span><span class="v">Not recorded</span></div>
-              <div class="ip-frow"><span class="l">Operator</span><span class="v">Northwestern Energy LLC</span></div>
-              <div class="ip-section" style="margin-top:10px">🌿 Air Quality</div>
-              <div class="ip-aqi">AQI 54 — Moderate<div class="ip-aqi-sub">Dominant pollutant: PM2.5</div></div>
+                <img class="ip-shot" src="utilities-screen.jpg" width="544" height="965" loading="lazy" decoding="async"
+                     alt="HomeChata report section showing the nearest high-voltage transmission line, its structure, voltage, status and operator, with a map of the line relative to the address.">
               <div class="ip-actions">
                 <div class="ip-btn">New Search</div>
                 <div class="ip-btn">Save</div>
