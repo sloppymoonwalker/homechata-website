@@ -829,12 +829,17 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   grid-area:1/1;justify-self:center;width:100%;margin:0 auto;
   opacity:0;visibility:hidden;pointer-events:none;
   /* leaving: fade out first, on its own */
-  transition:opacity .40s cubic-bezier(.4,0,1,1), visibility 0s linear .40s}
+  transition:opacity .50s cubic-bezier(.4,0,1,1), visibility 0s linear .50s}
 .hc-rotator > .stack-card.is-live{
   opacity:1;visibility:visible;pointer-events:auto;
   /* arriving: wait for the old panel to clear, then fade up */
-  transition:opacity .50s cubic-bezier(0,0,.2,1) .34s, visibility 0s linear .34s}
+  transition:opacity .60s cubic-bezier(0,0,.2,1) .38s, visibility 0s linear .38s}
 
+
+/* reviews, now sitting under the rotating screen */
+.reviews-below{background:#FFFFFF;padding:4px 28px 58px}
+.reviews-below .hero-reviews{margin-top:0}
+@media (max-width:600px){.reviews-below{padding:0 20px 44px}}
 </style>
 </head>
 <body>
@@ -874,27 +879,6 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   <div class="trust-pill">
     <span class="trust-pill-dot"></span>
     Trusted by buyers &amp; renters in all 50 states
-  </div>
-
-  <div class="hero-reviews">
-    <div class="hr-card" data-app-title="HomeChata showed safety &amp; amenities">
-      <div class="hr-title">HomeChata showed safety &amp; amenities, helping me feel confident buying my first home</div>
-      <div class="hr-meta"><span class="hr-stars">★★★★★</span><span class="hr-sub">Apr 8 · Dina Money</span></div>
-      <p class="hr-body">Was buying my first home and didn't want to rely only on what the agents and listing said. Homechata gave me much clearer picture of the area...specifically safety and nearby amenities. Helped me feel confident about the decision..</p>
-      <div class="hr-more">Read full review <span class="hr-more-arrow">→</span></div>
-    </div>
-    <div class="hr-card" data-app-title="Recommended !!">
-      <div class="hr-title">Crime data gave me a clear picture of the neighborhood</div>
-      <div class="hr-meta"><span class="hr-stars">★★★★★</span><span class="hr-sub">Apr 29 · Nikki_Vi</span></div>
-      <p class="hr-body">As a first time homebuyer it helped to get all necessary insights…..crime data helped me to get a picture of a neighborhood…..very easy to use and i highly recommend if someone is buying a property or houses !!</p>
-      <div class="hr-more">Read full review <span class="hr-more-arrow">→</span></div>
-    </div>
-    <div class="hr-card" data-app-title="very useful for home buyers">
-      <div class="hr-title">A clear picture of my first home and nearby amenities</div>
-      <div class="hr-meta"><span class="hr-stars">★★★★★</span><span class="hr-sub">Apr 9 · AK.Kaylee</span></div>
-      <p class="hr-body">this app gave me a clear picture of my first home. It showed me all the nearest top 5 amenities….and cities nearby with population. super easy to use and I highly recommend it.</p>
-      <div class="hr-more">Read full review <span class="hr-more-arrow">→</span></div>
-    </div>
   </div>
 </section>
 
@@ -1252,6 +1236,29 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 
 </div>
 
+<section class="reviews-below">
+  <div class="hero-reviews">
+    <div class="hr-card" data-app-title="HomeChata showed safety &amp; amenities">
+      <div class="hr-title">HomeChata showed safety &amp; amenities, helping me feel confident buying my first home</div>
+      <div class="hr-meta"><span class="hr-stars">★★★★★</span><span class="hr-sub">Apr 8 · Dina Money</span></div>
+      <p class="hr-body">Was buying my first home and didn't want to rely only on what the agents and listing said. Homechata gave me much clearer picture of the area...specifically safety and nearby amenities. Helped me feel confident about the decision..</p>
+      <div class="hr-more">Read full review <span class="hr-more-arrow">→</span></div>
+    </div>
+    <div class="hr-card" data-app-title="Recommended !!">
+      <div class="hr-title">Crime data gave me a clear picture of the neighborhood</div>
+      <div class="hr-meta"><span class="hr-stars">★★★★★</span><span class="hr-sub">Apr 29 · Nikki_Vi</span></div>
+      <p class="hr-body">As a first time homebuyer it helped to get all necessary insights…..crime data helped me to get a picture of a neighborhood…..very easy to use and i highly recommend if someone is buying a property or houses !!</p>
+      <div class="hr-more">Read full review <span class="hr-more-arrow">→</span></div>
+    </div>
+    <div class="hr-card" data-app-title="very useful for home buyers">
+      <div class="hr-title">A clear picture of my first home and nearby amenities</div>
+      <div class="hr-meta"><span class="hr-stars">★★★★★</span><span class="hr-sub">Apr 9 · AK.Kaylee</span></div>
+      <p class="hr-body">this app gave me a clear picture of my first home. It showed me all the nearest top 5 amenities….and cities nearby with population. super easy to use and I highly recommend it.</p>
+      <div class="hr-more">Read full review <span class="hr-more-arrow">→</span></div>
+    </div>
+  </div>
+</section>
+
 <div class="blue-bottom">
 <!-- FINAL CTA -->
 <section class="final-cta">
@@ -1395,7 +1402,7 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
 
 // One rotating panel in place of the four stacked sections.
 (function(){
-  var INTERVAL = 4000;          // <-- retime the rotation here (milliseconds)
+  var INTERVAL = 2500;          // <-- retime the rotation here (milliseconds)
 
   var rot = document.querySelector('.hc-rotator');
   if(!rot) return;
