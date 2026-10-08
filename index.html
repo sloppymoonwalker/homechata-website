@@ -825,15 +825,54 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
    the height of the tallest panel, so the page never jumps between slides.
    ====================================================================== */
 .hc-rotator{display:grid;position:relative}
+/* The chassis - bezel, screen, island, side buttons and the six pill cards -
+   is drawn identically by all four panels, so it never fades. Only what is
+   written on it crosses over, the way the app's welcome screen cross-fades a
+   category name while the radar stays put.
+
+   The outgoing panel keeps its content for one more beat (.is-leaving) while
+   its own chassis is made transparent, so it fades out over the incoming
+   panel's chassis instead of doubling every shadow. */
 .hc-rotator > .stack-card{
   grid-area:1/1;justify-self:center;width:100%;margin:0 auto;
-  opacity:0;visibility:hidden;pointer-events:none;
-  /* leaving: fade out first, on its own */
-  transition:opacity .50s cubic-bezier(.4,0,1,1), visibility 0s linear .50s}
+  visibility:hidden;pointer-events:none;z-index:1}
 .hc-rotator > .stack-card.is-live{
-  opacity:1;visibility:visible;pointer-events:auto;
-  /* arriving: wait for the old panel to clear, then fade up */
-  transition:opacity .60s cubic-bezier(0,0,.2,1) .38s, visibility 0s linear .38s}
+  visibility:visible;pointer-events:auto;z-index:2}
+.hc-rotator > .stack-card.is-leaving{
+  visibility:visible;pointer-events:none;z-index:3;
+  background:none;box-shadow:none}
+.hc-rotator > .stack-card.is-leaving .iphone,
+.hc-rotator > .stack-card.is-leaving .iphone-bezel,
+.hc-rotator > .stack-card.is-leaving .iphone-screen,
+.hc-rotator > .stack-card.is-leaving .cpill{
+  background:transparent;border-color:transparent;box-shadow:none}
+.hc-rotator > .stack-card.is-leaving .iphone-island,
+.hc-rotator > .stack-card.is-leaving .iphone-btn{opacity:0}
+
+/* the characters */
+.hc-rotator .demo-head,
+.hc-rotator .ip-status,
+.hc-rotator .ip-body,
+.hc-rotator .cpill > *{
+  opacity:0;transform:translateY(7px) scale(.975);
+  transition:opacity .42s cubic-bezier(.4,0,1,1),transform .42s cubic-bezier(.4,0,1,1)}
+.hc-rotator > .stack-card.is-live .demo-head,
+.hc-rotator > .stack-card.is-live .ip-status,
+.hc-rotator > .stack-card.is-live .ip-body,
+.hc-rotator > .stack-card.is-live .cpill > *{
+  opacity:1;transform:none;
+  transition:opacity .58s cubic-bezier(0,0,.2,1) .42s,transform .58s cubic-bezier(0,0,.2,1) .42s}
+.hc-rotator > .stack-card.is-leaving .demo-head,
+.hc-rotator > .stack-card.is-leaving .ip-status,
+.hc-rotator > .stack-card.is-leaving .ip-body,
+.hc-rotator > .stack-card.is-leaving .cpill > *{
+  opacity:0;transform:translateY(-7px) scale(1.025);
+  transition:opacity .42s cubic-bezier(.4,0,1,1),transform .42s cubic-bezier(.4,0,1,1)}
+
+@media (prefers-reduced-motion:reduce){
+  .hc-rotator .demo-head,.hc-rotator .ip-status,
+  .hc-rotator .ip-body,.hc-rotator .cpill > *{transform:none;transition:opacity .2s linear}
+}
 
 
 /* reviews, now sitting under the rotating screen */
@@ -1413,11 +1452,21 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
   var i = 0, timer = null, paused = false;
 
   function show(n){
+    var prev = i;
     i = (n + panels.length) % panels.length;
     for(var k = 0; k < panels.length; k++){
       var on = (k === i);
+      panels[k].classList.remove('is-leaving');
       panels[k].classList.toggle('is-live', on);
       panels[k].setAttribute('aria-hidden', on ? 'false' : 'true');
+    }
+    // hold the old panel's characters for one beat so they can fade out
+    // over the new panel's chassis
+    if(prev !== i && panels[prev]){
+      var old = panels[prev];
+      old.classList.add('is-leaving');
+      clearTimeout(old._leave);
+      old._leave = setTimeout(function(){ old.classList.remove('is-leaving'); }, 520);
     }
     Array.prototype.forEach.call(tabs, function(t, k){
       var on = (k === i);
