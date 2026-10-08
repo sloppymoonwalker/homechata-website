@@ -677,11 +677,12 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .hero-intro .hero-buttons{justify-content:center;margin-bottom:24px}
 .hero-intro .hero-meta{justify-content:center}
 
-.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel{--px:230px;--pw:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;padding:30px;text-align:center}
+.stack-card.hero-panel,.stack-card.demo-panel,.stack-card.risk-panel,.stack-card.amen-panel,.stack-card.util-panel{--px:230px;--pw:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;padding:30px;text-align:center}
 .stack-card.hero-panel{background:linear-gradient(135deg,#F3F8FF 0%,#E3ECFF 100%)}
 .stack-card.demo-panel{background:linear-gradient(135deg,#F3F8FF 0%,#E3ECFF 100%)}
 .stack-card.risk-panel{background:linear-gradient(135deg,#F3F8FF 0%,#E3ECFF 100%)}
 .stack-card.amen-panel{background:linear-gradient(135deg,#F3F8FF 0%,#E3ECFF 100%)}
+.stack-card.util-panel{background:linear-gradient(135deg,#F3F8FF 0%,#E3ECFF 100%)}
 .hp-stage{position:relative;display:flex;justify-content:center;align-items:center}
 .cpill-wrap{display:contents}
 .hero-panel .trust-inline{display:flex;flex-direction:column;align-items:center;gap:12px}
@@ -876,7 +877,8 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
     <div class="nav-links" id="navLinks">
       <a href="#crime" data-cat-link="crime">Crime</a>
       <a href="#demographics" data-cat-link="demographics">Demographics</a>
-      <a href="#risk" data-cat-link="risk">Risk</a>
+      <a href="#risk" data-cat-link="risk">Hazards</a>
+      <a href="#utilities" data-cat-link="utilities">Utilities</a>
       <a href="#amenities" data-cat-link="amenities">Amenities</a>
       <a href="#" data-open-pricing>Pricing</a>
     </div>
@@ -1091,7 +1093,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   <!-- STACK CARD 2: 5-YEAR CRIME TRENDS -->
   <div class="stack-card risk-panel" id="risk">
     <div class="demo-head">
-      <div class="stack-eyebrow"><span class="stack-eyebrow-dot"></span>NATURAL HAZARDS</div>
+      <div class="stack-eyebrow"><span class="stack-eyebrow-dot"></span>HAZARDS</div>
     </div>
     <div class="hp-stage">
       <div class="cpill-wrap">
@@ -1173,6 +1175,84 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   </div>
 
   <!-- STACK CARD 3: OFFENDER PROXIMITY -->
+  <div class="stack-card util-panel" id="utilities">
+    <div class="demo-head">
+      <div class="stack-eyebrow"><span class="stack-eyebrow-dot"></span>UTILITIES</div>
+    </div>
+    <div class="hp-stage">
+      <div class="cpill-wrap">
+        <div class="cpill navy cp1">
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"/></svg></span>
+          <span><div class="cpill-title">High-Voltage</div><div class="cpill-sub">About 0.4 miles</div></span>
+        </div>
+        <div class="cpill blue cp2">
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M7 22l5-14 5 14M6 8h12M5 14h14"/></svg></span>
+          <span><div class="cpill-title">Structure</div><div class="cpill-sub">Overhead</div></span>
+        </div>
+        <div class="cpill amber cp3">
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M13.4 10.6 19 5"/><path d="M4.6 19a9 9 0 1 1 14.8 0"/></svg></span>
+          <span><div class="cpill-title">Voltage</div><div class="cpill-sub">69 kV</div></span>
+        </div>
+        <div class="cpill navy cp4">
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01"/></svg></span>
+          <span><div class="cpill-title">Operator</div><div class="cpill-sub">Northwestern Energy</div></span>
+        </div>
+        <div class="cpill blue cp5">
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
+          <span><div class="cpill-title">Status</div><div class="cpill-sub">Not recorded</div></span>
+        </div>
+        <div class="cpill green cp6">
+          <span class="cpill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
+          <span><div class="cpill-title">Air Quality</div><div class="cpill-sub">AQI 54 · Moderate</div></span>
+        </div>
+      </div>
+      <div class="iphone">
+        <span class="iphone-btn btn-action"></span>
+        <span class="iphone-btn btn-volup"></span>
+        <span class="iphone-btn btn-voldn"></span>
+        <span class="iphone-btn btn-power"></span>
+        <div class="iphone-bezel">
+          <div class="iphone-screen">
+            <div class="iphone-island"></div>
+            <div class="ip-status">
+              <span class="ip-time">4:16</span>
+              <span class="ip-status-icons">
+                <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7.5" width="3" height="3.5" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.6 0 5 1 6.8 2.7l1.2-1.3A11 11 0 008 .5 11 11 0 00 0 3.6l1.2 1.3A9.5 9.5 0 018 2.2zm0 3.1c1.5 0 2.9.6 4 1.6l1.2-1.3A8 8 0 008 3.4a8 8 0 00-5.2 2.2L4 6.9A6 6 0 018 5.3zm0 3c.8 0 1.6.3 2.1.9L8 14.3 5.9 9.2c.6-.6 1.3-.9 2.1-.9z"/></svg>
+                <svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.6" y="0.6" width="21.5" height="10.8" rx="3.2" fill="none" stroke="#0F172A" stroke-opacity=".4" stroke-width="1"/><rect x="2.2" y="2.2" width="15" height="7.6" rx="1.6" fill="#0F172A"/><rect x="23.4" y="3.6" width="1.6" height="4.8" rx="1" fill="#0F172A" fill-opacity=".4"/></svg>
+              </span>
+            </div>
+            <div class="ip-body">
+              <div class="ip-nav"><span>&larr; Home</span><span>Report Issue</span></div>
+              <div class="ip-title">Area Insights</div>
+              <div class="ip-addr">
+                <span class="ip-pin">📍</span> 5124 Woodhaven Ln, Lake Highlands, Dallas, TX, USA
+                <svg class="ip-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>
+              </div>
+              <div class="ip-divider"></div>
+              <div class="ip-section">⚡ High-Voltage Transmission</div>
+              <div class="ip-frow"><span class="l">Nearest line</span><span class="v">About 0.4 miles</span></div>
+              <div class="ip-frow"><span class="l">Structure</span><span class="v">Overhead</span></div>
+              <div class="ip-frow"><span class="l">Voltage</span><span class="v">69 kV</span></div>
+              <div class="ip-frow"><span class="l">Status</span><span class="v">Not recorded</span></div>
+              <div class="ip-frow"><span class="l">Operator</span><span class="v">Northwestern Energy LLC</span></div>
+              <div class="ip-section" style="margin-top:10px">🌿 Air Quality</div>
+              <div class="ip-aqi">AQI 54 — Moderate<div class="ip-aqi-sub">Dominant pollutant: PM2.5</div></div>
+              <div class="ip-actions">
+                <div class="ip-btn">New Search</div>
+                <div class="ip-btn">Save</div>
+                <div class="ip-btn">Share</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STACK CARD 3: OFFENDER PROXIMITY -->
+  
+
   <div class="stack-card amen-panel" id="amenities">
     <div class="demo-head">
       <div class="stack-eyebrow"><span class="stack-eyebrow-dot"></span>NEARBY AMENITIES</div>
