@@ -825,53 +825,36 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
    the height of the tallest panel, so the page never jumps between slides.
    ====================================================================== */
 .hc-rotator{display:grid;position:relative}
-/* The chassis - bezel, screen, island, side buttons and the six pill cards -
-   is drawn identically by all four panels, so it never fades. Only what is
-   written on it crosses over, the way the app's welcome screen cross-fades a
-   category name while the radar stays put.
+/* Only ever ONE panel is on screen. The chassis - bezel, screen, island, side
+   buttons and the six pill cards - is drawn identically by all four, so the
+   swap itself is invisible; it happens at the instant the content is at zero.
 
-   The outgoing panel keeps its content for one more beat (.is-leaving) while
-   its own chassis is made transparent, so it fades out over the incoming
-   panel's chassis instead of doubling every shadow. */
+   Nothing is made transparent: an earlier version faded a second panel out on
+   top of the first, which meant its pill cards had to be see-through and the
+   panel's gradient showed through the text. */
 .hc-rotator > .stack-card{
   grid-area:1/1;justify-self:center;width:100%;margin:0 auto;
-  visibility:hidden;pointer-events:none;z-index:1}
+  visibility:hidden;pointer-events:none}
 .hc-rotator > .stack-card.is-live{
-  visibility:visible;pointer-events:auto;z-index:2}
-.hc-rotator > .stack-card.is-leaving{
-  visibility:visible;pointer-events:none;z-index:3;
-  background:none;box-shadow:none}
-.hc-rotator > .stack-card.is-leaving .iphone,
-.hc-rotator > .stack-card.is-leaving .iphone-bezel,
-.hc-rotator > .stack-card.is-leaving .iphone-screen,
-.hc-rotator > .stack-card.is-leaving .cpill{
-  background:transparent;border-color:transparent;box-shadow:none}
-.hc-rotator > .stack-card.is-leaving .iphone-island,
-.hc-rotator > .stack-card.is-leaving .iphone-btn{opacity:0}
+  visibility:visible;pointer-events:auto}
 
-/* the characters */
+/* the characters, on a chassis that never moves */
 .hc-rotator .demo-head,
 .hc-rotator .ip-status,
 .hc-rotator .ip-body,
 .hc-rotator .cpill > *{
-  opacity:0;
-  transition:opacity .38s cubic-bezier(.4,0,1,1)}
-.hc-rotator > .stack-card.is-live .demo-head,
-.hc-rotator > .stack-card.is-live .ip-status,
-.hc-rotator > .stack-card.is-live .ip-body,
-.hc-rotator > .stack-card.is-live .cpill > *{
   opacity:1;
-  transition:opacity .52s cubic-bezier(0,0,.2,1) .38s}
-.hc-rotator > .stack-card.is-leaving .demo-head,
-.hc-rotator > .stack-card.is-leaving .ip-status,
-.hc-rotator > .stack-card.is-leaving .ip-body,
-.hc-rotator > .stack-card.is-leaving .cpill > *{
+  transition:opacity .52s cubic-bezier(0,0,.2,1)}
+.hc-rotator > .stack-card.is-dim .demo-head,
+.hc-rotator > .stack-card.is-dim .ip-status,
+.hc-rotator > .stack-card.is-dim .ip-body,
+.hc-rotator > .stack-card.is-dim .cpill > *{
   opacity:0;
   transition:opacity .38s cubic-bezier(.4,0,1,1)}
 
 @media (prefers-reduced-motion:reduce){
   .hc-rotator .demo-head,.hc-rotator .ip-status,
-  .hc-rotator .ip-body,.hc-rotator .cpill > *{transition:opacity .2s linear}
+  .hc-rotator .ip-body,.hc-rotator .cpill > *{transition:opacity .15s linear}
 }
 
 
@@ -1451,28 +1434,40 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
 
   var i = 0, timer = null, paused = false;
 
-  function show(n){
-    var prev = i;
+  var FADE_OUT = 380;   // must match the .is-dim transition above
+  var busy = false;
+
+  function apply(n){
     i = (n + panels.length) % panels.length;
     for(var k = 0; k < panels.length; k++){
       var on = (k === i);
-      panels[k].classList.remove('is-leaving');
       panels[k].classList.toggle('is-live', on);
       panels[k].setAttribute('aria-hidden', on ? 'false' : 'true');
-    }
-    // hold the old panel's characters for one beat so they can fade out
-    // over the new panel's chassis
-    if(prev !== i && panels[prev]){
-      var old = panels[prev];
-      old.classList.add('is-leaving');
-      clearTimeout(old._leave);
-      old._leave = setTimeout(function(){ old.classList.remove('is-leaving'); }, 460);
     }
     Array.prototype.forEach.call(tabs, function(t, k){
       var on = (k === i);
       t.classList.toggle('is-on', on);
       t.setAttribute('aria-selected', on ? 'true' : 'false');
     });
+  }
+
+  // Fade the current panel's characters out, swap panels while nothing is
+  // showing, then fade the new ones in. One panel on screen at any moment.
+  function show(n){
+    n = (n + panels.length) % panels.length;
+    if(busy || n === i){ return; }
+    busy = true;
+    var cur = panels[i];
+    cur.classList.add('is-dim');
+    setTimeout(function(){
+      cur.classList.remove('is-dim');
+      var nxt = panels[(n + panels.length) % panels.length];
+      nxt.classList.add('is-dim');      // start blank
+      apply(n);                          // chassis swaps, invisibly
+      void nxt.offsetWidth;              // commit before transitioning back
+      nxt.classList.remove('is-dim');    // characters fade in
+      busy = false;
+    }, FADE_OUT);
   }
 
   function next(){ if(!paused) show(i + 1); }
@@ -1494,13 +1489,15 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
     });
   });
 
-  // Hold the current panel while someone is reading or tabbing through it
-  rot.addEventListener('mouseenter', function(){ paused = true; });
-  rot.addEventListener('mouseleave', function(){ paused = false; });
-  rot.addEventListener('focusin',    function(){ paused = true; });
-  rot.addEventListener('focusout',   function(){ paused = false; });
+  // Only a keyboard user tabbing in holds the panel. Hovering must NOT:
+  // the cursor naturally rests over the pills, and pausing there reads as a
+  // frozen carousel. :focus-visible keeps mouse and touch out of it.
+  rot.addEventListener('focusin', function(e){
+    try { if (e.target.matches(':focus-visible')) paused = true; } catch (err) {}
+  });
+  rot.addEventListener('focusout', function(){ paused = false; });
 
-  show(0);
+  apply(0);
 
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduced) start();
