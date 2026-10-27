@@ -869,61 +869,298 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .ip-shot{display:block;width:100%;height:auto}
 
 /* ============================================================
-   HERO WELCOME — radar screen port (added 2026-10-27)
-   All classes prefixed .whero- to avoid collisions.
+   HERO WELCOME — radar screen port (added 2026-10-27, tabs+testimonials 2026-10-27)
+   All classes under .hero-welcome scope.
    ============================================================ */
-.hero-welcome{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 24px 24px;overflow:hidden;background:#070E1C;--whero-ring:rgba(127,176,255,0.17);--whero-ring-mid:rgba(127,176,255,0.14);--whero-ring-inner:rgba(127,176,255,0.12);--whero-cross:rgba(127,176,255,0.10);--whero-ripple:rgba(127,176,255,0.45);--whero-muted:#9FB6DC}
-.hero-welcome .whero-night-backdrop{position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(120% 78% at 50% 44%,#16305C 0%,#0C1A33 56%,#070E1C 100%)}
-.hero-welcome > *:not(.whero-night-backdrop){position:relative;z-index:1}
-.hero-welcome .whero-header{text-align:center;animation:whero-rise .9s cubic-bezier(.2,0,0,1) .05s both}
-.hero-welcome .whero-brand{font-size:44px;line-height:46px;font-weight:800;letter-spacing:-1.1px;color:#FFF;margin:0}
-.hero-welcome .whero-tagline{margin-top:10px;font-size:16.5px;line-height:23px;font-weight:500;color:var(--whero-muted)}
-.hero-welcome .whero-radar-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:28px 0;animation:whero-fade .75s ease-out .1s both}
-.hero-welcome .whero-radar{position:relative;width:342px;height:342px}
-.hero-welcome .whero-ring{position:absolute;border:1px solid var(--whero-ring);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
-.hero-welcome .whero-ring-outer{width:330px;height:330px}
-.hero-welcome .whero-ring-mid{width:222px;height:222px;border-color:var(--whero-ring-mid)}
-.hero-welcome .whero-ring-inner{width:110px;height:110px;border-color:var(--whero-ring-inner)}
-.hero-welcome .whero-cross-v{position:absolute;top:6px;left:50%;width:1px;height:330px;background:var(--whero-cross);transform:translateX(-50%)}
-.hero-welcome .whero-cross-h{position:absolute;left:6px;top:50%;width:330px;height:1px;background:var(--whero-cross);transform:translateY(-50%)}
-.hero-welcome .whero-ripple{position:absolute;top:50%;left:50%;width:330px;height:330px;border:1px solid var(--whero-ripple);border-radius:50%;transform:translate(-50%,-50%) scale(.32);opacity:.5;animation:whero-ripple 8.5s cubic-bezier(0,0,.58,1) infinite}
-.hero-welcome .whero-ripple.r2{animation-delay:2.833s}
-.hero-welcome .whero-ripple.r3{animation-delay:5.667s}
-.hero-welcome .whero-sweep{position:absolute;top:6px;left:6px;width:330px;height:330px;border-radius:50%;background:conic-gradient(from -84deg at 50% 50%,rgba(127,176,255,0) 0deg,rgba(127,176,255,0.12) 42deg,rgba(140,190,255,0.30) 74deg,rgba(196,224,255,0.58) 84deg,rgba(127,176,255,0) 85deg,rgba(127,176,255,0) 360deg);animation:whero-spin 8.5s linear infinite;mix-blend-mode:screen}
-.hero-welcome .whero-hub{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;z-index:3}
-.hero-welcome .whero-hub svg{width:29px;height:29px}
-.hero-welcome .whero-blip{position:absolute;display:flex;align-items:center;pointer-events:none;height:26px;transform:scale(.94);opacity:.42;animation:whero-blip 8.5s linear infinite}
-.hero-welcome .whero-blip-dot{position:relative;width:26px;height:26px;display:flex;align-items:center;justify-content:center;margin-right:4.5px}
-.hero-welcome .whero-blip-halo-outer,.hero-welcome .whero-blip-halo-inner{position:absolute;border-radius:50%}
-.hero-welcome .whero-blip-halo-outer{width:26px;height:26px;background:var(--whero-blip-halo-outer)}
-.hero-welcome .whero-blip-halo-inner{width:16px;height:16px;background:var(--whero-blip-halo-inner)}
-.hero-welcome .whero-blip-core{position:relative;width:9px;height:9px;border-radius:50%;background:var(--whero-blip-core)}
-.hero-welcome .whero-blip-label{font-size:11.5px;font-weight:800;color:var(--whero-blip-label);white-space:nowrap}
-.hero-welcome .whero-blip.b0{left:195.5px;top:60px;animation-delay:3.459s}
-.hero-welcome .whero-blip.b1{left:221.5px;top:118px;animation-delay:4.344s}
-.hero-welcome .whero-blip.b2{left:219.5px;top:163px;animation-delay:5.176s}
-.hero-welcome .whero-blip.b3{left:221.5px;top:208px;animation-delay:5.904s}
-.hero-welcome .whero-blip.b4{left:114.5px;top:280px;animation-delay:7.541s}
-.hero-welcome .whero-blip.b5{left:43.5px;top:229px;animation-delay:0s}
-.hero-welcome .whero-blip.b6{left:33.5px;top:130px;animation-delay:1.044s}
-.hero-welcome .whero-blip.b7{left:89.5px;top:66px;animation-delay:2.052s}
-@keyframes whero-ripple{from{transform:translate(-50%,-50%) scale(.32);opacity:.5}to{transform:translate(-50%,-50%) scale(1.46);opacity:0}}
-@keyframes whero-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes whero-fade{from{opacity:0}to{opacity:1}}
-@keyframes whero-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes whero-blip{0%{opacity:.42;transform:scale(.94)}58%{opacity:.42;transform:scale(.94)}62%{opacity:.82;transform:scale(1.08)}66%{opacity:1;transform:scale(1.16)}70%{opacity:1;transform:scale(1.07)}73%{opacity:1;transform:scale(1.02)}90%{opacity:1;transform:scale(1.02)}95%{opacity:.7;transform:scale(.99)}100%{opacity:.42;transform:scale(.94)}}
-.hero-welcome .whero-actions{width:100%;max-width:500px;padding:0 4px;animation:whero-rise .9s cubic-bezier(.2,0,0,1) .18s both}
-.hero-welcome .whero-cat-row{height:34px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.hero-welcome .whero-cat-name{font-size:23px;font-weight:800;letter-spacing:-.3px;color:var(--whero-cat-color);animation:whero-cat-fade 8.5s linear infinite}
-@keyframes whero-cat-fade{0%{opacity:0;transform:translateY(7px) scale(.97)}9%{opacity:1;transform:translateY(0) scale(1)}84%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-7px) scale(1.03)}}
-.hero-welcome .whero-web-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:0 auto}
-.hero-welcome .whero-btn-store{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);color:#FFF;padding:12px 24px;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,.14);transition:all .25s;width:200px;height:56px;box-sizing:border-box;justify-content:flex-start}
-.hero-welcome .whero-btn-store:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25)}
-.hero-welcome .whero-btn-store-stack{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
-.hero-welcome .whero-store-sub{font-size:10px;font-weight:500;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.5px}
-.hero-welcome .whero-store-main{font-size:14px;font-weight:700;margin-top:1px}
-.hero-welcome .whero-web-trust{margin-top:18px;text-align:center;font-size:13.5px;color:rgba(255,255,255,.9);letter-spacing:.3px;font-weight:500}
-@media(max-width:400px){.hero-welcome .whero-radar{width:300px;height:300px}.hero-welcome .whero-ring-outer{width:288px;height:288px}.hero-welcome .whero-ring-mid{width:194px;height:194px}.hero-welcome .whero-ring-inner{width:96px;height:96px}.hero-welcome .whero-cross-v{height:288px}.hero-welcome .whero-cross-h{width:288px}.hero-welcome .whero-ripple{width:288px;height:288px}.hero-welcome .whero-sweep{width:288px;height:288px}.hero-welcome .whero-brand{font-size:38px;line-height:40px}}
+.hero-welcome .night-backdrop{position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(120% 78% at 50% 44%,#16305C 0%,#0C1A33 56%,#070E1C 100%)}
+
+
+.hero-welcome{
+  --ring:rgba(127,176,255,0.17);
+  --ring-mid:rgba(127,176,255,0.14);
+  --ring-inner:rgba(127,176,255,0.12);
+  --cross:rgba(127,176,255,0.10);
+  --ripple:rgba(127,176,255,0.45);
+  --text-muted:#9FB6DC;
+  background:#070E1C;
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:40px 24px 24px;
+  overflow:hidden;
+}
+.hero-welcome > *{position:relative;z-index:1}
+
+/* ============================================================ HEADER */
+.whero-header{
+  text-align:center;
+  animation:rise .9s cubic-bezier(.2,0,0,1) .05s both;
+}
+.whero-brand{
+  font-size:40px;line-height:44px;font-weight:800;letter-spacing:-1.1px;color:#FFF;
+}
+.whero-tagline{
+  margin-top:8px;font-size:15px;line-height:21px;font-weight:500;color:var(--text-muted);
+}
+
+/* ============================================================ TAB BAR */
+.whero-tabs{
+  margin-top:22px;
+  display:flex;
+  gap:4px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:0 8px 4px;
+  animation:rise .9s cubic-bezier(.2,0,0,1) .12s both;
+}
+.whero-tabs::-webkit-scrollbar{display:none}
+.whero-tab{
+  background:transparent;
+  border:none;
+  color:rgba(255,255,255,.55);
+  padding:9px 14px;
+  font-family:inherit;
+  font-size:13.5px;
+  font-weight:600;
+  letter-spacing:.2px;
+  cursor:pointer;
+  position:relative;
+  white-space:nowrap;
+  transition:color .25s;
+  border-radius:8px;
+}
+.whero-tab:hover{color:rgba(255,255,255,.9)}
+.whero-tab.active{
+  color:var(--whero-tab-color,#fff);
+}
+.whero-tab.active::after{
+  content:'';
+  position:absolute;
+  left:14px;right:14px;
+  bottom:0;
+  height:2px;
+  border-radius:2px;
+  background:var(--whero-tab-color,#fff);
+}
+
+/* ============================================================ STAGE
+   The stage holds the radar OR the testimonials view. Switching
+   between them when the active tab changes.
+*/
+.whero-stage{
+  flex:1;
+  position:relative;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:480px;
+  overflow:hidden;
+  animation:fade .75s ease-out .14s both;
+}
+
+/* ============================================================ RADAR */
+.whero-radar{
+  position:relative;
+  width:342px;
+  height:342px;
+  transition:opacity .5s;
+}
+.whero-radar.hidden{opacity:0;pointer-events:none;position:absolute}
+
+.hero-welcome .ring{position:absolute;border:1px solid var(--ring);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-welcome .ring-outer{width:330px;height:330px;border-color:var(--ring)}
+.hero-welcome .ring-mid{width:222px;height:222px;border-color:var(--ring-mid)}
+.hero-welcome .ring-inner{width:110px;height:110px;border-color:var(--ring-inner)}
+
+.hero-welcome .cross-v,.hero-welcome .cross-h{position:absolute;background:var(--cross)}
+.hero-welcome .cross-v{top:6px;left:50%;width:1px;height:330px;transform:translateX(-50%)}
+.hero-welcome .cross-h{left:6px;top:50%;width:330px;height:1px;transform:translateY(-50%)}
+
+.hero-welcome .ripple{position:absolute;top:50%;left:50%;width:330px;height:330px;border:1px solid var(--ripple);border-radius:50%;transform:translate(-50%,-50%) scale(.32);opacity:.5;animation:ripple 8.5s cubic-bezier(0,0,.58,1) infinite}
+.hero-welcome .ripple.r2{animation-delay:calc(8.5s / 3)}
+.hero-welcome .ripple.r3{animation-delay:calc(8.5s * 2 / 3)}
+@keyframes ripple{from{transform:translate(-50%,-50%) scale(.32);opacity:.5}to{transform:translate(-50%,-50%) scale(1.46);opacity:0}}
+
+.hero-welcome .sweep{position:absolute;top:6px;left:6px;width:330px;height:330px;border-radius:50%;
+  background:conic-gradient(from -84deg at 50% 50%,
+    rgba(127,176,255,0) 0deg, rgba(127,176,255,0.12) 42deg,
+    rgba(140,190,255,0.30) 74deg, rgba(196,224,255,0.58) 84deg,
+    rgba(127,176,255,0) 85deg, rgba(127,176,255,0) 360deg);
+  animation:spin 8.5s linear infinite;mix-blend-mode:screen}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-welcome .hub{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;z-index:3}
+.hero-welcome .hub svg{width:29px;height:29px}
+
+.hero-welcome .blip{position:absolute;display:flex;align-items:center;pointer-events:none;height:26px;transform:scale(.94);opacity:.42;animation:blip 8.5s linear infinite}
+.hero-welcome .blip-dot{position:relative;width:26px;height:26px;display:flex;align-items:center;justify-content:center;margin-right:4.5px}
+.hero-welcome .blip-halo-outer,.hero-welcome .blip-halo-inner{position:absolute;border-radius:50%}
+.hero-welcome .blip-halo-outer{width:26px;height:26px;background:var(--blip-halo-outer)}
+.hero-welcome .blip-halo-inner{width:16px;height:16px;background:var(--blip-halo-inner)}
+.hero-welcome .blip-core{position:relative;width:9px;height:9px;border-radius:50%;background:var(--blip-core)}
+.hero-welcome .blip-label{font-size:11.5px;font-weight:800;color:var(--blip-label);white-space:nowrap}
+.hero-welcome .blip.b0{left:195.5px;top:60px;animation-delay:3.459s}
+.hero-welcome .blip.b1{left:221.5px;top:118px;animation-delay:4.344s}
+.hero-welcome .blip.b2{left:219.5px;top:163px;animation-delay:5.176s}
+.hero-welcome .blip.b3{left:221.5px;top:208px;animation-delay:5.904s}
+.hero-welcome .blip.b4{left:114.5px;top:280px;animation-delay:7.541s}
+.hero-welcome .blip.b5{left:43.5px;top:229px;animation-delay:0s}
+.hero-welcome .blip.b6{left:33.5px;top:130px;animation-delay:1.044s}
+.hero-welcome .blip.b7{left:89.5px;top:66px;animation-delay:2.052s}
+@keyframes blip{
+  0%{opacity:.42;transform:scale(.94)}
+  58%{opacity:.42;transform:scale(.94)}
+  62%{opacity:.82;transform:scale(1.08)}
+  66%{opacity:1;transform:scale(1.16)}
+  70%{opacity:1;transform:scale(1.07)}
+  73%{opacity:1;transform:scale(1.02)}
+  90%{opacity:1;transform:scale(1.02)}
+  95%{opacity:.7;transform:scale(.99)}
+  100%{opacity:.42;transform:scale(.94)}
+}
+
+/* ============================================================ TESTIMONIALS VIEW
+   Port of mobile ReviewsScreen fly-in-fly-out animation.
+   6 cards, each with 13s life, phase-offset by 1/6.
+*/
+.whero-reviews{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .5s;
+}
+.whero-reviews.visible{opacity:1}
+.whero-reviews-head{
+  position:absolute;
+  top:0;left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  color:#BFD6FF;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+.whero-reviews-stars{
+  display:flex;align-items:center;gap:14px;
+}
+.whero-reviews-stars-text{
+  font-size:14px;letter-spacing:2.6px;color:#BFD6FF;
+}
+.whero-reviews-line{
+  width:62px;height:1px;
+}
+.whero-reviews-line.left{background:linear-gradient(90deg,rgba(127,176,255,0),rgba(127,176,255,0.42))}
+.whero-reviews-line.right{background:linear-gradient(90deg,rgba(127,176,255,0.42),rgba(127,176,255,0))}
+.whero-reviews-lede{
+  font-size:19px;line-height:25px;font-weight:700;letter-spacing:-.35px;color:#fff;
+  max-width:320px;
+}
+.whero-reviews-field{
+  position:absolute;
+  top:95px; left:50%;
+  transform:translateX(-50%);
+  width:420px;
+  height:430px;
+  pointer-events:none;
+}
+.whero-review-card{
+  position:absolute;
+  top:0;
+  border-radius:14px;
+  padding:11px 14px 10px;
+  box-shadow:0 16px 36px rgba(0,0,0,.5);
+  animation:reviewFly 13s linear infinite;
+  animation-play-state:paused;
+}
+.whero-reviews.visible .whero-review-card{animation-play-state:running}
+.whero-review-stars{font-size:9px;letter-spacing:2px;margin-bottom:4px}
+.whero-review-quote{font-size:12px;line-height:16px;font-weight:700}
+.whero-review-author{margin-top:6px;font-size:9px;font-weight:700;letter-spacing:.3px}
+
+/* Review cards — 6 of them, phase-offset */
+.whero-review-card.rc0{left:0px;width:220px;animation-delay:0s;background:#FFFFFF;color:#111F38;--star:#E09A2E;--sub:#67799B}
+.whero-review-card.rc1{left:160px;width:212px;animation-delay:-2.17s;background:#AEBDF2;color:#111F3C;--star:#7A4F12;--sub:#41527E}
+.whero-review-card.rc2{left:20px;width:228px;animation-delay:-4.33s;background:#F2B07A;color:#2A1608;--star:#7A4512;--sub:#6B4A2A}
+.whero-review-card.rc3{left:155px;width:216px;animation-delay:-6.5s;background:#16305C;color:#FFFFFF;--star:#F2C879;--sub:#9FB6DC}
+.whero-review-card.rc4{left:-10px;width:224px;animation-delay:-8.67s;background:#8CCDEB;color:#08212F;--star:#6B4510;--sub:#2E5468}
+.whero-review-card.rc5{left:140px;width:218px;animation-delay:-10.83s;background:#F5F2EB;color:#17233A;--star:#E09A2E;--sub:#67799B}
+
+.whero-review-card .whero-review-stars{color:var(--star)}
+.whero-review-card .whero-review-author{color:var(--sub)}
+
+@keyframes reviewFly{
+  0%  {transform:translateY(0px) scale(.54);opacity:0}
+  7%  {transform:translateY(32px) scale(.63);opacity:.5}
+  26% {transform:translateY(130px) scale(.78);opacity:1}
+  55% {transform:translateY(260px) scale(1.0);opacity:1}
+  80% {transform:translateY(370px) scale(1.12);opacity:.5}
+  100%{transform:translateY(430px) scale(1.2);opacity:0}
+}
+
+/* ============================================================ ACTIONS */
+.whero-actions{
+  width:100%;
+  max-width:500px;
+  padding:0 4px;
+  margin-top:20px;
+  animation:rise .9s cubic-bezier(.2,0,0,1) .18s both;
+}
+.whero-web-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:0 auto}
+.whero-btn-store{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.08);color:#FFF;
+  padding:12px 24px;border-radius:12px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.14);
+  transition:all .25s;
+  width:200px;height:56px;box-sizing:border-box;
+  justify-content:flex-start;
+}
+.whero-btn-store:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25)}
+.whero-btn-store-stack{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.hero-welcome .store-sub{font-size:10px;font-weight:500;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.5px}
+.hero-welcome .store-main{font-size:14px;font-weight:700;margin-top:1px}
+.hero-welcome .web-trust{
+  margin-top:18px;text-align:center;
+  font-size:13.5px;color:rgba(255,255,255,.9);
+  letter-spacing:.3px;font-weight:500;
+}
+
+/* ============================================================ FOOTER */
+.site-footer{background:#040812;border-top:1px solid rgba(255,255,255,.06);padding:18px 24px;text-align:center}
+.site-footer-inner{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;align-items:center;font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.2px}
+.site-footer-brand{font-weight:700;color:rgba(255,255,255,.7)}
+.site-footer-inner a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.site-footer-inner a:hover{color:rgba(255,255,255,.9)}
+.site-footer-dot{opacity:.35}
+
+/* ============================================================ MOBILE */
+@media(max-width:600px){
+  .whero-brand{font-size:34px;line-height:38px}
+  .whero-tagline{font-size:14px}
+  .whero-tabs{justify-content:flex-start;padding:0 16px 6px}
+  .whero-radar{width:290px;height:290px}
+  .hero-welcome .ring-outer{width:278px;height:278px}
+  .hero-welcome .ring-mid{width:188px;height:188px}
+  .hero-welcome .ring-inner{width:94px;height:94px}
+  .hero-welcome .cross-v{height:278px}
+  .hero-welcome .cross-h{width:278px}
+  .hero-welcome .ripple{width:278px;height:278px}
+  .hero-welcome .sweep{width:278px;height:278px}
+  .whero-reviews-field{width:340px;height:380px;top:100px}
+}
 
 
 /* Minimal dark footer (2026-10-27) */
@@ -959,52 +1196,106 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 
 <!-- HERO WELCOME (radar screen port — replaces old hero-intro 2026-10-27) -->
 <section class="hero-welcome">
-  <div class="whero-night-backdrop"></div>
+  <div class="night-backdrop"></div>
 
   <div class="whero-header">
     <h1 class="whero-brand">HomeChata</h1>
     <p class="whero-tagline">Best App for Homebuyers and Renters</p>
   </div>
 
-  <div class="whero-radar-wrap">
-    <div class="whero-radar">
-      <div class="whero-ripple r1"></div>
-      <div class="whero-ripple r2"></div>
-      <div class="whero-ripple r3"></div>
-      <div class="whero-ring whero-ring-outer"></div>
-      <div class="whero-ring whero-ring-mid"></div>
-      <div class="whero-ring whero-ring-inner"></div>
-      <div class="whero-cross-v"></div>
-      <div class="whero-cross-h"></div>
-      <div class="whero-sweep"></div>
-      <div class="whero-blip b0"><span class="whero-blip-dot"><span class="whero-blip-halo-outer"></span><span class="whero-blip-halo-inner"></span><span class="whero-blip-core"></span></span><span class="whero-blip-label"></span></div>
-      <div class="whero-blip b1"><span class="whero-blip-dot"><span class="whero-blip-halo-outer"></span><span class="whero-blip-halo-inner"></span><span class="whero-blip-core"></span></span><span class="whero-blip-label"></span></div>
-      <div class="whero-blip b2"><span class="whero-blip-dot"><span class="whero-blip-halo-outer"></span><span class="whero-blip-halo-inner"></span><span class="whero-blip-core"></span></span><span class="whero-blip-label"></span></div>
-      <div class="whero-blip b3"><span class="whero-blip-dot"><span class="whero-blip-halo-outer"></span><span class="whero-blip-halo-inner"></span><span class="whero-blip-core"></span></span><span class="whero-blip-label"></span></div>
-      <div class="whero-blip b4"><span class="whero-blip-dot"><span class="whero-blip-halo-outer"></span><span class="whero-blip-halo-inner"></span><span class="whero-blip-core"></span></span><span class="whero-blip-label"></span></div>
-      <div class="whero-blip b5"><span class="whero-blip-dot"><span class="whero-blip-halo-outer"></span><span class="whero-blip-halo-inner"></span><span class="whero-blip-core"></span></span><span class="whero-blip-label"></span></div>
-      <div class="whero-blip b6"><span class="whero-blip-dot"><span class="whero-blip-halo-outer"></span><span class="whero-blip-halo-inner"></span><span class="whero-blip-core"></span></span><span class="whero-blip-label"></span></div>
-      <div class="whero-blip b7"><span class="whero-blip-dot"><span class="whero-blip-halo-outer"></span><span class="whero-blip-halo-inner"></span><span class="whero-blip-core"></span></span><span class="whero-blip-label"></span></div>
-      <div class="whero-hub">
+  <!-- Clickable tab bar -->
+  <nav class="whero-tabs" id="wheroTabs">
+    <button class="whero-tab" data-cat="0">Crime</button>
+    <button class="whero-tab" data-cat="1">Demographics</button>
+    <button class="whero-tab" data-cat="2">Testimonials</button>
+    <button class="whero-tab" data-cat="3">Ethnicity</button>
+    <button class="whero-tab" data-cat="4">Hazards</button>
+    <button class="whero-tab" data-cat="5">Utilities</button>
+    <button class="whero-tab" data-cat="6">Amenities</button>
+  </nav>
+
+  <!-- Stage: holds either radar or testimonials -->
+  <div class="whero-stage">
+
+    <!-- RADAR -->
+    <div class="whero-radar" id="wheroRadar">
+      <div class="ripple r1"></div><div class="ripple r2"></div><div class="ripple r3"></div>
+      <div class="ring ring-outer"></div><div class="ring ring-mid"></div><div class="ring ring-inner"></div>
+      <div class="cross-v"></div><div class="cross-h"></div>
+      <div class="sweep"></div>
+      <div class="blip b0"><span class="blip-dot"><span class="blip-halo-outer"></span><span class="blip-halo-inner"></span><span class="blip-core"></span></span><span class="blip-label"></span></div>
+      <div class="blip b1"><span class="blip-dot"><span class="blip-halo-outer"></span><span class="blip-halo-inner"></span><span class="blip-core"></span></span><span class="blip-label"></span></div>
+      <div class="blip b2"><span class="blip-dot"><span class="blip-halo-outer"></span><span class="blip-halo-inner"></span><span class="blip-core"></span></span><span class="blip-label"></span></div>
+      <div class="blip b3"><span class="blip-dot"><span class="blip-halo-outer"></span><span class="blip-halo-inner"></span><span class="blip-core"></span></span><span class="blip-label"></span></div>
+      <div class="blip b4"><span class="blip-dot"><span class="blip-halo-outer"></span><span class="blip-halo-inner"></span><span class="blip-core"></span></span><span class="blip-label"></span></div>
+      <div class="blip b5"><span class="blip-dot"><span class="blip-halo-outer"></span><span class="blip-halo-inner"></span><span class="blip-core"></span></span><span class="blip-label"></span></div>
+      <div class="blip b6"><span class="blip-dot"><span class="blip-halo-outer"></span><span class="blip-halo-inner"></span><span class="blip-core"></span></span><span class="blip-label"></span></div>
+      <div class="blip b7"><span class="blip-dot"><span class="blip-halo-outer"></span><span class="blip-halo-inner"></span><span class="blip-core"></span></span><span class="blip-label"></span></div>
+      <div class="hub">
         <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5" fill="none" stroke="#FFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9.7V20h13V9.7" fill="none" stroke="#FFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
     </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="whero-reviews" id="wheroReviews">
+      <div class="whero-reviews-head">
+        <div class="whero-reviews-stars">
+          <span class="whero-reviews-line left"></span>
+          <span class="whero-reviews-stars-text">★★★★★</span>
+          <span class="whero-reviews-line right"></span>
+        </div>
+        <div class="whero-reviews-lede">Trusted by Homebuyers<br>and Renters in 50 States</div>
+      </div>
+      <div class="whero-reviews-field">
+        <div class="whero-review-card rc0">
+          <div class="whero-review-stars">★★★★★</div>
+          <div class="whero-review-quote">Didn't want to rely only on what the agents and listing said. Homechata gave me much clearer picture of the area</div>
+          <div class="whero-review-author">Dina Money</div>
+        </div>
+        <div class="whero-review-card rc1">
+          <div class="whero-review-stars">★★★★★</div>
+          <div class="whero-review-quote">Radon, water distribution, flood risk it gave me all data needed to build my confidence</div>
+          <div class="whero-review-author">BrooklynKid99</div>
+        </div>
+        <div class="whero-review-card rc2">
+          <div class="whero-review-stars">★★★★★</div>
+          <div class="whero-review-quote">It showed median home value, median income, median rent, vacancy rate of that block</div>
+          <div class="whero-review-author">Mewnich412</div>
+        </div>
+        <div class="whero-review-card rc3">
+          <div class="whero-review-stars">★★★★★</div>
+          <div class="whero-review-quote">The recent news shows whats happening around neighborhood and 5 year crime trend</div>
+          <div class="whero-review-author">Mark huffman89</div>
+        </div>
+        <div class="whero-review-card rc4">
+          <div class="whero-review-stars">★★★★★</div>
+          <div class="whero-review-quote">Crime data helped me to get a picture of a neighborhood… very easy to use</div>
+          <div class="whero-review-author">Nikki_Vi</div>
+        </div>
+        <div class="whero-review-card rc5">
+          <div class="whero-review-stars">★★★★★</div>
+          <div class="whero-review-quote">It showed me all the nearest top 5 amenities… and cities nearby with population</div>
+          <div class="whero-review-author">AK.Kaylee</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="whero-actions">
-    <div class="whero-cat-row"><div class="whero-cat-name" id="wheroCatName">Crime</div></div>
     <div class="whero-web-cta" id="download">
       <a href="https://apps.apple.com/app/id6760314190" class="whero-btn-store">
         <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/></svg>
-        <div class="whero-btn-store-stack"><span class="whero-store-sub">Download on the</span><span class="whero-store-main">App Store</span></div>
+        <div class="whero-btn-store-stack"><span class="store-sub">Download on the</span><span class="store-main">App Store</span></div>
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.homechata.app" class="whero-btn-store">
         <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.86 14.39c.195.09.41.11.625.054l8.142-2.955ZM1.64 1.649C1.563 1.82 1.5 2.03 1.5 2.29v11.42c0 .26.063.47.14.642L7.583 8 1.64 1.65Zm5.943 6.351L10.627 5.04 2.485 2.085c-.215-.057-.43-.037-.625.054L7.583 8Z"/></svg>
-        <div class="whero-btn-store-stack"><span class="whero-store-sub">Get it on</span><span class="whero-store-main">Google Play</span></div>
+        <div class="whero-btn-store-stack"><span class="store-sub">Get it on</span><span class="store-main">Google Play</span></div>
       </a>
     </div>
-    <div class="whero-web-trust">Free first report · No credit card · Trusted in all 50 states</div>
+    <div class="web-trust">Free first report · No credit card · Trusted in all 50 states</div>
   </div>
+
 </section>
 
 <!-- Minimal dark footer (2026-10-27) -->
@@ -1023,41 +1314,93 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 </footer>
 
 <script>
-/* Hero welcome — category cycling (added 2026-10-27) */
+/* Hero welcome — category cycling + clickable tabs + testimonials (updated 2026-10-27) */
 (function(){
-  var CATEGORIES = [
+  const CATEGORIES = [
     {name:'Crime',       dot:'#A9B9F0',label:'#DCE6FA',title:'#BFCCF6',items:['Larceny-theft','Vehicle theft','Assault','Burglary','Robbery','Rape','Arson','Homicide','Sex offenders']},
     {name:'Demographics',dot:'#C3B6EC',label:'#E4DCFA',title:'#D3C9F2',items:['Population','Home value','Gross rent','Vacancy rate','Renter occupied','Unemployment','Poverty level','Education','Per capita income']},
-    {name:'Testimonials',dot:'#F0C967',label:'#FFE9A8',title:'#F5D47B',items:['★★★★★','Dina Money','Nikki_Vi','AK.Kaylee','"Highly recommend"','"Very useful"','"Clearer picture"','"First-time buyer"','5.0 App Store','Verified reviews']},
+    {name:'Testimonials',dot:'#F0C967',label:'#FFE9A8',title:'#F5D47B',items:[]},  // special — shows reviews view
     {name:'Ethnicity',   dot:'#F2B07A',label:'#F8DCC5',title:'#F5C69C',items:['White','Black','Asian','Hispanic','Non-Hispanic','American Indian','Pacific Islander','Other race']},
     {name:'Hazards',     dot:'#7FC6E8',label:'#CDE8F6',title:'#A3D8F0',items:['Flood hazard','Flood','Snowstorm','Severe storm','Hurricane','Heat wave','Lightning','Hail','Wildfire','Cold wave','Ice storm']},
     {name:'Utilities',   dot:'#8FD6A8',label:'#D6F2E0',title:'#AEE4C4',items:['Radon potential','Water system','Air quality','High-voltage lines','Transportation noise','Train tracks','Nearest airport','Nearby cities']},
     {name:'Amenities',   dot:'#79C8D9',label:'#CCE9F0',title:'#9FDAE6',items:['Elementary','Middle schools','Hospitals','Urgent care','Daycare',"Sam's Club",'Costco','Gyms','Parks','Dog parks','Bike trails','Golf courses','EV charging','Gas stations']}
   ];
-  var PERIOD = 8500, SLOTS = 8;
-  function tint(hex,a){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return 'rgba('+r+','+g+','+b+','+a+')';}
-  function drawEight(items){var pool=items.slice();for(var i=pool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=pool[i];pool[i]=pool[j];pool[j]=t;}return pool.slice(0,SLOTS);}
-  function applyCategory(cat){
-    var picks = drawEight(cat.items);
-    var blips = document.querySelectorAll('.hero-welcome .whero-blip');
-    for(var i=0;i<blips.length;i++){
-      blips[i].style.setProperty('--whero-blip-core', cat.dot);
-      blips[i].style.setProperty('--whero-blip-halo-outer', tint(cat.dot, 0.11));
-      blips[i].style.setProperty('--whero-blip-halo-inner', tint(cat.dot, 0.20));
-      blips[i].style.setProperty('--whero-blip-label', cat.label);
-      var lbl = blips[i].querySelector('.whero-blip-label');
-      if(lbl) lbl.textContent = picks[i] || '';
-    }
-    var name = document.getElementById('wheroCatName');
-    if(name){name.style.setProperty('--whero-cat-color', cat.title);name.textContent = cat.name;}
+  const PERIOD = 8500, SLOTS = 8;
+  const TESTIMONIAL_IDX = 2;
+
+  function tint(hex,a){
+    const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+    return `rgba(${r},${g},${b},${a})`;
   }
-  var ready = function(){
-    if(!document.getElementById('wheroCatName')) return;
-    var idx = 0;
-    applyCategory(CATEGORIES[0]);
-    setInterval(function(){idx=(idx+1)%CATEGORIES.length;applyCategory(CATEGORIES[idx]);}, PERIOD);
-  };
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',ready);}else{ready();}
+  function drawEight(items){
+    const pool=items.slice();
+    for(let i=pool.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [pool[i],pool[j]]=[pool[j],pool[i]];
+    }
+    return pool.slice(0,SLOTS);
+  }
+
+  function applyCategory(idx){
+    const cat = CATEGORIES[idx];
+
+    // Tab highlight — swap active state
+    document.querySelectorAll('.whero-tab').forEach(t=>{
+      const on = parseInt(t.dataset.cat,10) === idx;
+      t.classList.toggle('active', on);
+      if(on) t.style.setProperty('--whero-tab-color', cat.title);
+    });
+
+    const radar = document.getElementById('wheroRadar');
+    const reviews = document.getElementById('wheroReviews');
+
+    if(idx === TESTIMONIAL_IDX){
+      // Testimonials: show reviews view, hide radar
+      radar.classList.add('hidden');
+      reviews.classList.add('visible');
+      return;
+    }
+
+    // Normal category: show radar, hide reviews
+    reviews.classList.remove('visible');
+    radar.classList.remove('hidden');
+
+    // Fill blips with category content
+    const picks = drawEight(cat.items);
+    document.querySelectorAll('.whero-radar .blip').forEach((b,i)=>{
+      b.style.setProperty('--blip-core', cat.dot);
+      b.style.setProperty('--blip-halo-outer', tint(cat.dot, 0.11));
+      b.style.setProperty('--blip-halo-inner', tint(cat.dot, 0.20));
+      b.style.setProperty('--blip-label', cat.label);
+      const lbl = b.querySelector('.blip-label');
+      if(lbl) lbl.textContent = picks[i] || '';
+    });
+  }
+
+  // Auto cycle
+  let idx = 0;
+  let timer = null;
+  function startCycle(){
+    if(timer) clearInterval(timer);
+    timer = setInterval(()=>{
+      idx = (idx + 1) % CATEGORIES.length;
+      applyCategory(idx);
+    }, PERIOD);
+  }
+  function jumpTo(newIdx){
+    idx = newIdx;
+    applyCategory(idx);
+    startCycle();  // reset timer
+  }
+
+  // Wire tab clicks
+  document.querySelectorAll('.whero-tab').forEach(t=>{
+    t.addEventListener('click', ()=> jumpTo(parseInt(t.dataset.cat,10)));
+  });
+
+  // Initial
+  applyCategory(0);
+  startCycle();
 })();
 </script>
 
