@@ -1187,6 +1187,60 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   .whero-ptier-price{font-size:24px}
 }
 
+
+/* --- Dramatic zoom carousel tabs (added 2026-10-27) --- */
+.hero-welcome .whero-tabs{position:relative;width:100%;max-width:100%;overflow:hidden;padding:0 !important;margin-top:22px;display:block;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);
+          mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);}
+.hero-welcome .whero-tabs-track{position:relative;display:inline-flex;gap:16px;padding:0 50vw;align-items:center;
+  transition:transform .6s cubic-bezier(.2,0,0,1);will-change:transform}
+.hero-welcome .whero-tab{background:transparent;border:none;padding:0;font-family:inherit;cursor:pointer;white-space:nowrap;
+  font-weight:700;color:rgba(255,255,255,.5);
+  transition:all .45s cubic-bezier(.2,0,0,1);
+  font-size:11px;opacity:.18;transform:scale(.8)}
+.hero-welcome .whero-tab::after{display:none}
+.hero-welcome .whero-tab[data-dist="2"]{font-size:12px;opacity:.35;transform:scale(.85)}
+.hero-welcome .whero-tab[data-dist="1"]{font-size:14px;opacity:.6;transform:scale(.93)}
+.hero-welcome .whero-tab.active{font-size:24px;opacity:1;transform:scale(1);color:var(--whero-tab-color,#fff);font-weight:800;letter-spacing:-.4px}
+@media(min-width:900px){
+  .hero-welcome .whero-tabs{-webkit-mask-image:none;mask-image:none}
+  .hero-welcome .whero-tabs-track{padding:0 8px;transform:none !important;display:flex;justify-content:center;gap:4px}
+  .hero-welcome .whero-tab{font-size:13.5px;opacity:1;transform:none;font-weight:600;color:rgba(255,255,255,.55);padding:9px 14px}
+  .hero-welcome .whero-tab:hover{color:rgba(255,255,255,.9)}
+  .hero-welcome .whero-tab.active{font-size:13.5px;font-weight:600;position:relative}
+  .hero-welcome .whero-tab.active::after{display:block;content:"";position:absolute;left:14px;right:14px;bottom:0;height:2px;border-radius:2px;background:var(--whero-tab-color,#fff)}
+}
+
+/* --- CTAs: black store badges + gold accent border (added 2026-10-27) --- */
+.hero-welcome .whero-rating{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:16px}
+.hero-welcome .whero-rating-stars{color:#F5C84A;opacity:.9;font-size:13px;letter-spacing:2.5px}
+.hero-welcome .whero-rating-label{font-size:11.5px;font-weight:500;color:rgba(255,255,255,.55);letter-spacing:.6px;text-transform:uppercase}
+.hero-welcome .whero-actions{max-width:580px}
+.hero-welcome .whero-web-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:0 auto}
+.hero-welcome .whero-btn-store{display:inline-flex;align-items:center;gap:14px;background:#000;color:#fff;padding:16px 28px;border-radius:14px;text-decoration:none;border:1.5px solid rgba(245,200,74,.35);transition:all .25s;width:240px;height:72px;box-sizing:border-box;justify-content:flex-start;box-shadow:0 10px 28px rgba(245,200,74,.1),0 4px 12px rgba(0,0,0,.4)}
+.hero-welcome .whero-btn-store:hover{background:#0A0906;border-color:rgba(245,200,74,.6);transform:translateY(-2px);box-shadow:0 14px 36px rgba(245,200,74,.2)}
+.hero-welcome .whero-btn-store svg{width:24px;height:24px}
+.hero-welcome .whero-btn-store-stack{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.hero-welcome .store-sub{font-size:11px;font-weight:500;color:rgba(255,255,255,.82);text-transform:uppercase;letter-spacing:.6px}
+.hero-welcome .store-main{font-size:18px;font-weight:800;margin-top:3px;letter-spacing:-.3px}
+
+/* --- Pricing V4 table with gold-border Popular row (added 2026-10-27) --- */
+.hero-welcome .whero-pricing-table{width:100%;max-width:500px;margin:0 auto;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden}
+.hero-welcome .whero-ptr{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.06)}
+.hero-welcome .whero-ptr:last-child{border-bottom:none}
+.hero-welcome .whero-ptr-pop{position:relative;background:linear-gradient(180deg,rgba(245,200,74,.06),rgba(245,200,74,.02));border:1.5px solid rgba(245,200,74,.4);border-radius:14px;margin:4px 0;box-shadow:0 0 24px rgba(245,200,74,.12),inset 0 1px 0 rgba(245,200,74,.1)}
+.hero-welcome .whero-ptr-left{display:flex;flex-direction:column;gap:3px}
+.hero-welcome .whero-ptr-name{font-size:15px;font-weight:600;color:#fff;letter-spacing:-.1px;display:flex;align-items:center;gap:9px}
+.hero-welcome .whero-ptr-note{font-size:12px;color:rgba(255,255,255,.5)}
+.hero-welcome .whero-ptr-right{font-size:19px;font-weight:700;color:#fff;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.hero-welcome .whero-ptr-pop-badge{font-size:9px;font-weight:700;color:#F5C84A;background:rgba(245,200,74,.1);border:1px solid rgba(245,200,74,.4);padding:2px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:.6px}
+@media(max-width:600px){
+  .hero-welcome .whero-ptr{padding:14px 16px}
+  .hero-welcome .whero-ptr-name{font-size:14px}
+  .hero-welcome .whero-ptr-note{font-size:11.5px}
+  .hero-welcome .whero-ptr-right{font-size:17px}
+}
+
 /* Minimal dark footer (2026-10-27) */
 .site-footer{background:#040812;border-top:1px solid rgba(255,255,255,.06);padding:18px 24px;text-align:center}
 .site-footer-inner{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;align-items:center;font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.2px}
@@ -1210,6 +1264,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 
   <!-- Clickable tab bar -->
   <nav class="whero-tabs" id="wheroTabs">
+    <div class="whero-tabs-track">
     <button class="whero-tab" data-cat="0">Crime</button>
     <button class="whero-tab" data-cat="1">Demographics</button>
     <button class="whero-tab" data-cat="2">Testimonials</button>
@@ -1218,6 +1273,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
     <button class="whero-tab" data-cat="5">Utilities</button>
     <button class="whero-tab" data-cat="6">Amenities</button>
     <button class="whero-tab" data-cat="7">Pricing</button>
+    </div>
   </nav>
 
   <!-- Stage: holds either radar or testimonials -->
@@ -1293,27 +1349,22 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
         <div class="whero-pricing-eyebrow">Simple one-time pricing</div>
         <div class="whero-pricing-lede">Pay only for what you need</div>
       </div>
-      <div class="whero-pricing-grid">
-        <div class="whero-ptier">
-          <div class="whero-ptier-name">Free</div>
-          <div class="whero-ptier-price">$0</div>
-          <div class="whero-ptier-sub">1 report</div>
+      <div class="whero-pricing-table">
+        <div class="whero-ptr">
+          <div class="whero-ptr-left"><span class="whero-ptr-name">Free</span><span class="whero-ptr-note">1 report to try</span></div>
+          <div class="whero-ptr-right">$0</div>
         </div>
-        <div class="whero-ptier">
-          <div class="whero-ptier-name">Starter</div>
-          <div class="whero-ptier-price">$12.99</div>
-          <div class="whero-ptier-sub">5 reports</div>
+        <div class="whero-ptr">
+          <div class="whero-ptr-left"><span class="whero-ptr-name">Starter</span><span class="whero-ptr-note">5 reports · $2.60 each</span></div>
+          <div class="whero-ptr-right">$12.99</div>
         </div>
-        <div class="whero-ptier featured">
-          <div class="whero-ptier-badge">Popular</div>
-          <div class="whero-ptier-name">Value</div>
-          <div class="whero-ptier-price">$21.99</div>
-          <div class="whero-ptier-sub">10 reports</div>
+        <div class="whero-ptr whero-ptr-pop">
+          <div class="whero-ptr-left"><span class="whero-ptr-name">Value <span class="whero-ptr-pop-badge">Popular</span></span><span class="whero-ptr-note">10 reports · $2.20 each</span></div>
+          <div class="whero-ptr-right">$21.99</div>
         </div>
-        <div class="whero-ptier">
-          <div class="whero-ptier-name">Pro</div>
-          <div class="whero-ptier-price">$29.99</div>
-          <div class="whero-ptier-sub">15 reports</div>
+        <div class="whero-ptr">
+          <div class="whero-ptr-left"><span class="whero-ptr-name">Pro</span><span class="whero-ptr-note">15 reports · $2.00 each</span></div>
+          <div class="whero-ptr-right">$29.99</div>
         </div>
       </div>
     </div>
@@ -1321,13 +1372,17 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   </div>
 
   <div class="whero-actions">
+      <div class="whero-rating">
+      <span class="whero-rating-stars">★★★★★</span>
+      <span class="whero-rating-label">Reviews</span>
+    </div>
     <div class="whero-web-cta" id="download">
       <a href="https://apps.apple.com/app/id6760314190" class="whero-btn-store">
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/></svg>
+        <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/></svg>
         <div class="whero-btn-store-stack"><span class="store-sub">Download on the</span><span class="store-main">App Store</span></div>
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.homechata.app" class="whero-btn-store">
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.86 14.39c.195.09.41.11.625.054l8.142-2.955ZM1.64 1.649C1.563 1.82 1.5 2.03 1.5 2.29v11.42c0 .26.063.47.14.642L7.583 8 1.64 1.65Zm5.943 6.351L10.627 5.04 2.485 2.085c-.215-.057-.43-.037-.625.054L7.583 8Z"/></svg>
+        <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.86 14.39c.195.09.41.11.625.054l8.142-2.955ZM1.64 1.649C1.563 1.82 1.5 2.03 1.5 2.29v11.42c0 .26.063.47.14.642L7.583 8 1.64 1.65Zm5.943 6.351L10.627 5.04 2.485 2.085c-.215-.057-.43-.037-.625.054L7.583 8Z"/></svg>
         <div class="whero-btn-store-stack"><span class="store-sub">Get it on</span><span class="store-main">Google Play</span></div>
       </a>
     </div>
@@ -1339,8 +1394,6 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 <!-- Minimal dark footer (2026-10-27) -->
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <span class="site-footer-brand">HomeChata</span>
-    <span class="site-footer-dot">·</span>
     <a href="privacy.html">Privacy Policy</a>
     <span class="site-footer-dot">·</span>
     <a href="terms.html">Terms of Service</a>
@@ -1381,9 +1434,32 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
     return pool.slice(0,SLOTS);
   }
 
+
+  function centerAndClassify(idx){
+    const track = document.querySelector('.whero-tabs-track');
+    const tabs = document.querySelectorAll('.whero-tab');
+    const container = document.querySelector('.whero-tabs');
+    if(!track || !tabs[idx] || !container) return;
+    tabs.forEach((t, i)=>{
+      t.dataset.dist = Math.abs(i - idx);
+      t.dataset.side = (i < idx ? 'L' : i > idx ? 'R' : 'C');
+    });
+    if(window.innerWidth >= 900){ track.style.transform='translateX(0)'; return; }
+    requestAnimationFrame(()=>{
+      const containerRect = container.getBoundingClientRect();
+      const tabRect = tabs[idx].getBoundingClientRect();
+      const screenCenter = containerRect.left + containerRect.width/2;
+      const tabCenter = tabRect.left + tabRect.width/2;
+      const delta = screenCenter - tabCenter;
+      const curX = new DOMMatrix(getComputedStyle(track).transform).m41;
+      track.style.transform = `translateX(${curX + delta}px)`;
+    });
+  }
+
   function applyCategory(idx){
     const cat = CATEGORIES[idx];
 
+    centerAndClassify(idx);
     // Tab highlight — swap active state
     document.querySelectorAll('.whero-tab').forEach(t=>{
       const on = parseInt(t.dataset.cat,10) === idx;
@@ -1450,6 +1526,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   // Initial
   applyCategory(0);
   startCycle();
+  window.addEventListener('resize',()=>{ const a=document.querySelector('.whero-tab.active'); if(a) centerAndClassify(parseInt(a.dataset.cat,10)); });
 })();
 </script>
 
