@@ -1020,14 +1020,14 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .hero-welcome .blip-label{font-size:11.5px;font-weight:800;color:var(--blip-label);white-space:nowrap;position:absolute;top:50%;left:30px;transform:translateY(-50%)}
 .hero-welcome .blip.b0 .blip-label,.hero-welcome .blip.b2 .blip-label,.hero-welcome .blip.b4 .blip-label,.hero-welcome .blip.b6 .blip-label{left:auto;right:30px;text-align:right}
 
-.hero-welcome .blip.b0{left:230px;top:53px;animation-delay:3.459s}
-.hero-welcome .blip.b1{left:29px;top:24px;animation-delay:4.344s}
-.hero-welcome .blip.b2{left:277px;top:112px;animation-delay:5.176s}
-.hero-welcome .blip.b3{left:29px;top:85px;animation-delay:5.904s}
-.hero-welcome .blip.b4{left:277px;top:236px;animation-delay:7.541s}
-.hero-welcome .blip.b5{left:29px;top:265px;animation-delay:0s}
-.hero-welcome .blip.b6{left:230px;top:298px;animation-delay:1.044s}
-.hero-welcome .blip.b7{left:29px;top:328px;animation-delay:2.052s}
+.hero-welcome .blip.b0{left:230px;top:53px;animation-delay:4.197s}
+.hero-welcome .blip.b1{left:29px;top:24px;animation-delay:2.534s}
+.hero-welcome .blip.b2{left:277px;top:112px;animation-delay:5.044s}
+.hero-welcome .blip.b3{left:29px;top:85px;animation-delay:2.184s}
+.hero-welcome .blip.b4{left:277px;top:236px;animation-delay:6.437s}
+.hero-welcome .blip.b5{left:29px;top:265px;animation-delay:0.650s}
+.hero-welcome .blip.b6{left:230px;top:298px;animation-delay:7.229s}
+.hero-welcome .blip.b7{left:29px;top:328px;animation-delay:0.303s}
 @keyframes blip{
   0%{opacity:.42;transform:scale(.94)}
   58%{opacity:.42;transform:scale(.94)}
@@ -1179,7 +1179,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .whero-pricing.visible{opacity:1;pointer-events:auto}
 .whero-pricing-head{text-align:center;margin-bottom:28px}
 .whero-pricing-eyebrow{font-size:14px;letter-spacing:2.4px;color:#BFD6FF;text-transform:uppercase;margin-bottom:10px}
-.whero-pricing-lede{font-size:21px;line-height:28px;font-weight:700;color:#fff;letter-spacing:-.3px}
+.whero-pricing-lede{font-size:21px;line-height:28px;font-weight:400;color:rgba(255,255,255,.9);letter-spacing:-.1px}
 .whero-pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:720px;width:100%}
 .whero-ptier{position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 16px 20px;text-align:center;transition:all .25s;animation:ptierFade .55s cubic-bezier(.2,0,0,1) both}
 .whero-ptier:nth-child(1){animation-delay:.05s}.whero-ptier:nth-child(2){animation-delay:.12s}.whero-ptier:nth-child(3){animation-delay:.19s}.whero-ptier:nth-child(4){animation-delay:.26s}
@@ -1251,6 +1251,23 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   .hero-welcome .whero-ptr-right{font-size:17px}
 }
 
+
+/* --- D4 header: flanking rule lines + uppercase tagline (added 2026-10-27) --- */
+.hero-welcome .whero-title-row{display:flex;align-items:center;justify-content:center;gap:20px}
+.hero-welcome .whero-rule{flex:0 0 64px;height:1px;background:linear-gradient(90deg,transparent,rgba(159,182,220,.5),transparent)}
+.hero-welcome .whero-brand{font-size:44px !important;line-height:48px !important;letter-spacing:-1.3px !important}
+.hero-welcome .whero-tagline{margin-top:12px !important;font-size:14px !important;line-height:20px !important;font-weight:600 !important;letter-spacing:1.5px !important;text-transform:uppercase !important;color:#9FB6DC !important}
+@media(max-width:600px){
+  .hero-welcome .whero-brand{font-size:36px !important;line-height:40px !important}
+  .hero-welcome .whero-rule{flex:0 0 38px !important}
+  .hero-welcome .whero-tagline{font-size:12px !important;letter-spacing:1.3px !important}
+}
+/* --- R3 reviews line: flanking lines matching D4 header (added 2026-10-27) --- */
+.hero-welcome .whero-rating{gap:12px !important}
+.hero-welcome .whero-rating-rule{flex:0 0 32px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2))}
+.hero-welcome .whero-rating-rule.right{background:linear-gradient(90deg,rgba(255,255,255,.2),transparent)}
+.hero-welcome .whero-rating-label{letter-spacing:1.5px !important;font-weight:600 !important;color:rgba(255,255,255,.6) !important}
+
 /* Minimal dark footer (2026-10-27) */
 .site-footer{background:#040812;border-top:1px solid rgba(255,255,255,.06);padding:18px 24px;text-align:center}
 .site-footer-inner{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;align-items:center;font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.2px}
@@ -1268,7 +1285,11 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
   <div class="night-backdrop"></div>
 
   <div class="whero-header">
-    <h1 class="whero-brand">HomeChata</h1>
+    <div class="whero-title-row">
+      <span class="whero-rule left"></span>
+      <h1 class="whero-brand">HomeChata</h1>
+      <span class="whero-rule right"></span>
+    </div>
     <p class="whero-tagline">Best App for Homebuyers and Renters</p>
   </div>
 
@@ -1348,7 +1369,6 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
     <!-- PRICING -->
     <div class="whero-pricing" id="wheroPricing">
       <div class="whero-pricing-head">
-        <div class="whero-pricing-eyebrow">Simple one-time pricing</div>
         <div class="whero-pricing-lede">Pay only for what you need</div>
       </div>
       <div class="whero-pricing-table">
@@ -1375,8 +1395,10 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 
   <div class="whero-actions">
       <div class="whero-rating">
+      <span class="whero-rating-rule left"></span>
       <span class="whero-rating-stars">★★★★★</span>
-      <span class="whero-rating-label">Reviews</span>
+      <span class="whero-rating-label">App Store Reviews</span>
+      <span class="whero-rating-rule right"></span>
     </div>
     <div class="whero-web-cta" id="download">
       <a href="https://apps.apple.com/app/id6760314190" class="whero-btn-store">
