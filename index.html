@@ -1002,13 +1002,15 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .hero-welcome .hub{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;z-index:3}
 .hero-welcome .hub svg{width:29px;height:29px}
 
-.hero-welcome .blip{position:absolute;display:flex;align-items:center;pointer-events:none;height:26px;transform:scale(.94);opacity:.42;animation:blip 8.5s linear infinite}
-.hero-welcome .blip-dot{position:relative;width:26px;height:26px;display:flex;align-items:center;justify-content:center;margin-right:4.5px}
+.hero-welcome .blip{position:absolute;width:26px;height:26px;pointer-events:none;transform:scale(.94);opacity:.42;animation:blip 8.5s linear infinite}
+.hero-welcome .blip-dot{position:absolute;top:0;left:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center}
+
 .hero-welcome .blip-halo-outer,.hero-welcome .blip-halo-inner{position:absolute;border-radius:50%}
 .hero-welcome .blip-halo-outer{width:26px;height:26px;background:var(--blip-halo-outer)}
 .hero-welcome .blip-halo-inner{width:16px;height:16px;background:var(--blip-halo-inner)}
 .hero-welcome .blip-core{position:relative;width:9px;height:9px;border-radius:50%;background:var(--blip-core)}
-.hero-welcome .blip-label{font-size:11.5px;font-weight:800;color:var(--blip-label);white-space:nowrap}
+.hero-welcome .blip-label{font-size:11.5px;font-weight:800;color:var(--blip-label);white-space:nowrap;position:absolute;top:50%;left:30px;transform:translateY(-50%)}
+.hero-welcome .blip.b0 .blip-label,.hero-welcome .blip.b1 .blip-label,.hero-welcome .blip.b2 .blip-label,.hero-welcome .blip.b3 .blip-label{left:auto;right:30px;text-align:right}
 .hero-welcome .blip.b0{left:195.5px;top:60px;animation-delay:3.459s}
 .hero-welcome .blip.b1{left:221.5px;top:118px;animation-delay:4.344s}
 .hero-welcome .blip.b2{left:219.5px;top:163px;animation-delay:5.176s}
@@ -1044,8 +1046,7 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .whero-reviews.visible{opacity:1}
 .whero-reviews-head{
   position:absolute;
-  top:0;left:50%;
-  transform:translateX(-50%);
+  top:0;left:0;right:0;
   text-align:center;
   color:#BFD6FF;
   display:flex;
@@ -1065,8 +1066,8 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
 .whero-reviews-line.left{background:linear-gradient(90deg,rgba(127,176,255,0),rgba(127,176,255,0.42))}
 .whero-reviews-line.right{background:linear-gradient(90deg,rgba(127,176,255,0.42),rgba(127,176,255,0))}
 .whero-reviews-lede{
-  font-size:19px;line-height:25px;font-weight:700;letter-spacing:-.35px;color:#fff;
-  max-width:320px;
+  font-size:16px;line-height:22px;font-weight:400;letter-spacing:0;color:rgba(255,255,255,.85);
+  max-width:420px;padding:0 16px;
 }
 .whero-reviews-field{
   position:absolute;
@@ -1301,11 +1302,6 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
     <!-- TESTIMONIALS -->
     <div class="whero-reviews" id="wheroReviews">
       <div class="whero-reviews-head">
-        <div class="whero-reviews-stars">
-          <span class="whero-reviews-line left"></span>
-          <span class="whero-reviews-stars-text">★★★★★</span>
-          <span class="whero-reviews-line right"></span>
-        </div>
         <div class="whero-reviews-lede">Trusted by Homebuyers<br>and Renters in 50 States</div>
       </div>
       <div class="whero-reviews-field">
@@ -1491,14 +1487,20 @@ footer{background:transparent;color:rgba(255,255,255,.88);padding:13px 28px}
     radar.classList.remove('hidden');
 
     // Fill blips with category content
-    const picks = drawEight(cat.items);
+    // Sort picks by length descending, assign longest to left-side slots
+    // (so right-side blips get shortest words, extra safety on top of CSS flip)
+    const picks = drawEight(cat.items).sort((a,b) => b.length - a.length);
+    // Slot priority: left-side first (longest), bottom, then right-side (shortest)
+    const slotPriority = [5, 6, 7, 4, 3, 2, 1, 0];
+    const slotWord = {};
+    slotPriority.forEach((slot, idx) => { slotWord[slot] = picks[idx]; });
     document.querySelectorAll('.whero-radar .blip').forEach((b,i)=>{
       b.style.setProperty('--blip-core', cat.dot);
       b.style.setProperty('--blip-halo-outer', tint(cat.dot, 0.11));
       b.style.setProperty('--blip-halo-inner', tint(cat.dot, 0.20));
       b.style.setProperty('--blip-label', cat.label);
       const lbl = b.querySelector('.blip-label');
-      if(lbl) lbl.textContent = picks[i] || '';
+      if(lbl) lbl.textContent = slotWord[i] || '';
     });
   }
 
